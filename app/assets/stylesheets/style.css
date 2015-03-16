@@ -1195,7 +1195,7 @@ legend {
 	background: #fff;
 }
 .arrow-left {
-	background: url(../../images/arrows.png) no-repeat left top;
+	background: url(arrows.png) no-repeat left top;
 	position: absolute;
 	left: 10px;
 	top: 50%;
@@ -1205,7 +1205,7 @@ legend {
 	z-index:10;
 }
 .arrow-right {
-	background: url(../../images/arrows.png) no-repeat left bottom;
+	background: url(arrows.png) no-repeat left bottom;
 	position: absolute;
 	right: 10px;
 	top: 50%;
@@ -1483,7 +1483,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 
 
 .sliderImg {
-	background: url('../../images/site/loading1.gif') center center no-repeat;/* prealoder */
+	background: url('site/loading1.gif') center center no-repeat;/* prealoder */
 }
 .banner {
 	margin-top: 80px;
@@ -2585,7 +2585,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 	height: auto;
 }
 .parallax-image-1 {
-	background: url(../../images/parallax/parallax.jpg);
+	background: url(parallax/parallax.jpg);
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -2682,7 +2682,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 /***  -------  Parallax section 2  ------- ***/
 
 .parallax-image-2 {
-	background: url(../../images/parallax/people-collage.jpg) fixed;
+	background: url(parallax/people-collage.jpg) fixed;
 	background-attachment: fixed;/* IE FIX */
 }
 .parallax-section-overley {
@@ -3657,7 +3657,7 @@ tr.CartProduct td, tr.CartProduct th {
 	margin-top: 28px;
 }
 .parallax-image-aboutus {
-	background: url(../../images/site/about-bg.jpg) no-repeat 50% -80px fixed;
+	background: url(site/about-bg.jpg) no-repeat 50% -80px fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -3906,7 +3906,7 @@ div.quickview {
 /* =============================================================== */
 
 #modalAds .modal-bg-1 {
-	background:url(../../images/site/modal-img-1.jpg) right bottom no-repeat;
+	background:url(site/modal-img-1.jpg) right bottom no-repeat;
 	background-color:#F3F6FB;
 }
 .modal-bg-1 .close {

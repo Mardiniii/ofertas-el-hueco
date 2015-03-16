@@ -1,11 +1,8 @@
-<h1>Ofertaselhueco.co esto va ser un palo!</h1>
-
 <script>
     paceOptions = {
       elements: true
     };
 </script>
-</head>
 <!-- Modal Login start -->
 <div class="modal signUpContent fade" id="ModalLogin" tabindex="-1" role="dialog" >
   <div class="modal-dialog ">
@@ -138,12 +135,12 @@
     </div>
   </div>
   <!--/.navbar-top-->
-  
+
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> </button>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"> <i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> Cart ($210.00) </span> </button>
-      <a class="navbar-brand " href="index.html"> <img src="images/logo.png" alt="TSHOP"> </a> 
+      <a class="navbar-brand " href="index.html"> <img src="<%= asset_path('logo.png') %>" alt="TSHOP"> </a> 
       
       <!-- this part for mobile -->
       <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
@@ -162,7 +159,7 @@
           <table  >
             <tbody>
               <tr class="miniCartProduct">
-                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a> </div></td>
+                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/3.jpg') %>" alt="img"> </a> </div></td>
                 <td style="40%"><div class="miniCartDescription">
                     <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
                     <span class="size"> 12 x 1.5 L </span>
@@ -173,7 +170,7 @@
                 <td  style="5%" class="delete"><a > x </a></td>
               </tr>
               <tr class="miniCartProduct">
-                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/2.jpg" alt="img"> </a> </div></td>
+                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/2.jpg') %>" alt="img"> </a> </div></td>
                 <td  style="40%"><div class="miniCartDescription">
                     <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
                     <span class="size"> 12 x 1.5 L </span>
@@ -184,7 +181,18 @@
                 <td  style="5%" class="delete"><a > x </a></td>
               </tr>
               <tr class="miniCartProduct">
-                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/5.jpg" alt="img"> </a> </div></td>
+                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/5.jpg') %>" alt="img"> </a> </div></td>
+                <td  style="40%"><div class="miniCartDescription">
+                    <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
+                    <span class="size"> 12 x 1.5 L </span>
+                    <div class="price"> <span> $8.80 </span> </div>
+                  </div></td>
+                <td   style="10%" class="miniCartQuantity"><a > X 1 </a></td>
+                <td  style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
+                <td  style="5%" class="delete"><a > x </a></td>
+              </tr>
+              <tr class="miniCartProduct">
+                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/3.jpg') %>" alt="img"> </a> </div></td>
                 <td  style="40%"><div class="miniCartDescription">
                     <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
                     <span class="size"> 12 x 1.5 L </span>
@@ -206,18 +214,7 @@
                 <td  style="5%" class="delete"><a > x </a></td>
               </tr>
               <tr class="miniCartProduct">
-                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a> </div></td>
-                <td  style="40%"><div class="miniCartDescription">
-                    <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
-                    <span class="size"> 12 x 1.5 L </span>
-                    <div class="price"> <span> $8.80 </span> </div>
-                  </div></td>
-                <td   style="10%" class="miniCartQuantity"><a > X 1 </a></td>
-                <td  style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                <td  style="5%" class="delete"><a > x </a></td>
-              </tr>
-              <tr class="miniCartProduct">
-                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/4.jpg" alt="img"> </a> </div></td>
+                <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/4.jpg') %>" alt="img"> </a> </div></td>
                 <td  style="40%"><div class="miniCartDescription">
                     <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
                     <span class="size"> 12 x 1.5 L </span>
@@ -418,7 +415,7 @@
               <table>
                 <tbody>
                   <tr class="miniCartProduct">
-                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a> </div></td>
+                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/3.jpg') %>" alt="img"> </a> </div></td>
                     <td style="width:40%"><div class="miniCartDescription">
                         <h4> <a href="product-details.html"> TSHOP Tshirt DO9 </a> </h4>
                         <span class="size"> 12 x 1.5 L </span>
@@ -429,7 +426,7 @@
                     <td  style="width:5%" class="delete"><a > x </a></td>
                   </tr>
                   <tr class="miniCartProduct">
-                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/2.jpg" alt="img"> </a> </div></td>
+                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/2.jpg') %>" alt="img"> </a> </div></td>
                     <td  style="width:40%"><div class="miniCartDescription">
                         <h4> <a href="product-details.html"> TShir TSHOP 09 </a> </h4>
                         <span class="size"> 12 x 1.5 L </span>
@@ -440,7 +437,7 @@
                     <td  style="width:5%" class="delete"><a > x </a></td>
                   </tr>
                   <tr class="miniCartProduct">
-                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/5.jpg" alt="img"> </a> </div></td>
+                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/5.jpg') %>" alt="img"> </a> </div></td>
                     <td  style="width:40%"><div class="miniCartDescription">
                         <h4> <a href="product-details.html"> Tshir 2014 </a> </h4>
                         <span class="size"> 12 x 1.5 L </span>
@@ -451,7 +448,7 @@
                     <td  style="width:5%" class="delete"><a > x </a></td>
                   </tr>
                   <tr class="miniCartProduct">
-                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a> </div></td>
+                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/3.jpg') %>" alt="img"> </a> </div></td>
                     <td  style="width:40%"><div class="miniCartDescription">
                         <h4> <a href="product-details.html"> TSHOP T shirt DO20 </a> </h4>
                         <span class="size"> 12 x 1.5 L </span>
@@ -462,7 +459,7 @@
                     <td  style="width:5%" class="delete"><a > x </a></td>
                   </tr>
                   <tr class="miniCartProduct">
-                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/4.jpg" alt="img"> </a> </div></td>
+                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/4.jpg') %>" alt="img"> </a> </div></td>
                     <td  style="width:40%"><div class="miniCartDescription">
                         <h4> <a href="product-details.html"> T shirt Black </a> </h4>
                         <span class="size"> 12 x 1.5 L </span>
@@ -473,7 +470,7 @@
                     <td  style="width:5%" class="delete"><a > x </a></td>
                   </tr>
                   <tr class="miniCartProduct">
-                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/site/winter.jpg" alt="img"> </a> </div></td>
+                    <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="<%= asset_path('product/winter.jpg') %>" alt="img"> </a> </div></td>
                     <td  style="width:40%"><div class="miniCartDescription">
                         <h4> <a href="product-details.html"> G Star T shirt </a> </h4>
                         <span class="size"> 12 x 1.5 L </span>
@@ -544,7 +541,7 @@
               </div>
             </div>
           </div>
-          <img  alt="img" src="<%= asset_path('/slider/slider3.jpg') %>" class="img-responsive parallaximg sliderImg"> </div>
+          <img  alt="img" src="<%= asset_path('slider/slider3.jpg') %>" class="img-responsive parallaximg sliderImg"> </div>
         <!--/.slider-item-->
         
         <div class="slider-item slider-item-img2  parallax" data-cycle-pager-template="<a href=#> WOMEN COLLECTION </a>">
@@ -560,7 +557,7 @@
               </div>
             </div>
           </div>
-          <img alt="img" src="images/slider/slider4.jpg" class="img-responsive parallaximg sliderImg"> </div>
+          <img alt="img" src="<%= asset_path('slider/slider4.jpg') %>" class="img-responsive parallaximg sliderImg"> </div>
         <!--/.slider-item-->
         
         <div class="slider-item slider-item-img3  parallax" data-cycle-pager-template="<a href=#> NEW COLLECTION </a>">
@@ -576,7 +573,7 @@
               </div>
             </div>
           </div>
-          <img alt="img" src="images/slider/slider2.jpg" class="img-responsive parallaximg sliderImg"> </div>
+          <img alt="img" src="<%= asset_path('slider/slider2.jpg') %>" class="img-responsive parallaximg sliderImg"> </div>
         <!--/.slider-item--> 
       </div>
       <!--/.slider-v2--> 
@@ -603,7 +600,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/34.jpg" alt="img" class="img-responsive"></a>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/34.jpg') %>" alt="img" class="img-responsive"></a>
             <div class="promotion"> <span class="new-product"> NEW</span> <span class="discount">15% OFF</span> </div>
           </div>
           <div class="description">
@@ -623,7 +620,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/30.jpg" alt="img" class="img-responsive"></a>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/30.jpg') %>" alt="img" class="img-responsive"></a>
             <div class="promotion"> <span class="discount">15% OFF</span> </div>
           </div>
           <div class="description">
@@ -643,7 +640,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/36.jpg" alt="img" class="img-responsive"></a>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/36.jpg') %>" alt="img" class="img-responsive"></a>
             <div class="promotion"> <span class="new-product"> NEW</span> </div>
           </div>
           <div class="description">
@@ -663,7 +660,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/9.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/9.jpg') %>" alt="img" class="img-responsive"></a> </div>
           <div class="description">
             <h4><a href="product-details.html">mutationem consuetudium </a></h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -681,7 +678,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/12.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/12.jpg') %>" alt="img" class="img-responsive"></a> </div>
           <div class="description">
             <h4><a href="product-details.html">sequitur mutationem </a></h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -699,7 +696,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/13.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/13.jpg') %>" alt="img" class="img-responsive"></a> </div>
           <div class="description">
             <h4><a href="product-details.html">consuetudium lectorum.</a></h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -717,7 +714,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/21.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/21.jpg') %>" alt="img" class="img-responsive"></a> </div>
           <div class="description">
             <h4><a href="product-details.html">parum claram</a></h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -735,7 +732,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/24.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/24.jpg') %>" alt="img" class="img-responsive"></a> </div>
           <div class="description">
             <h4><a href="product-details.html">duis dolore </a></h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -753,7 +750,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/15.jpg" alt="img" class="img-responsive"></a></div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/15.jpg') %>" alt="img" class="img-responsive"></a></div>
           <div class="description">
             <h4><a href="product-details.html">feugait nulla facilisi</a></h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -805,7 +802,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/30.jpg" alt="img" class="img-responsive"></a>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/30.jpg') %>" alt="img" class="img-responsive"></a>
               <div class="promotion"> <span class="new-product"> NEW</span> <span class="discount">15% OFF</span> </div>
             </div>
             <div class="description">
@@ -826,7 +823,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/31.jpg" alt="img" class="img-responsive"></a>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/31.jpg') %>" alt="img" class="img-responsive"></a>
               <div class="promotion"> <span class="discount">15% OFF</span> </div>
             </div>
             <div class="description">
@@ -847,7 +844,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/34.jpg" alt="img" class="img-responsive"></a>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/34.jpg') %>" alt="img" class="img-responsive"></a>
               <div class="promotion"> <span class="new-product"> NEW</span> </div>
             </div>
             <div class="description">
@@ -868,7 +865,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/12.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/12.jpg') %>" alt="img" class="img-responsive"></a> </div>
             <div class="description">
               <h4><a href="product-details.html">humanitatis per</a></h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -887,7 +884,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/33.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/33.jpg') %>" alt="img" class="img-responsive"></a> </div>
             <div class="description">
               <h4><a href="product-details.html">Eodem modo typi</a></h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -906,7 +903,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/10.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/10.jpg') %>" alt="img" class="img-responsive"></a> </div>
             <div class="description">
               <h4><a href="product-details.html">sequitur mutationem </a></h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -925,7 +922,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/37.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/37.jpg') %>" alt="img" class="img-responsive"></a> </div>
             <div class="description">
               <h4><a href="product-details.html">consuetudium lectorum.</a></h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -944,7 +941,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/35.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/35.jpg') %>" alt="img" class="img-responsive"></a> </div>
             <div class="description">
               <h4><a href="product-details.html">parum claram</a></h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -963,7 +960,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/13.jpg" alt="img" class="img-responsive"></a> </div>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/13.jpg') %>" alt="img" class="img-responsive"></a> </div>
             <div class="description">
               <h4><a href="product-details.html">duis dolore </a></h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
@@ -982,7 +979,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/21.jpg" alt="img" class="img-responsive"></a>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/21.jpg') %>" alt="img" class="img-responsive"></a>
               <div class="promotion"> <span class="new-product"> NEW</span> <span class="discount">15% OFF</span> </div>
             </div>
             <div class="description">
@@ -1003,7 +1000,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/14.jpg" alt="img" class="img-responsive"></a>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/14.jpg') %>" alt="img" class="img-responsive"></a>
               <div class="promotion"> <span class="discount">15% OFF</span> </div>
             </div>
             <div class="description">
@@ -1024,7 +1021,7 @@
             <div class="image">  
           <div class="quickview">
               <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img src="images/product/17.jpg" alt="img" class="img-responsive"></a>
+             </div><a href="product-details.html"><img src="<%= asset_path('product/17.jpg') %>" alt="img" class="img-responsive"></a>
               <div class="promotion"> <span class="new-product"> NEW</span> </div>
             </div>
             <div class="description">
@@ -1055,10 +1052,10 @@
   <hr class="no-margin-top">
   <div class="width100 section-block ">
     <div class="row featureImg">
-      <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html"><img src="images/site/new-collection-1.jpg" class="img-responsive" alt="img" ></a> </div>
-      <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html"><img src="images/site/new-collection-2.jpg" class="img-responsive" alt="img" ></a> </div>
-      <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html"><img src="images/site/new-collection-3.jpg" class="img-responsive" alt="img" ></a> </div>
-      <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html"><img src="images/site/new-collection-4.jpg" class="img-responsive" alt="img"></a> </div>
+      <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html"><img src="<%= asset_path('site/new-collection-1.jpg') %>" class="img-responsive" alt="img" ></a> </div>
+      <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html"><img src="<%= asset_path('site/new-collection-2.jpg') %>" class="img-responsive" alt="img" ></a> </div>
+      <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html"><img src="<%= asset_path('site/new-collection-3.jpg') %>" class="img-responsive" alt="img" ></a> </div>
+      <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html"><img src="<%= asset_path('site/new-collection-4.jpg') %>" class="img-responsive" alt="img"></a> </div>
     </div>
     <!--/.row--> 
   </div>
@@ -1069,22 +1066,22 @@
     <div class="row">
       <div class="col-lg-12">
         <ul class="no-margin brand-carousel owl-carousel owl-theme">
-          <li> <a ><img src="images/brand/1.gif" alt="img" ></a></li>
-          <li><img src="images/brand/2.png" alt="img" ></li>
-          <li><img src="images/brand/3.png" alt="img" ></li>
-          <li><img src="images/brand/4.png" alt="img" ></li>
-          <li><img src="images/brand/5.png" alt="img" ></li>
-          <li><img src="images/brand/6.png" alt="img" ></li>
-          <li><img src="images/brand/7.png" alt="img" ></li>
-          <li><img src="images/brand/8.png" alt="img" ></li>
-          <li><img src="images/brand/1.gif" alt="img" ></li>
-          <li><img src="images/brand/2.png" alt="img" ></li>
-          <li><img src="images/brand/3.png" alt="img" ></li>
-          <li><img src="images/brand/4.png" alt="img" ></li>
-          <li><img src="images/brand/5.png" alt="img" ></li>
-          <li><img src="images/brand/6.png" alt="img" ></li>
-          <li><img src="images/brand/7.png" alt="img" ></li>
-          <li><img src="images/brand/8.png" alt="img" ></li>
+          <li> <a ><img src="<%= asset_path('brand/1.gif') %>" alt="img" ></a></li>
+          <li><img src="<%= asset_path('brand/2.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/3.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/4.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/5.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/6.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/7.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/8.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/1.gif') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/2.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/3.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/4.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/5.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/6.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/7.png') %>" alt="img" ></li>
+          <li><img src="<%= asset_path('brand/8.png') %>" alt="img" ></li>
         </ul>
       </div>
     </div>
@@ -1120,7 +1117,7 @@
                     <!-- product Image -->
 
                     <div class="main-image  col-lg-12 no-padding style3">
-                        <a class="product-largeimg-link" href="product-details.html"><img src="images/zoom/zoom1.jpg" class="img-responsive product-largeimg" alt="img">
+                        <a class="product-largeimg-link" href="product-details.html"><img src="<%= asset_path('zoom/zoom1.jpg') %>" class="img-responsive product-largeimg" alt="img">
                         </a>
                     </div>
                     <!--/.main-image-->
