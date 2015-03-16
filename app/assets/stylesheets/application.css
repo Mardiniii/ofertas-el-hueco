@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require skin-1
  *= require font-awesome
  */
