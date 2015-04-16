@@ -1,0 +1,54 @@
+<!-- Modal Login start -->
+<div class="modal signUpContent fade" id="ModalLogin" tabindex="-1" role="dialog" >
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+        <h3 class="modal-title-site text-center" > Login  to TSHOP </h3>
+      </div>
+      <div class="modal-body">
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <div class="form-group login-username">
+            <div>
+              <%= f.email_field :email, :autofocus => true, class: "form-control input", placeholder: "Enter Email", id: "login-user" %>
+            </div>
+          </div>
+          
+          <div class="form-group login-password">
+            <div>
+              <%= f.password_field :password, placeholder: "Enter Password", id: "login-password" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div >
+              <div class="checkbox login-remember">
+                <% if devise_mapping.rememberable? -%>
+                  <div>
+                    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+                  </div>
+                <% end -%>
+              </div>
+            </div>
+          </div>
+          
+          <div >
+            <div >
+              <%= f.submit "Sign in", :class => 'btn btn-block btn-lg btn-primary' %>
+            </div>
+          </div>
+          <!--userForm--> 
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <p class="text-center"> Not here before? <a data-toggle="modal"  data-dismiss="modal" href="#ModalSignup"> Sign Up. </a> <br>
+          <a href="forgot-password.html" > Lost your password? </a> </p>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+    
+  </div>
+  <!-- /.modal-dialog --> 
+  
+</div>
+<!-- /.Modal Login --> 
