@@ -10,7 +10,7 @@
       show:false }); 
   </script>
 </head>
-<body>
+<body class="pace-done">
 <%= render "pages/login_modal" %>
 
 <%= render "pages/sign_up_modal" %>
@@ -438,20 +438,22 @@
   
 </div>
 <!-- /.Fixed navbar  -->
-<% if flash[:alert] %>
-  <div class="container-fluid">
+
+<%# if flash[:alert] %>
+  <!-- <div class="container">
     <div class="row">
-      <div class="alert text-center" role="alert"><%=flash[:alert]%></div>
+      <div class="alert alert-danger text-center" role="alert"><%#=flash[:alert]%></div>
     </div>
-  </div>
-<%end%>
-<% if flash[:notice] %>
-  <div class="container-fluid">
+  </div> -->
+<%#end%>
+
+<%# if flash[:notice] %>
+  <!-- <div class="container">
     <div class="row">
-      <div class="alert text-center" role="alert"><%=flash[:notice]%></div>
+      <div class="alert alert-success text-center" role="alert"><%#=flash[:notice]%></div>
     </div>
-  </div>
-<%end%>
+  </div> -->
+<%#end%>
 
 <%= yield %>
 
