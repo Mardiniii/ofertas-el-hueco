@@ -24,13 +24,13 @@
               <% if @validatable %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
               <% end %><br />
-              <%= f.password_field :password, placeholder: "Enter Password" %>
+              <%= f.password_field :password, class: "form-control input", placeholder: "Enter Password" %>
             </div>
           </div> 
 
           <div class="form-group reg-password">
             <div>
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Enter Password Confirmation" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input", placeholder: "Enter Password Confirmation" %>
             </div>
           </div>
 

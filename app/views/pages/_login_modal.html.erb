@@ -16,24 +16,23 @@
           
           <div class="form-group login-password">
             <div>
-              <%= f.password_field :password, placeholder: "Enter Password", id: "login-password" %>
+              <%= f.password_field :password, class: "form-control input", placeholder: "Enter Password", id: "login-password" %>
             </div>
-          </div>
-
+          </div>          
           <div class="form-group">
             <div >
               <div class="checkbox login-remember">
-                <% if devise_mapping.rememberable? -%>
-                  <div>
-                    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-                  </div>
-                <% end -%>
+                <label>
+                  <% if devise_mapping.rememberable? -%>                  
+                    <%= f.check_box :remember_me %> Remember Me                                   
+                  <% end -%>
+                </label> 
               </div>
             </div>
           </div>
           
-          <div >
-            <div >
+          <div>
+            <div>
               <%= f.submit "Sign in", :class => 'btn btn-block btn-lg btn-primary' %>
             </div>
           </div>
@@ -42,7 +41,7 @@
       </div>
       <div class="modal-footer">
         <p class="text-center"> Not here before? <a data-toggle="modal"  data-dismiss="modal" href="#ModalSignup"> Sign Up. </a> <br>
-          <a href="forgot-password.html" > Lost your password? </a> </p>
+          <%= link_to "Lost your password?", new_user_password_path %></p>
       </div>
     </div>
     <!-- /.modal-content --> 
