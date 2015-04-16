@@ -10,13 +10,13 @@
         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
           <div class="form-group login-username">
             <div>
-              <%= f.email_field :email, :autofocus => true, class: "form-control input", placeholder: "Enter Email", id: "login-user" %>
+              <%= f.email_field :email, :autofocus => true, class: "form-control input", placeholder: "Email", id: "login-user" %>
             </div>
           </div>
           
           <div class="form-group login-password">
             <div>
-              <%= f.password_field :password, class: "form-control input", placeholder: "Enter Password", id: "login-password" %>
+              <%= f.password_field :password, class: "form-control input", placeholder: "Contraseña", id: "login-password" %>
             </div>
           </div>          
           <div class="form-group">
@@ -24,7 +24,7 @@
               <div class="checkbox login-remember">
                 <label>
                   <% if devise_mapping.rememberable? -%>                  
-                    <%= f.check_box :remember_me %> Remember Me                                   
+                    <%= f.check_box :remember_me %> Recordarme                                   
                   <% end -%>
                 </label> 
               </div>
@@ -33,15 +33,15 @@
           
           <div>
             <div>
-              <%= f.submit "Sign in", :class => 'btn btn-block btn-lg btn-primary' %>
+              <%= f.submit "Iniciar Sesión", :class => 'btn btn-block btn-lg btn-primary' %>
             </div>
           </div>
           <!--userForm--> 
         <% end %>
       </div>
       <div class="modal-footer">
-        <p class="text-center"> Not here before? <a data-toggle="modal"  data-dismiss="modal" href="#ModalSignup"> Sign Up. </a> <br>
-          <%= link_to "Lost your password?", new_user_password_path %></p>
+        <p class="text-center"> ¿Aún no tienes cuenta? <a data-toggle="modal"  data-dismiss="modal" href="#ModalSignup"> Registrate Aqui </a> <br>
+          <%= link_to "¿Olvidaste tu contraseña?", new_user_password_path %></p>
       </div>
     </div>
     <!-- /.modal-content --> 
