@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'sass-rails', '>= 3.2'
 gem "font-awesome-rails"
 gem 'devise'
+gem 'annotate'
 
 group :development, :test do
 	gem 'guard'
