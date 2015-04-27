@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423195555) do
+ActiveRecord::Schema.define(version: 20150423211156) do
 
   create_table "storehouses", force: :cascade do |t|
     t.string   "name"
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20150423195555) do
     t.text     "description"
     t.string   "email"
     t.string   "telephone"
-    t.string   "WhatsApp"
+    t.string   "whatsapp"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -158,7 +158,24 @@
     
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"> <%= link_to "NUEVA TIENDA", new_storehouse_path  %> </li>
+        <% if user_signed_in? && current_user.admin? %>
+          <li class="dropdown megamenu-fullwidth"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> Gestor de Tiendas <b class="caret"> </b> </a>
+            <ul class="dropdown-menu col-md-3">
+              <li class="megamenu-content">
+                <ul class="col-lg-3  col-sm-3 col-md-3 unstyled noMarginLeft newCollectionUl">
+                  <li class="no-border">
+                    <p class="promo-1"> <strong> GESTIONAR TIENDAS </strong> </p>
+                  </li>
+                  <li class="active"> <%= link_to "NUEVA TIENDA", new_storehouse_path  %> </li>
+                  <li class="active"> <%= link_to "TIENDAS REGISTRADAS", "#"  %> </li>
+                  <li> <a href="category.html"> NEW SHOES </a> </li>
+                  <li> <a href="category.html"> NEW TSHIRT </a> </li>
+                  <li> <a href="category.html"> NEW TSHOP </a> </li>
+                </ul>              
+              </li>
+            </ul>
+          </li>          
+        <% end %>
         <li class="dropdown megamenu-fullwidth"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> New Products <b class="caret"> </b> </a>
           <ul class="dropdown-menu">
             <li class="megamenu-content ">

@@ -8,7 +8,7 @@
 #  description :text
 #  email       :string
 #  telephone   :string
-#  WhatsApp    :string
+#  whatsapp    :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
