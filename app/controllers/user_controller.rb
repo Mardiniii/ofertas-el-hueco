@@ -7,9 +7,8 @@ class UserController < ApplicationController
 
 	def create
   	@user = User.new(user_params)
-  	@user.course_ids = params[:user][:course_ids] 
+  	@user.role = "tent"
 	  if @user.save
-	  	UserMailer.welcome_email(@user).deliver_now
   	  flash[:notice] = "El usuario #{@user.email} fue creado con exito"
   	  redirect_to user_index_path
   	else
@@ -18,9 +17,12 @@ class UserController < ApplicationController
   	end
 	end
 
+	def index
+	end
+
 	private
 		def user_params
-  		params.require(:user).permit(:email, :role, :password, :password_confirmation)
+  		params.require(:user).permit(:email, :password, :password_confirmation)
 		end
 		
 		def admin_only
