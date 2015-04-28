@@ -23,7 +23,7 @@ class StorehousesController < ApplicationController
 
 	private
 		def storehouse_params
-  		params.require(:storehouse).permit(:name, :address, :description, :email, :telephone, :whatsapp)
+  		params.require(:storehouse).permit(:name, :address, :description, :email, :telephone, :whatsapp, storehouses_attributes: [:id,:name,:address,:description,:email,:telephone,:user_id,:whatsapp,:_destroy])
 		end
 
 		def admin_only
