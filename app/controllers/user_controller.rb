@@ -19,6 +19,7 @@ class UserController < ApplicationController
 	end
 
 	def index
+		@storehouses = Storehouse.all
 	end
 
 	private
