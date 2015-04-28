@@ -46,6 +46,13 @@
 
               <div class="form-group reg-email">
                 <div>
+                  <%= storehouse.label :avatar, "IMAGEN DE LA TIENDA:" %>
+                  <%= storehouse.file_field :avatar, required: true, class: "input-file" %>
+                </div>
+              </div>
+
+              <div class="form-group reg-email">
+                <div>
                   <%= storehouse.text_field :address, :autofocus => true, class: "form-control input", placeholder: "Dirección de la tienda" %>
                 </div>
               </div>
