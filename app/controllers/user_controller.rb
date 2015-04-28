@@ -3,6 +3,7 @@ class UserController < ApplicationController
 
 	def new
 		@user = User.new
+		storehouse = @user.storehouses.build
 	end 
 
 	def create
@@ -22,7 +23,7 @@ class UserController < ApplicationController
 
 	private
 		def user_params
-  		params.require(:user).permit(:email, :password, :password_confirmation)
+  		params.require(:user).permit(:email, :password, :password_confirmation, storehouses_attributes: [:id,:name,:address,:description,:email,:telephone,:user_id,:whatsapp,:_destroy])
 		end
 		
 		def admin_only
