@@ -28,13 +28,12 @@
               <div>
                 <%= user.password_field :password_confirmation, autocomplete: "off", class: "form-control input", placeholder: "Confirmar contraseña" %>
               </div>
-            </div>
+            </div>            
             <div >
               <div >
                 <%= user.submit "Registrarse", :class => 'btn btn-block btn-lg btn-primary' %>
               </div>
-            </div>
-            <!--userForm--> 
+            </div>            
           <% end %>
           <p class="text-center"> ¿Ya estas registrado? <a data-toggle="modal"  data-dismiss="modal" href="#ModalLogin"> Entra Aqui </a> </p>
         </div> 

@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
   enum role: [ :user, :tent, :admin]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  accepts_nested_attributes_for :storehouses, :reject_if => :all_blank, allow_destroy: true
+  validates_associated :storehouses
 	
 	after_initialize :set_default_role, :if => :new_record?
 	def set_default_role
