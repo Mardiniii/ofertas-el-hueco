@@ -13,6 +13,7 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'annotate'
 gem 'hirb'
+gem 'paperclip', '~> 4.2'
 
 group :development, :test do
 	gem 'guard'
