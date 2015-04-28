@@ -1,5 +1,6 @@
 class UserController < ApplicationController
 	before_action :authenticate_user!
+	before_action :admin_only
 
 	def new
 		@user = User.new
