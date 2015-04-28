@@ -22,21 +22,22 @@
             <tbody>
 
 						<% @storehouses.each do |storehouse| %>
+
 							<tr class="CartProduct">
                 <td style="width:10%" class="CartProductThumb">
-                	<div> <a href="product-details.html"><img src="images/product/9.jpg" alt="img"></a> </div></td>
+                	<div> <a href="product-details.html"><%= image_tag storehouse.avatar.url %></a> </div></td>
                 <td style="width:40%"><div class="CartDescription">
-                    <h4> <a href="product-details.html">Denim T shirt Black </a> </h4>
-                    <span class="size">12 x 1.5 L</span>
-                    <div class="price"> <span>$85</span> </div>
-                  </div></td>
-                <td style="width:15%">
-                    <a class="btn btn-primary"> 
-                    <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> 
-                    </a>
+                    <h4> <a href="product-details.html"><%= storehouse.name %> </a> </h4>
+                    <span class="size"><%= storehouse.address %></span>
+                    <div class="price"> <span><%= storehouse.email %></span> </div>
+                  </div></td>               
+                <td  class="delete">
+                  <%= link_to "<i class='glyphicon glyphicon-eye-open fa-2x'></i>".html_safe, "#", class: "btn btn-success", title: "Ver Tienda" %>
+                  <%= link_to "<i class='glyphicon glyphicon-edit fa-2x'></i>".html_safe, "#", class: "btn btn-warning", title: "Editar Tienda" %>
+                  <%= link_to "<i class='glyphicon glyphicon-trash fa-2x'></i>".html_safe, "#", class: "btn btn-danger", title: "Eliminar Tienda" %>                                   
                 </td>
-                <td style="width:40%" class="delete"><a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i> </a></td>
               </tr> 
+
 						<% end %>                           
               
             </tbody>
@@ -45,7 +46,7 @@
         
         <div class="col-lg-12 clearfix">
           <ul class="pager">
-            <li class="previous pull-right"><a href="index.html"> <i class="fa fa-home"></i> Go to Shop </a></li>
+            <li class="previous pull-right"><%= link_to "<i class='fa fa-home'></i> Regresar a la Tienda".html_safe, root_path %></li>
             <li class="next pull-left"><a href="account.html"> &larr; Back to My Account</a></li>
           </ul>
         </div>
