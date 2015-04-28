@@ -1,26 +1,51 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <%= link_to "Home", root_path %></li>
+        <li class="active"> Autenticación - Entrar </li>
+      </ul>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+      <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Autenticación - Entrar</span></h1>
+      <div class="row userInfo">
+        <div class="col-md-12">
+          <h2 class="block-title-2"><span>ingresa tus datos para iniciar sesión</span></h2>
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+            <div class="form-group login-username">
+              <div>
+                <%= f.email_field :email, :autofocus => true, class: "form-control input", placeholder: "Email", id: "login-user" %>
+              </div>
+            </div>            
+            <div class="form-group login-password">
+              <div>
+                <%= f.password_field :password, class: "form-control input", placeholder: "Contraseña", id: "login-password" %>
+              </div>
+            </div>          
+            <div class="form-group">
+              <div >
+                <div class="checkbox login-remember">
+                  <label>
+                    <% if devise_mapping.rememberable? -%>                  
+                      <%= f.check_box :remember_me %> Recordarme                                   
+                    <% end -%>
+                  </label> 
+                </div>
+              </div>
+            </div>            
+            <div>
+              <div>
+                <%= f.submit "Iniciar Sesión", :class => 'btn btn-block btn-lg btn-primary' %>
+              </div>
+            </div>
+            <!--userForm--> 
+          <% end %>
+          <p class="text-center"> ¿Aún no tienes cuenta? <a data-toggle="modal"  data-dismiss="modal" href="#ModalSignup"> Registrate Aqui </a> <br>
+          <%= link_to "¿Olvidaste tu contraseña?", new_user_password_path %></p>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,58 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="container main-container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Autenticación", new_user_registration_path %></li>
+        <li class="active"> Restaurar contraseña </li>
+      </ul>
+    </div>
   </div>
+  
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="section-title-inner"> <span> <i class="fa fa-unlock-alt"> </i> ¿Olvido su contraseña? </span> </h1>
+      <div class="row userInfo">
+        <div class="col-xs-12 col-sm-12">
+          <p> Para restaurar la contraseña, ingrese su cuenta de correo electrónico. En minutos recibirá un correo con instrucciones para generar su nueva contraseña:</p>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+          <h2>Forgot your password?</h2>
+
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="field form-group">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, class: "form-control" %>
+            </div>
+
+            <div class="actions form-group">
+            	<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+            	 	<i class="fa fa-unlock"> </i> Recuperar contraseña
+            	<% end %>              
+            </div>
+          <% end %>         
+          <div class="clear clearfix">
+            <ul class="pager">
+              <li class="previous pull-right"><%= link_to "Regresar a Iniciar Sesión", new_user_session_path %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--/row end--> 
+      
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-5"> </div>
   </div>
-<% end %>
+  <!--/row-->
+  
+  <div style="clear:both"> </div>
+</div>
+<!-- /wrapper -->
 
-<%= render "devise/shared/links" %>
+
+
+
+
+
+  

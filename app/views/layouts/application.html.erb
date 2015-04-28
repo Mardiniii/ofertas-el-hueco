@@ -10,7 +10,7 @@
       show:false }); 
   </script>
 </head>
-<body>
+<body class="pace-done">
 <%= render "pages/login_modal" %>
 
 <%= render "pages/sign_up_modal" %>
@@ -55,7 +55,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> </button>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"> <i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> Cart ($210.00) </span> </button>
       <%= link_to root_path do %>
-         <%= image_tag "#{asset_path('logo.png')}", class: "navbar-brand" %>
+         <%= image_tag "http://i592.photobucket.com/albums/tt5/Mardini03/canasta%20DEF%201.png", class: "navbar-brand" %>
       <% end %>
             
       
@@ -158,7 +158,19 @@
     
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"> <a href="#"> Home </a> </li>
+        <% if user_signed_in? && current_user.admin? %>
+          <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> GESTOR TIENDAS <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Agregar o Listar Tiendas</li>
+              <li> <%= link_to "Nueva Tienda", new_user_path  %> </li>
+              <li> <%= link_to "Tiendas Registradas", user_index_path  %> </li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li> <a href="#">Separated link</a></li>
+              <li> <a href="#">One more separated link</a></li>
+            </ul>
+          </li>        
+        <% end %>
         <li class="dropdown megamenu-fullwidth"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> New Products <b class="caret"> </b> </a>
           <ul class="dropdown-menu">
             <li class="megamenu-content ">
@@ -438,20 +450,22 @@
   
 </div>
 <!-- /.Fixed navbar  -->
-<% if flash[:alert] %>
-  <div class="container-fluid">
+
+<%# if flash[:alert] %>
+  <!-- <div class="container">
     <div class="row">
-      <div class="alert text-center" role="alert"><%=flash[:alert]%></div>
+      <div class="alert alert-danger text-center" role="alert"><%#=flash[:alert]%></div>
     </div>
-  </div>
-<%end%>
-<% if flash[:notice] %>
-  <div class="container-fluid">
+  </div> -->
+<%#end%>
+
+<%# if flash[:notice] %>
+  <!-- <div class="container">
     <div class="row">
-      <div class="alert text-center" role="alert"><%=flash[:notice]%></div>
+      <div class="alert alert-success text-center" role="alert"><%#=flash[:notice]%></div>
     </div>
-  </div>
-<%end%>
+  </div> -->
+<%#end%>
 
 <%= yield %>
 
