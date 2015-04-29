@@ -158,26 +158,22 @@
     
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        
+
         <% if user_signed_in? && current_user.admin? %>
           <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> GESTOR TIENDAS <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">Agregar o Listar Tiendas</li>
-              <li> <%= link_to "Nueva Tienda", new_user_path  %> </li>
-              <li> <%= link_to "Tiendas Registradas", user_index_path  %> </li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li> <a href="#">Separated link</a></li>
-              <li> <a href="#">One more separated link</a></li>
+              <li> <%= link_to "Nueva Tienda", new_admin_user_path  %> </li>
+              <li> <%= link_to "Tiendas Registradas", admin_user_index_path  %> </li>              
             </ul>
           </li>        
         <% end %>
 
-        <% if user_signed_in? && current_user.tent? %>
+        <% if (user_signed_in? && current_user.tent?) || (user_signed_in? && current_user.admin?) %>
           <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> MIS ARTICULOS <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">Agregar o Listar Mis Artículos</li>
-              <li> <%= link_to "Nuevo Artículo", "#"  %> </li>
+              <li> <%= link_to "Nuevo Artículo", new_storehouses_article_path  %> </li>
               <li> <%= link_to "Artículos Publicados", "#"  %> </li>
             </ul>
           </li>        

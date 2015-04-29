@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class Admin::UserController < ApplicationController
 	before_action :authenticate_user!
 	before_action :admin_only
 
