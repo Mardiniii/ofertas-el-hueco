@@ -16,4 +16,5 @@
 
 class Article < ActiveRecord::Base
 	belongs_to :storehouse
+	has_many :article_images
 end
