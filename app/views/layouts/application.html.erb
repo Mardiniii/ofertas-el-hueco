@@ -158,6 +158,7 @@
     
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        
         <% if user_signed_in? && current_user.admin? %>
           <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> GESTOR TIENDAS <b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -171,6 +172,17 @@
             </ul>
           </li>        
         <% end %>
+
+        <% if user_signed_in? && current_user.tent? %>
+          <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> MIS ARTICULOS <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Agregar o Listar Mis Artículos</li>
+              <li> <%= link_to "Nuevo Artículo", "#"  %> </li>
+              <li> <%= link_to "Artículos Publicados", "#"  %> </li>
+            </ul>
+          </li>        
+        <% end %>
+
         <li class="dropdown megamenu-fullwidth"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> New Products <b class="caret"> </b> </a>
           <ul class="dropdown-menu">
             <li class="megamenu-content ">
