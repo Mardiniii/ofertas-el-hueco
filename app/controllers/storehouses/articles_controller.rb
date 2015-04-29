@@ -4,6 +4,7 @@ class Storehouses::ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
+		article_image = @article.article_image.build
 	end
 	
 	def create		
@@ -23,7 +24,7 @@ class Storehouses::ArticlesController < ApplicationController
 
 	private
 		def article_params
-  		params.require(:article).permit(:name, :code, :price, :details, :status, :subtitle)
+  		params.require(:article).permit(:name, :code, :price, :details, :status, :subtitle, article_images_attributes: [:id,:url,:storehouse_id,:_destroy])
 		end
 
 		def tent_only
@@ -31,5 +32,4 @@ class Storehouses::ArticlesController < ApplicationController
 	      redirect_to root_path, :alert => "Lo sentimos, usted no es vendedor de articulos para acceder a esta ruta."
 	    end
 	  end
-
 end
