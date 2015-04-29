@@ -15,4 +15,5 @@
 #
 
 class Article < ActiveRecord::Base
+	belongs_to :storehouse
 end
