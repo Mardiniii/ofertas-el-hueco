@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="row">
-	  <div class="col-md-6 col-sm-6 col-xs-12">
+	  <div class="col-md-4 col-sm-4 col-xs-12">
 	    <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Crear Nuevo Producto Para <%= current_user.storehouse.name %></span></h1>
 	    <div class="row userInfo">
 	      <div class="col-md-12">
@@ -53,26 +53,91 @@
 	    </div>
 	  </div>
 
-	  <div class="col-md-6 col-sm-6 col-xs-12">
+	  <div class="col-md-8 col-sm-8 col-xs-12">
+	  	
 	  	<%= article.fields_for :article_images do |article_image| %>	  	  
-  	    <h1 class="section-title-inner"><span><i class="fa fa-shopping-cart"></i> Información de Registro - Nueva Tienda </span></h1>                      
-  	    <h2 class="block-title-2"><span>ingresa los datos para proceder con el registro de la tienda</span></h2>
-  	  
-  	    <div class="form-group reg-email">
-  	      <div>
-  	        <%= article_image.text_field :url, :autofocus => true, class: "form-control input", placeholder: "Nombre de la tienda" %>
-  	      </div>
-  	    </div>     	  	    
+  	    <h1 class="section-title-inner"><span><i class="fa fa-camera"></i> Imagenes Para Nuevo Producto </span></h1>
+  	    <h2 class="block-title-2"><span>ingresa las imagenes con las que exhibiras tu nuevo producto</span></h2>                    
+  	    <div class="col-md-6 col-sm-6 col-xs-12">
+	  	    <h2 class="block-title-2"><span>IMAGEN #1 PARA ESTE PRODUCTO:</span></h2>  	      	  
+	  	    <div class="form-group reg-email">
+	  	      <div>
+	  	        <%= article_image.text_field :caption, :autofocus => true, class: "form-control input", placeholder: "Comentario para la imagen" %>
+	  	      </div>
+	  	    </div> 
+	  	    <div class="form-group reg-email">
+	  	      <div>  	        
+	  	        <%= article_image.file_field :image, required: true, class: "input-file" %>
+	  	      </div>
+	  	    </div>
+  	    </div>
+
+  	    <div class="col-md-6 col-sm-6 col-xs-12">
+	  	    <h2 class="block-title-2"><span>IMAGEN #2 PARA ESTE PRODUCTO:</span></h2>  	      	  
+	  	    <div class="form-group reg-email">
+	  	      <div>
+	  	        <%= article_image.text_field :caption, :autofocus => true, class: "form-control input", placeholder: "Comentario para la imagen" %>
+	  	      </div>
+	  	    </div> 
+	  	    <div class="form-group reg-email">
+	  	      <div>  	        
+	  	        <%= article_image.file_field :image, required: true, class: "input-file" %>
+	  	      </div>
+	  	    </div>
+  	    </div>
+
+  	    <div class="col-md-6 col-sm-6 col-xs-12">
+	  	    <h2 class="block-title-2"><span>IMAGEN #3 PARA ESTE PRODUCTO:</span></h2>  	      	  
+	  	    <div class="form-group reg-email">
+	  	      <div>
+	  	        <%= article_image.text_field :caption, :autofocus => true, class: "form-control input", placeholder: "Comentario para la imagen" %>
+	  	      </div>
+	  	    </div> 
+	  	    <div class="form-group reg-email">
+	  	      <div>  	        
+	  	        <%= article_image.file_field :image, required: true, class: "input-file" %>
+	  	      </div>
+	  	    </div>
+  	    </div>
+
+  	    <div class="col-md-6 col-sm-6 col-xs-12">
+	  	    <h2 class="block-title-2"><span>IMAGEN #4 PARA ESTE PRODUCTO:</span></h2>  	      	  
+	  	    <div class="form-group reg-email">
+	  	      <div>
+	  	        <%= article_image.text_field :caption, :autofocus => true, class: "form-control input", placeholder: "Comentario para la imagen" %>
+	  	      </div>
+	  	    </div> 
+	  	    <div class="form-group reg-email">
+	  	      <div>  	        
+	  	        <%= article_image.file_field :image, required: true, class: "input-file" %>
+	  	      </div>
+	  	    </div>
+  	    </div>
+
+  	    <div class="col-md-6 col-sm-6 col-xs-12">
+	  	    <h2 class="block-title-2"><span>IMAGEN #5 PARA ESTE PRODUCTO:</span></h2>  	      	  
+	  	    <div class="form-group reg-email">
+	  	      <div>
+	  	        <%= article_image.text_field :caption, :autofocus => true, class: "form-control input", placeholder: "Comentario para la imagen" %>
+	  	      </div>
+	  	    </div> 
+	  	    <div class="form-group reg-email">
+	  	      <div>  	        
+	  	        <%= article_image.file_field :image, required: true, class: "input-file" %>
+	  	      </div>
+	  	    </div>
+  	    </div>
 	  	<% end %>
 	  </div>
 	</div>
-</div>  
-
-
 	  <div >
 	    <div >
-	      <%= article.submit "Registrarse", :class => 'btn btn-block btn-lg btn-primary' %>
+	      <%= article.submit "Guardar Nuevo Artículo", :class => 'btn btn-block btn-lg btn-primary' %>
 	    </div>
 	  </div>
 	  <!--userForm--> 
-	<% end %>	
+	<% end %>
+</div>  
+
+
+  	

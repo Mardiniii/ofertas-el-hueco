@@ -17,6 +17,6 @@
 class Article < ActiveRecord::Base
 	belongs_to :storehouse
 	has_many :article_images
-	accepts_nested_attributes_for :article_images, :reject_if => :all_blank, allow_destroy: true
+	accepts_nested_attributes_for :article_images, :limit => 5, :reject_if => :all_blank, allow_destroy: true
   validates_associated :article_images
 end
