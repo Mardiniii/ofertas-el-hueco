@@ -4,12 +4,13 @@ class Storehouses::ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
-		article_image = @article.article_images.build
+		5.times { @article.article_images.build }
 	end
 	
 	def create		
 		@article = Article.create(article_params)
-		@article.storehouse_id = current_user.storehouse.id
+		@storehouse = current_user.storehouse
+		@article.storehouse_id = @storehouse.id
 		if @article.save
   	  flash[:notice] = "El artículo #{@article.name} fue creado con exito"
   	  redirect_to storehouses_articles_path
@@ -24,7 +25,7 @@ class Storehouses::ArticlesController < ApplicationController
 
 	private
 		def article_params
-  		params.require(:article).permit(:name, :code, :price, :details, :status, :subtitle, article_images_attributes: [:id,:url,:storehouse_id,:_destroy])
+  		params.require(:article).permit(:name, :code, :price, :details, :status, :subtitle, article_images_attributes: [:id,:caption,:image,:storehouse_id,:_destroy])
 		end
 
 		def tent_only
