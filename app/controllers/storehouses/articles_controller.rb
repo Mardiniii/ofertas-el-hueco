@@ -20,7 +20,18 @@ class Storehouses::ArticlesController < ApplicationController
   	end
 	end
 
+	def show
+	end
+
 	def index
+		@storehouse = current_user.storehouse
+		@articles = @storehouse.articles
+	end
+
+	def destroy
+		@article = Article.find(params[:id])
+		@article.destroy
+		redirect_to storehouses_articles_path
 	end
 
 	private
