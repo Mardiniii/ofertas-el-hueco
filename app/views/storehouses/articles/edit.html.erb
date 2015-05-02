@@ -13,31 +13,36 @@
 	    <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Crear Nuevo Producto Para <%= current_user.storehouse.name %></span></h1>
 	    <div class="row userInfo">
 	      <div class="col-md-12">
-	        <h2 class="block-title-2"><span>ingresa la información del producto</span></h2>
-	        <%= form_for(@article , url: storehouses_articles_path) do |article| %>
+	        <h2 class="block-title-2"><span>Realice los cambios que desea para este producto</span></h2>
+	        <%= form_for(@article , url: storehouses_article_path) do |article| %>
 	          <%= devise_error_messages! %>
 	          <div class="form-group reg-email">
 	            <div>
+	            	<%= article.label :name, "Nombre:", class: "block-title" %>
 	              <%= article.text_field :name, :autofocus => true, required: true, class: "form-control input", placeholder: "Nombre del Producto", id: "login-user" %>
 	            </div>
 	          </div>
 	          <div class="form-group reg-email">
 	            <div>
+	            	<%= article.label :subtitle, "Subtítulo:", class: "block-title" %>
 	              <%= article.text_area :subtitle, :autofocus => true, required: true, class: "form-control input", placeholder: "Subtitulo para el producto", id: "login-user" %>
 	            </div>
 	          </div>
 	          <div class="form-group reg-password">
 	            <div>
+	            	<%= article.label :code, "Código o Referencia:", class: "block-title" %>
 	              <%= article.text_field :code, class: "form-control input", required: true, placeholder: "Referencia o Codigo Del Producto" %>
 	            </div>
 	          </div> 
 	          <div class="form-group reg-password">
 	            <div>
-	              <%= article.number_field :price, in: 0.0..100000000.0, step: 1, autocomplete: "off", required: true, class: "form-control input", placeholder: "Precio del producto" %>
-	            </div>
+	            	<%= article.label :price, "Precio:", class: "block-title" %>
+	              <%= article.number_field :price, in: 0.0..100000000, step: 1, autocomplete: "off", required: true, class: "form-control input", placeholder: "Precio del producto" %>
+	             </div>
 	          </div>
 	          <div class="form-group reg-password">
 	            <div>
+	            	<%= article.label :details, "Descripción", class: "block-title" %>
 	              <%= article.text_area :details, class: "form-control input", required: true, rows: 5, placeholder: "Detalles o Descripción del Producto" %>
 	            </div>
 	          </div> 
@@ -72,6 +77,11 @@
   	    </div>  	    
 	  	<% end %>
 	  </div>
+
+	  <% @article.article_images.each do |image| %>
+			<%= image_tag image.image.url(:thumb) %>
+	  <% end %>
+
 	</div>
   <div >
     <div >
@@ -81,6 +91,3 @@
   <!--userForm--> 
 	<% end %>
 </div>  
-
-
-  	

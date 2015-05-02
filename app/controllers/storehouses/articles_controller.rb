@@ -23,6 +23,20 @@ class Storehouses::ArticlesController < ApplicationController
 	def show
 	end
 
+	def edit
+		@article = Article.find(params[:id])
+	end
+
+	def update
+		@article = Article.find(params[:id])
+		if @article.update(article_params)
+			redirect_to storehouses_articles_path
+		else
+			flash[:alert] = 'Se ha encontrado un error al intentar editar este producto'
+			render 'edit'
+		end
+	end
+
 	def index
 		@storehouse = current_user.storehouse
 		@articles = @storehouse.articles

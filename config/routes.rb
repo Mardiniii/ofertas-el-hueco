@@ -10,6 +10,5 @@ Rails.application.routes.draw do
 
   namespace :storehouses do
   	resources :articles
-  end
-  
+  end  
 end
