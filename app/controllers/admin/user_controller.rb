@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class Admin::UserController < ApplicationController
 	before_action :authenticate_user!
 	before_action :admin_only
 
@@ -29,8 +29,8 @@ class UserController < ApplicationController
 		end
 		
 		def admin_only
-    unless current_user.admin?
-      redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."
-    end
-  end
+	    unless current_user.admin?
+	      redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."
+	    end
+	  end
 end

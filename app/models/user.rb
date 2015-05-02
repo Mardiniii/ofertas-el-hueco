@@ -27,12 +27,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://i592.photobucket.com/albums/tt5/Mardini03/765-default-avatar.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  has_many :storehouses, dependent: :destroy
+  has_one :storehouse, dependent: :destroy
   enum role: [ :user, :tent, :admin]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  accepts_nested_attributes_for :storehouses, :reject_if => :all_blank, allow_destroy: true
-  validates_associated :storehouses
+  accepts_nested_attributes_for :storehouse, :reject_if => :all_blank, allow_destroy: true
+  validates_associated :storehouse
 	
 	after_initialize :set_default_role, :if => :new_record?
 	def set_default_role

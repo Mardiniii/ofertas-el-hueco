@@ -3,7 +3,7 @@
     <div class="breadcrumbDiv col-lg-12">
       <ul class="breadcrumb">
         <li> <%= link_to "Home", root_path %></li>
-        <li> <%= link_to "Gestor de Tiendas", new_user_path %></li>
+        <li> <%= link_to "Gestor de Tiendas", new_admin_user_path %></li>
         <li class="active"> Tiendas Registradas </li>
 
       </ul>
@@ -33,7 +33,7 @@
                 </td>
                 <td style="width:10%" class="CartProductThumb text-center">
                 	<div> 
-                    <a href="product-details.html"><%= image_tag storehouse.avatar.url %></a> 
+                    <a href="#"><%= image_tag storehouse.avatar.url %></a> 
                   </div>
                 </td>
                 <td style="width:40%">
@@ -59,7 +59,7 @@
             <li class="previous pull-right"><%= link_to "<i class='fa fa-home'></i> Regresar a la Tienda".html_safe, root_path %></li>
 
 
-            <li class="next pull-left"><%= link_to "&larr; Crear Una Nueva Tienda".html_safe, new_user_path %></li>
+            <li class="next pull-left"><%= link_to "&larr; Crear Una Nueva Tienda".html_safe, new_admin_user_path %></li>
           </ul>
         </div>
         
