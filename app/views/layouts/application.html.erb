@@ -10,7 +10,11 @@
       show:false }); 
   </script>
 </head>
-<body class="pace-done">
+<% if params[:controller] == 'pages' and params[:action] == 'home' %>
+  <body data-no-turbolink="true" class="pace-done">
+<% else %>
+  <body data-no-turbolink="false" class="pace-done">
+<% end %>
 <%= render "pages/login_modal" %>
 
 <%= render "pages/sign_up_modal" %>
