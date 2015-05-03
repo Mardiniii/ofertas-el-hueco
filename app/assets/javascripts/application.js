@@ -33,9 +33,8 @@
 //= require owl.carousel.min.js
 //= require pace.min.js
 //= require script.js
+//= require smoothproducts
 //= require smoothproducts-thumb.js
-//= require smoothproducts.js
-//= require smoothproducts.min.js
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

@@ -5,10 +5,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript"> 
-    $(function (){ $("#myModal").modal({
-      show:false }); 
-  </script>
 </head>
 <% if params[:controller] == 'pages' and params[:action] == 'home' %>
   <body data-no-turbolink="true" class="pace-done">
@@ -197,13 +193,13 @@
                 <li> <a href="category.html"> NEW TSHOP </a> </li>
               </ul>
               <ul class="col-lg-3  col-sm-3 col-md-3  col-xs-4">
-                <li> <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="images/site/promo1.jpg" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> JEANS </span> </a> </li>
+                <li> <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="<%= asset_path('site/promo1.jpg') %>" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> JEANS </span> </a> </li>
               </ul>
               <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-4">
-                <li> <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="images/site/promo2.jpg" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> PARTY DRESS </span> </a> </li>
+                <li> <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="<%= asset_path('site/promo2.jpg') %>" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> PARTY DRESS </span> </a> </li>
               </ul>
               <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-4">
-                <li> <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="images/site/promo3.jpg" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> SHOES </span> </a> </li>
+                <li> <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="<%= asset_path('site/promo3.jpg') %>" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> SHOES </span> </a> </li>
               </ul>
             </li>
           </ul>
@@ -253,11 +249,11 @@
                 <li> <a href="#"> TANJIM </a> </li>
               </ul>
               <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-6">
-                <li class="no-margin productPopItem "> <a href="product-details.html"> <img class="img-responsive" src="images/site/g4.jpg" alt="img"> </a> <a class="text-center productInfo alpha90" href="product-details.html"> Eodem modo typi <br>
+                <li class="no-margin productPopItem "> <a href="product-details.html"> <img class="img-responsive" src="<%= asset_path('site/g4.jpg') %>" alt="img"> </a> <a class="text-center productInfo alpha90" href="product-details.html"> Eodem modo typi <br>
                   <span> $60 </span> </a> </li>
               </ul>
               <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-6">
-                <li class="no-margin productPopItem relative"> <a href="product-details.html"> <img class="img-responsive" src="images/site/g5.jpg" alt="img"> </a> <a class="text-center productInfo alpha90" href="product-details.html"> Eodem modo typi <br>
+                <li class="no-margin productPopItem relative"> <a href="product-details.html"> <img class="img-responsive" src="<%= asset_path('site/g5.jpg') %>" alt="img"> </a> <a class="text-center productInfo alpha90" href="product-details.html"> Eodem modo typi <br>
                   <span> $60 </span> </a> </li>
               </ul>
             </li>
