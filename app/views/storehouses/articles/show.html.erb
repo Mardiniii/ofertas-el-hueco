@@ -8,16 +8,13 @@
         <li class="active"><%= @article.name %> </li>
       </ul>
     </div>
-  </div>
-  
-  <%#= image_tag @article.article_images.first.image.url %>  
+  </div> 
 
   <div class="row transitionfx"> 
     
     <!-- left column -->
     <div class="col-lg-6 col-md-6 col-sm-6"> 
       <!-- product Image and Zoom -->      
-
       <div class="main-image sp-wrap col-lg-12 no-padding style3">
         <% @article.article_images.each do |article_image| %>  
           <a href="<%= article_image.image.url %>"><img src="<%= article_image.image.url %>" class="img-responsive" alt="img"></a>     
