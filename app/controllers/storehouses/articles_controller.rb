@@ -4,7 +4,7 @@ class Storehouses::ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
-		5.times { @article.article_images.build }
+		@article.article_images.build
 	end
 	
 	def create		

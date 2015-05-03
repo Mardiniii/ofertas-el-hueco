@@ -9,78 +9,50 @@
 	</div>
 
 	<div class="row">
-	  <div class="col-md-4 col-sm-4 col-xs-12">
-	    <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Crear Nuevo Producto Para <%= current_user.storehouse.name %></span></h1>
-	    <div class="row userInfo">
-	      <div class="col-md-12">
-	        <h2 class="block-title-2"><span>ingresa la información del producto</span></h2>
-	        <%= form_for(@article , url: storehouses_articles_path) do |article| %>
-	          <%= devise_error_messages! %>
-	          <div class="form-group reg-email">
-	            <div>
-	              <%= article.text_field :name, :autofocus => true, required: true, class: "form-control input", placeholder: "Nombre del Producto", id: "login-user" %>
-	            </div>
-	          </div>
-	          <div class="form-group reg-email">
-	            <div>
-	              <%= article.text_area :subtitle, :autofocus => true, required: true, class: "form-control input", placeholder: "Subtitulo para el producto", id: "login-user" %>
-	            </div>
-	          </div>
-	          <div class="form-group reg-password">
-	            <div>
-	              <%= article.text_field :code, class: "form-control input", required: true, placeholder: "Referencia o Codigo Del Producto" %>
-	            </div>
-	          </div> 
-	          <div class="form-group reg-password">
-	            <div>
-	              <%= article.number_field :price, in: 0.0..100000000.0, step: 1, autocomplete: "off", required: true, class: "form-control input", placeholder: "Precio del producto" %>
-	            </div>
-	          </div>
-	          <div class="form-group reg-password">
-	            <div>
-	              <%= article.text_area :details, class: "form-control input", required: true, rows: 5, placeholder: "Detalles o Descripción del Producto" %>
-	            </div>
-	          </div> 
+		<div class="col-md-6 col-md-offset-3">
+			<%= form_for(@article , url: storehouses_articles_path) do |article| %>    
+			  <div class="form-group reg-email">
+			    <div>
+			      <%= article.text_field :name, :autofocus => true, required: true, class: "form-control input", placeholder: "Nombre del Producto", id: "login-user" %>
+			    </div>
+			  </div>
+			  <div class="form-group reg-email">
+			    <div>
+			      <%= article.text_area :subtitle, :autofocus => true, required: true, class: "form-control input", placeholder: "Subtitulo para el producto", id: "login-user" %>
+			    </div>
+			  </div>
+			  <div class="form-group reg-password">
+			    <div>
+			      <%= article.text_field :code, class: "form-control input", required: true, placeholder: "Referencia o Codigo Del Producto" %>
+			    </div>
+			  </div> 
+			  <div class="form-group reg-password">
+			    <div>
+			      <%= article.number_field :price, in: 0.0..100000000.0, step: 1, autocomplete: "off", required: true, class: "form-control input", placeholder: "Precio del producto" %>
+			    </div>
+			  </div>
+			  <div class="form-group reg-password">
+			    <div>
+			      <%= article.text_area :details, class: "form-control input", required: true, rows: 5, placeholder: "Detalles o Descripción del Producto" %>
+			    </div>
+			  </div> 
 
-	          <div class="form-group reg-password">
-	            <div>
-	            	<h2 class="block-title-2"><span>status del producto</span></h2>
-	              <%= article.radio_button :status, "1", required: true%> <strong>Disponible</strong> <br>
-	              <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>	              
-	            </div>
-	          </div>	     	                  
-	      </div> 
-	    </div>
-	  </div>
+			  <div class="form-group reg-password">
+			    <div>
+			    	<h2 class="block-title-2"><span>status del producto</span></h2>
+			      <%= article.radio_button :status, "1", required: true%> <strong>Disponible</strong> <br>
+			      <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>	              
+			    </div>
+			  </div>
 
-	  <div class="col-md-8 col-sm-8 col-xs-12">
-	  	<h1 class="section-title-inner"><span><i class="fa fa-camera"></i> Imagenes Para Nuevo Producto </span></h1>
-  	  <h2 class="block-title-2"><span>ingresa las imagenes con las que exhibiras tu nuevo producto</span></h2>
-	  	<%= article.fields_for :article_images do |article_image| %>	  	    	                        
-  	    <div class="col-md-6 col-sm-6 col-xs-12">
-	  	    <h2 class="block-title-2"><span>IMAGEN PARA ESTE PRODUCTO:</span></h2>  	      	  
-	  	    <div class="form-group reg-email">
-	  	      <div>
-	  	        <%= article_image.text_field :caption, :autofocus => true, class: "form-control input", placeholder: "Comentario para la imagen" %>
-	  	      </div>
-	  	    </div> 
-	  	    <div class="form-group reg-email">
-	  	      <div>  	        
-	  	        <%= article_image.file_field :image, class: "input-file" %>
-	  	      </div>
-	  	    </div>
-  	    </div>  	    
-	  	<% end %>
-	  </div>
+		  	<%= article.fields_for :article_images do |article_image| %>
+		  		<%= render 'article_image_form', :article_image => article_image %>	  	   			    	    
+		  	<% end %>
+				
+				<%= link_to_add_article_images "Agregar participante", article, :article_images %>					  	
+
+    		<%= article.submit "Guardar Nuevo Artículo", :class => 'btn btn-block btn-lg btn-primary' %>
+			<% end %>			
+		</div>
 	</div>
-  <div >
-    <div >
-      <%= article.submit "Guardar Nuevo Artículo", :class => 'btn btn-block btn-lg btn-primary' %>
-    </div>
-  </div>
-  <!--userForm--> 
-	<% end %>
-</div>  
-
-
-  	
+</div>

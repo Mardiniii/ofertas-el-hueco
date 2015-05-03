@@ -13,8 +13,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery.mousewheel.min.js
-//= require ion.checkRadio.js
-//= require ion.checkRadio.min.js
 //= require bootstrap.touchspin.js
 //= require footable.js
 //= require footable.sortable.js
