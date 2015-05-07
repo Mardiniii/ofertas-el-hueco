@@ -8,6 +8,7 @@ $(document).on "ready page:load", ->
     console.log('click remove')
     $(this).prev('input[type=hidden]').val('true')
     $(this).closest('fieldset').hide()
+    $(this).closest('div.article_image_fields').hide()
 
   $('form').on 'click', '.Add_field', (event) ->
     event.preventDefault()
