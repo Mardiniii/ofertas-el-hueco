@@ -1,4 +1,4 @@
-<%= form_for(@article , url: storehouses_articles_path) do |article| %>
+<%= form_for(@article, url: storehouses_article_path) do |article| %>
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Crear Nuevo Producto Para <%= current_user.storehouse.name %></span></h1>
@@ -49,15 +49,24 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<h1 class="section-title-inner"><span><i class="fa fa-camera"></i> Imagenes Para Nuevo Producto </span></h1>
-		  <h2 class="block-title-2"><span>ingresa las imagenes con las que exhibiras tu nuevo producto</span></h2>
+			<h1 class="section-title-inner"><span><i class="fa fa-camera"></i> Imagenes Del Producto </span></h1>
+		  <h2 class="block-title-2"><span>Estas son las imagenes con las que actualmente estas exhibiendo este producto:</span></h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<% @article.article_images.each_with_index do |image,index| %>
+				<div class="edit_images">
+					<strong><span><%= index+1 %></span></strong><br>
+						<%= image_tag image.image.url(:thumb) %>
+					</div>
+				<% end %>				
 		</div>
 	</div>
 	<div class="row" id="image-for-article">
 		<%= article.fields_for :article_images do |article_image| %>
 			<%= render 'article_image_form', :article_image => article_image %>	  	   			    	    
 		<% end %>
-
 		<%= link_to_add_article_images "Agregar Imagen", article, :article_images %>
 	</div>		  	  	  
   <%= article.submit "Editar Artículo", :class => 'btn btn-block btn-lg btn-primary' %>
