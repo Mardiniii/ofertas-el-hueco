@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   root 'pages#home'
 
+  get 'about_us' => 'pages#about_us'
+
   namespace :admin do
     resources :storehouses
     resources :user, :controller => "user"  

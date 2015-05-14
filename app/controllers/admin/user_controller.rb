@@ -4,7 +4,7 @@ class Admin::UserController < ApplicationController
 
 	def new
 		@user = User.new
-		storehouse = @user.storehouses.build
+		@user.build_storehouse
 	end 
 
 	def create

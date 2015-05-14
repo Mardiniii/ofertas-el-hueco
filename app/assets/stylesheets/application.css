@@ -153,3 +153,7 @@
 #sp-prev:hover, #sp-next:hover {
 	background: #444;
 }
+
+div.edit_images {
+	display: inline-block;
+}
