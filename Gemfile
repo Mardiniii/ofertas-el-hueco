@@ -17,6 +17,7 @@ gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 gem 'smoothproducts_rails'
 gem "figaro"
+gem 'omniauth-facebook'
 
 
 group :development, :test do
