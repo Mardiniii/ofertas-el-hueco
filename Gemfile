@@ -16,6 +16,8 @@ gem 'hirb'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 gem 'smoothproducts_rails'
+gem "figaro"
+
 
 group :development, :test do
 	gem 'guard'
