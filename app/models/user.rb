@@ -30,7 +30,8 @@ class User < ActiveRecord::Base
   has_one :storehouse, dependent: :destroy
   enum role: [ :user, :tent, :admin]
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:facebook]
   accepts_nested_attributes_for :storehouse, :reject_if => :all_blank, allow_destroy: true
   validates_associated :storehouse
 	
