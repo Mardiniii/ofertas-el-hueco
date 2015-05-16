@@ -31,11 +31,31 @@ class User < ActiveRecord::Base
   enum role: [ :user, :tent, :admin]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  devise :omniauthable, :omniauth_providers => [:facebook]
   accepts_nested_attributes_for :storehouse, :reject_if => :all_blank, allow_destroy: true
   validates_associated :storehouse
 	
 	after_initialize :set_default_role, :if => :new_record?
 	def set_default_role
     self.role ||= :user
-  end         
+  end  
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      # user.name = auth.info.name   # assuming the user model has a name
+      avatar_url = auth.info.image
+      avatar_url.gsub!("http","https")
+      user.avatar = avatar_url # assuming the user model has an image
+    end
+  end   
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end    
 end

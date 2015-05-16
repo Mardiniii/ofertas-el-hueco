@@ -7,7 +7,9 @@
         <h3 class="modal-title-site text-center" > REGISTRARSE </h3>
       </div>
       <div class="modal-body">
-        <div class="control-group"> <a class="fb_button btn  btn-block btn-lg " href="#"> REGISTRARSE CON FACEBOOK </a> </div>
+        <div class="control-group">
+          <%= link_to "REGISTRATE CON FACEBOOK", user_omniauth_authorize_path(:facebook), class: "fb_button btn  btn-block btn-lg" %>
+        </div>        
         <h5 style="padding:10px 0 10px 0;" class="text-center"> O COMPLETA TUS DATOS PERSONALES </h5>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
