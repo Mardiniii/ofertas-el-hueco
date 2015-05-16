@@ -6,11 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<% if params[:controller] == 'pages' and params[:action] == 'home' %>
-  <body data-no-turbolink="true" class="pace-done">
-<% else %>
-  <body data-no-turbolink="false" class="pace-done">
-<% end %>
+<body class="pace-done">
 <script>
   window.fbAsyncInit = function() {
     FB.init({
