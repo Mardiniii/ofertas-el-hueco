@@ -18,7 +18,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'smoothproducts_rails'
 gem "figaro"
 gem 'omniauth-facebook'
-
+gem 'open_uri_redirections'
 
 group :development, :test do
 	gem 'guard'
