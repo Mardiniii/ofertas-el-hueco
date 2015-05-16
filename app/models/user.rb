@@ -45,7 +45,9 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       # user.name = auth.info.name   # assuming the user model has a name
-      user.avatar = auth.info.image # assuming the user model has an image
+      avatar_url = auth.info.image
+      avatar_url.gsub!("http","https")
+      user.avatar = avatar_url # assuming the user model has an image
     end
   end   
 
