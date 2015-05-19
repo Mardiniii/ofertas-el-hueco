@@ -12,7 +12,7 @@ class Admin::UserController < ApplicationController
   	@user.role = "tent"
 	  if @user.save
   	  flash[:notice] = "El usuario #{@user.email} fue creado con exito"
-  	  redirect_to user_index_path
+  	  redirect_to admin_user_index_path
   	else
   		flash[:alert] = "Ha ocurrido un error y el usuario #{@user.email}, no ha sido almacenado"
     	render :action => 'new'
@@ -25,7 +25,7 @@ class Admin::UserController < ApplicationController
 
 	private
 		def user_params
-  		params.require(:user).permit(:email, :password, :password_confirmation, storehouses_attributes: [:id,:name,:address,:avatar,:description,:email,:telephone,:user_id,:whatsapp,:_destroy])
+  		params.require(:user).permit(:email, :password, :password_confirmation, storehouse_attributes: [:id,:name,:address,:avatar,:description,:email,:telephone,:user_id,:whatsapp,:_destroy])
 		end
 		
 		def admin_only
