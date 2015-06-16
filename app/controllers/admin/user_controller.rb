@@ -50,6 +50,21 @@ class Admin::UserController < ApplicationController
     redirect_to admin_user_index_path
   end
 
+	# Metodo para listar todos los usuarios de la plataforma
+	def user_index
+		puts "#{params[:user]} - #{params[:tent]} - #{params[:admin]}!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		# Filtro para seleccion un rol especifico de usuarios
+		if params[:user].present?			
+		  @users = User.where(role: 0)
+		elsif params[:tent].present?
+		  @users = User.where(role: 1)
+		elsif params[:admin].present?
+		  @users = User.where(role: 2)
+		else
+			#Bandera para mostrar lista vacia
+			@vacio = true
+		end
+	end
 
 	private
 		def user_params
