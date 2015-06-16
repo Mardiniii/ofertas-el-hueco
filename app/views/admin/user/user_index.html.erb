@@ -1,0 +1,60 @@
+<div class="container main-container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <%= link_to "Home", root_path %></li>
+        <li class="active"> Usuarios registrados </li>
+      </ul>
+    </div>
+  </div> <!--/.row-->
+  
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-7">
+      <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Listado de usuarios registrados en la plataforma</span></h1>        
+    </div>
+
+    <div class="row userInfo">
+      <div class="col-lg-12">
+        <h2 class="block-title-2"> Tiendas registradas en nuestra plataforma: </h2>
+      </div>
+      <div class="col-xs-12 col-sm-12">
+        <table>
+          <tbody>
+
+          <% @users.each do |user| %>
+
+            <tr class="CartProduct">
+              <td style="width:30%">
+                <div>
+                  <p><%= user.email %></p>
+                  <p>Informacion restante del usuario</p>
+                </div>
+              </td>
+              <td style="width:10%" class="CartProductThumb text-center">
+                <div> 
+                  <a href="#"><%= image_tag user.avatar.url %></a> 
+                </div>
+              </td>
+              <td style="width:40%">
+                <div class="CartDescription">
+                  <h4><a href="product-details.html"><%= user.email %></a></h4>
+                  <div class="price"> <span><%= user.email %></span> </div>
+                </div>
+              </td>               
+              <td  class="delete" style="width:20%">
+                <%= link_to "<i class='glyphicon glyphicon-eye-open fa-2x'></i>".html_safe, "#", class: "btn btn-success", title: "Ver Tienda" %>
+                <%= link_to "<i class='glyphicon glyphicon-edit fa-2x'></i>".html_safe, "#", class: "btn btn-warning", title: "Editar Tienda" %>
+                <%= link_to "<i class='glyphicon glyphicon-trash fa-2x'></i>".html_safe, "#", class: "btn btn-danger", title: "Eliminar Tienda" %>                                   
+              </td>
+            </tr> 
+          <% end %>                                      
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--/.row-->
+  <div style="clear:both"></div>
+</div> <!-- /main-container -->
+
+<div class="gap"> </div>

@@ -50,6 +50,10 @@ class Admin::UserController < ApplicationController
     redirect_to admin_user_index_path
   end
 
+	# Metodo para listar todos los usuarios de la plataforma
+	def user_index
+		@users = User.all
+	end
 
 	private
 		def user_params

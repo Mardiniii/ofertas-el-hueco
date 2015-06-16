@@ -24,6 +24,8 @@
 #  uid                    :string
 #
 
+# Hirb.enable :output => {"User"=>{:options=>{:fields=>%w{id email role}}}}
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

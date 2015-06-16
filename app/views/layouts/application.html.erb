@@ -173,16 +173,18 @@
       <ul class="nav navbar-nav">
 
         <% if user_signed_in? && current_user.admin? %>
-          <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> GESTOR TIENDAS <b class="caret"></b></a>
+          <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown">TIENDAS <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">Agregar o Listar Tiendas</li>
-              <li> <%= link_to "Nueva Tienda", new_admin_user_path  %> </li>
-              <li> <%= link_to "Tiendas Registradas", admin_user_index_path  %> </li>              
+              <li> <%= link_to "Nueva Tienda", new_admin_user_path  %></li>
+              <li> <%= link_to "Tiendas Registradas", admin_user_index_path %></li>
             </ul>
           </li>        
+          <li> <%= link_to "USUARIOS", admin_user_list_path %></li>
+          <li> <%= link_to "ARTICULOS", "#" %></li>
         <% end %>
 
-        <% if (user_signed_in? && current_user.tent?) || (user_signed_in? && current_user.admin?) %>
+        <% if (user_signed_in? && current_user.tent?) %>
           <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> MIS ARTICULOS <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">Agregar o Listar Mis Artículos</li>
@@ -272,7 +274,6 @@
             </li>
           </ul>
         </li>
-
         <li class="dropdown megamenu-fullwidth"><%= link_to 'Sobre Nosotros', about_us_path %></li>      
       </ul>
       

@@ -4,13 +4,15 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about_us' => 'pages#about_us'
 
+
   # devise_scope :user do
   #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   # end
 
   namespace :admin do
     resources :storehouses
-    resources :user, :controller => "user"  
+    resources :user, :controller => "user" 
+    get 'user_list' => 'user#user_index' 
   end  
 
   namespace :storehouses do
