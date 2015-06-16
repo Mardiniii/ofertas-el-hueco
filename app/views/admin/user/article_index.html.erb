@@ -18,31 +18,27 @@
         <div class="col-xs-12 col-sm-12">
           <table>
             <tbody>
-
             <% @articles.each do |article| %>
-
               <tr class="CartProduct">
                 <td style="width:10%" class="CartProductThumb">
                   <div> <%= link_to image_tag(article.article_images.first.image.url), storehouses_article_path(article.id) %></div></td>
                 <td style="width:30%"><div class="CartDescription">
-                    <h4><%= link_to article.name, storehouses_article_path(article.id) %></h4>
-                    <span><%= article.subtitle %></span>
-                    <div class="price"> <span><%= number_to_currency(article.price, precision: 0) %></span> </div>
+                  <h4><%= link_to article.name, storehouses_article_path(article.id) %></h4>
+                  <span><%= article.subtitle %></span>
+                  <div class="price"> <span><%= number_to_currency(article.price, precision: 0) %></span> </div>
                   </div></td>
                 <td style="width:60%">
-                    <%= link_to "<i class='glyphicon glyphicon-eye-open fa-2x'></i>".html_safe, storehouses_article_path(article.id), class: "btn btn-success", title: "Ver Producto" %>
-                    <%= link_to "<i class='glyphicon glyphicon-edit fa-2x'></i>".html_safe, edit_storehouses_article_path(article.id), class: "btn btn-warning", title: "Editar Producto" %>
-                    <%= link_to storehouses_article_path(article.id), title: "Eliminar Producto", method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el curso?' }, class: "btn btn btn-ar btn-danger" do %><span><i class='glyphicon glyphicon-trash fa-2x'></i></span><% end %>
+                  <%= link_to "<i class='glyphicon glyphicon-eye-open fa-2x'></i>".html_safe, storehouses_article_path(article.id), class: "btn btn-success", title: "Ver Producto" %>
+                  <%= link_to "<i class='glyphicon glyphicon-edit fa-2x'></i>".html_safe, edit_storehouses_article_path(article.id), class: "btn btn-warning", title: "Editar Producto" %>
+                  <%= link_to storehouses_article_path(article.id), title: "Eliminar Producto", method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el curso?' }, class: "btn btn btn-ar btn-danger" do %><span><i class='glyphicon glyphicon-trash fa-2x'></i></span><% end %>
                 </td>                
               </tr>
-
             <% end %>                                      
             </tbody>
           </table>
         </div>
       </div>
-      <!--/row end--> 
-      
+      <!--/row end-->      
     </div>
     <div class="col-lg-3 col-md-3 col-sm-5"> </div>
   </div>
