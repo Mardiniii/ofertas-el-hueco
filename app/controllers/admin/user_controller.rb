@@ -6,6 +6,11 @@ class Admin::UserController < ApplicationController
 		@storehouses = Storehouse.all
 	end
 
+  def show
+    @user = User.find(params[:id])
+    @storehouse = @user.storehouse
+  end
+
   def new
     @user = User.new
     @user.build_storehouse
