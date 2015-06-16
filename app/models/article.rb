@@ -16,6 +16,7 @@
 
 class Article < ActiveRecord::Base
 	belongs_to :storehouse
+  has_and_belongs_to_many :subcategories
 	has_many :article_images, dependent: :destroy
 	accepts_nested_attributes_for :article_images, :limit => 5, :reject_if => :all_blank, allow_destroy: true
   validates_associated :article_images
