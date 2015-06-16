@@ -1,0 +1,68 @@
+<div class="container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <%= link_to "Home", root_path %></li>
+        <li> <%= link_to "Gestor de Tiendas", new_admin_user_path %></li>
+        <li> <%= link_to "Tiendas Registradas", admin_user_index_path %> </li>
+        <li class="active"><%= @storehouse.name %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="row userInfo">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Información del Propietario</span></h1>
+          <hr>
+          <p> <strong>Email:</strong> <br>
+            <%= @user.email %>
+          </p>
+          <ul class="pager">
+            <li class="next pull-left"><%= link_to "&larr; Regresar".html_safe, admin_user_index_path %></li>
+          </ul>
+
+        </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <h1 class="section-title-inner"><span><i class="fa fa-shopping-cart"></i> Información de la Tienda </span></h1>
+            <hr>
+
+            <p>
+              <strong>Nombre:</strong> <br>
+              <%= @storehouse.name %>
+            </p>
+
+            <p>
+              <strong>Imagen de la tienda:</strong> <br>
+              <%= image_tag @storehouse.avatar.url, width: '20%' %>
+            </p>
+
+            <p>
+              <strong>Dirección:</strong> <br>
+              <%= @storehouse.address %>
+            </p>
+
+            <p>
+              <strong>Email de la tienda:</strong> <br>
+              <%= @storehouse.email %>
+            </p>
+
+            <p>
+              <strong>Descripción:</strong> <br>
+              <%= @storehouse.description %>
+            </p>
+
+            <p>
+              <strong>Teléfono:</strong> <br>
+              <%= @storehouse.telephone %>
+            </p>
+
+            <p>
+              <strong>Whatsapp:</strong> <br>
+              <%= @storehouse.whatsapp %>
+            </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
