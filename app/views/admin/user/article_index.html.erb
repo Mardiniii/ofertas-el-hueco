@@ -1,0 +1,53 @@
+<div class="container main-container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <%= link_to "Home", root_path %></li>
+        <li class="active"> Artículos registrados </li>
+      </ul>
+    </div>
+  </div> <!--/.row-->
+  
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-7">
+      <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Lista de Artículos Registrados </span></h1>
+      <div class="row userInfo">
+        <div class="col-lg-12">
+          <h2 class="block-title-2">Estos son todos los artículos que hay registrados en el sistema: </h2>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+          <table>
+            <tbody>
+
+            <% @articles.each do |article| %>
+
+              <tr class="CartProduct">
+                <td style="width:10%" class="CartProductThumb">
+                  <div> <%= link_to image_tag(article.article_images.first.image.url), storehouses_article_path(article.id) %></div></td>
+                <td style="width:30%"><div class="CartDescription">
+                    <h4><%= link_to article.name, storehouses_article_path(article.id) %></h4>
+                    <span><%= article.subtitle %></span>
+                    <div class="price"> <span><%= number_to_currency(article.price, precision: 0) %></span> </div>
+                  </div></td>
+                <td style="width:60%">
+                    <%= link_to "<i class='glyphicon glyphicon-eye-open fa-2x'></i>".html_safe, storehouses_article_path(article.id), class: "btn btn-success", title: "Ver Producto" %>
+                    <%= link_to "<i class='glyphicon glyphicon-edit fa-2x'></i>".html_safe, edit_storehouses_article_path(article.id), class: "btn btn-warning", title: "Editar Producto" %>
+                    <%= link_to storehouses_article_path(article.id), title: "Eliminar Producto", method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el curso?' }, class: "btn btn btn-ar btn-danger" do %><span><i class='glyphicon glyphicon-trash fa-2x'></i></span><% end %>
+                </td>                
+              </tr>
+
+            <% end %>                                      
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--/row end--> 
+      
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-5"> </div>
+  </div>
+  <!--/.row-->
+  <div style="clear:both"></div>
+</div> <!-- /main-container -->
+
+<div class="gap"> </div>
