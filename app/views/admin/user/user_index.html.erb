@@ -11,46 +11,76 @@
   <div class="row">
     <div class="col-lg-10 col-md-10 col-sm-7">
       <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Listado de usuarios registrados en la plataforma</span></h1>        
-    </div>
+    </div> 
 
     <div class="row userInfo">
       <div class="col-lg-12">
-        <h2 class="block-title-2"> Tiendas registradas en nuestra plataforma: </h2>
-      </div>
-      <div class="col-xs-12 col-sm-12">
-        <table>
-          <tbody>
+        <h2 class="block-title-2">Seleccione una categoría para listar los usuariados registrados en la plataforma: </h2>
+        
+        <!-- BOTONES PARA FILTRAR EL LISTADO DE USUARIOS BAJO UNA CATEGORÍA ESPECÍFICA -->
+        <%= form_tag admin_user_list_path, method: :get do %>
+          <%= hidden_field_tag :user, "USUARIOS"  %>
+          <div class="col-xs-2 action form-group">
+            <%= submit_tag "Listar Usuarios", name: nil, class: "btn btn-lg btn-success" %>          
+          </div>
+        <% end %> 
 
-          <% @users.each do |user| %>
+        <%= form_tag admin_user_list_path, method: :get do %>
+          <%= hidden_field_tag :tent, "TIENDAS"  %>
+          <div class=" col-xs-2 action form-group">
+            <%= submit_tag "Listar Tiendas", name: nil, class: "btn btn-lg btn-success" %>         
+          </div>
+        <% end %> 
 
-            <tr class="CartProduct">
-              <td style="width:30%">
-                <div>
-                  <p><%= user.email %></p>
-                  <p>Informacion restante del usuario</p>
-                </div>
-              </td>
-              <td style="width:10%" class="CartProductThumb text-center">
-                <div> 
-                  <a href="#"><%= image_tag user.avatar.url %></a> 
-                </div>
-              </td>
-              <td style="width:40%">
-                <div class="CartDescription">
-                  <h4><a href="product-details.html"><%= user.email %></a></h4>
-                  <div class="price"> <span><%= user.email %></span> </div>
-                </div>
-              </td>               
-              <td  class="delete" style="width:20%">
-                <%= link_to "<i class='glyphicon glyphicon-eye-open fa-2x'></i>".html_safe, "#", class: "btn btn-success", title: "Ver Tienda" %>
-                <%= link_to "<i class='glyphicon glyphicon-edit fa-2x'></i>".html_safe, "#", class: "btn btn-warning", title: "Editar Tienda" %>
-                <%= link_to "<i class='glyphicon glyphicon-trash fa-2x'></i>".html_safe, "#", class: "btn btn-danger", title: "Eliminar Tienda" %>                                   
-              </td>
-            </tr> 
-          <% end %>                                      
-          </tbody>
-        </table>
+        <%= form_tag admin_user_list_path, method: :get do %>
+          <%= hidden_field_tag :admin, "ADMINISTRADORES"  %>
+          <div class="col-xs-2 action form-group">
+            <%= submit_tag "Listar Administradores", name: nil, class: "btn btn-lg  btn-success" %>         
+          </div>
+        <% end %>
+
       </div>
+
+      <% if @vacio %>
+        <div class="col-xs-12 col-sm-12">
+          <br><br><br><br>
+          <h1 class="text-center">Seleccion un tipo de usuario para cargar los registros existentes</h1>
+        </div>
+      <% else %>
+        <div class="col-xs-12 col-sm-12">
+          <table>
+            <tbody>
+            <% @users.each do |user| %>
+              <tr class="CartProduct">
+                <td style="width:30%">
+                  <div>
+                    <p><%= user.email %></p>
+                    <p>Informacion restante del usuario</p>
+                  </div>
+                </td>
+                <td style="width:10%" class="CartProductThumb text-center">
+                  <div> 
+                    <a href="#"><%= image_tag user.avatar.url %></a> 
+                  </div>
+                </td>
+                <td style="width:40%">
+                  <div class="CartDescription">
+                    <h4><a href="product-details.html"><%= user.email %></a></h4>
+                    <div class="price"> <span><%= user.role.humanize %></span> </div>
+                  </div>
+                </td>               
+                <td  class="delete" style="width:20%">
+                  <%= link_to "<i class='glyphicon glyphicon-eye-open fa-2x'></i>".html_safe, "#", class: "btn btn-success", title: "Ver Tienda" %>
+                  <%= link_to "<i class='glyphicon glyphicon-edit fa-2x'></i>".html_safe, "#", class: "btn btn-warning", title: "Editar Tienda" %>
+                  <%= link_to "<i class='glyphicon glyphicon-trash fa-2x'></i>".html_safe, "#", class: "btn btn-danger", title: "Eliminar Tienda" %>                                   
+                </td>
+              </tr> 
+            <% end %>                                      
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+      
     </div>
   </div>
   <!--/.row-->
