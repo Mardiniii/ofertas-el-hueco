@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :storehouses
     resources :user, :controller => "user" 
-    get 'user_list' => 'user#user_index' 
+    get 'user_list' => 'user#user_index'
+    get 'article_list' => 'user#article_index' 
   end  
 
   namespace :storehouses do

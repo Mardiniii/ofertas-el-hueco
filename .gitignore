@@ -22,3 +22,4 @@
 # Ignore Avatars created locally
 
 /public/system/storehouses/avatars
+/public/system/article_images/images

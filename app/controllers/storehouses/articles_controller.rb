@@ -1,6 +1,6 @@
 class Storehouses::ArticlesController < ApplicationController
 	before_action :authenticate_user!
-	before_action :tent_only
+	before_action :admin_or_tent_only?
 
 	def new
 		@article = Article.new
@@ -30,8 +30,12 @@ class Storehouses::ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find(params[:id])
-		if @article.update(article_params)
-			redirect_to storehouses_articles_path
+		if @article.update(article_params) 
+			if current_user.admin?
+				redirect_to admin_article_list_path
+			else
+				redirect_to storehouses_articles_path
+			end
 		else
 			flash[:alert] = 'Se ha encontrado un error al intentar editar este producto'
 			render 'edit'
@@ -54,8 +58,8 @@ class Storehouses::ArticlesController < ApplicationController
   		params.require(:article).permit(:name, :code, :price, :details, :status, :subtitle, article_images_attributes: [:id,:caption,:image,:storehouse_id,:_destroy])
 		end
 
-		def tent_only
-	    unless current_user.tent?
+		def admin_or_tent_only?
+	    unless current_user.tent? || current_user.admin?
 	      redirect_to root_path, :alert => "Lo sentimos, usted no es vendedor de articulos para acceder a esta ruta."
 	    end
 	  end

@@ -46,7 +46,6 @@ class Admin::UserController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-
     redirect_to admin_user_index_path
   end
 
@@ -64,6 +63,10 @@ class Admin::UserController < ApplicationController
 			#Bandera para mostrar lista vacia
 			@vacio = true
 		end
+	end
+
+	def article_index
+		@articles = Article.all
 	end
 
 	private

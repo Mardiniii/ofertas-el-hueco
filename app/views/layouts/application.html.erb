@@ -181,7 +181,7 @@
             </ul>
           </li>        
           <li> <%= link_to "USUARIOS", admin_user_list_path %></li>
-          <li> <%= link_to "ARTICULOS", "#" %></li>
+          <li> <%= link_to "ARTICULOS", admin_article_list_path %></li>
         <% end %>
 
         <% if (user_signed_in? && current_user.tent?) %>
