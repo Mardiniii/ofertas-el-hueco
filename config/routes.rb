@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :storehouses
     resources :user, :controller => "user" 
     get 'user_list' => 'user#user_index'
-    get 'article_list' => 'user#article_index' 
+    get 'article_list' => 'user#article_index'
+    get 'edit_user' => 'user#edit_user' 
+    patch 'update_user' => 'user#update_user'
   end  
 
   namespace :storehouses do
