@@ -19,6 +19,7 @@ gem 'smoothproducts_rails'
 gem "figaro"
 gem 'omniauth-facebook'
 gem 'open_uri_redirections'
+gem 'jquery-turbolinks'
 
 group :development, :test do
 	gem 'guard'
