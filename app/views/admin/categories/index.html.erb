@@ -1,0 +1,49 @@
+<div class="container main-container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <%= link_to "Home", root_path %></li>
+        <li> <%= link_to "Gestor de Tiendas", new_admin_user_path %></li>
+        <li class="active"> Tiendas Registradas </li>
+
+      </ul>
+    </div>
+  </div> <!--/.row-->
+
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-7">
+      <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Lista de Categorías Registradas </span></h1>
+      <div class="row userInfo">
+        <div class="col-lg-12">
+          <h2 class="block-title-2"> Tiendas registradas en nuestra plataforma: </h2>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+          <table>
+            <tbody>
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-lg-12 clearfix">
+          <ul class="pager">
+            <li class="previous pull-right"><%= link_to "<i class='fa fa-home'></i> Regresar a la Tienda".html_safe, root_path %></li>
+
+
+            <li class="next pull-left"><%= link_to "&larr; Crear Una Nueva Tienda".html_safe, new_admin_user_path %></li>
+          </ul>
+        </div>
+
+      </div>
+      <!--/row end-->
+
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-5"> </div>
+  </div>
+  <!--/.row-->
+  <div style="clear:both"></div>
+</div> <!-- /main-container -->
+
+<div class="gap"> </div>

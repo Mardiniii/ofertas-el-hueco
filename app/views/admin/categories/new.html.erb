@@ -1,0 +1,29 @@
+<div class="container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <%= link_to "Home", root_path %></li>
+        <li class="active"> Crear una nueva categoría  </li>
+      </ul>
+    </div>
+  </div>
+  <%= form_for(@category, url: admin_categories_path) do |category| %>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="row userInfo">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Nueva Categoría </span></h1>
+            <hr>
+
+            <div class="form-group reg-email">
+              <div>
+                <%= category.text_field :name, :autofocus => true, class: "form-control input", placeholder: "Nombre de categoría", id: "login-user" %>
+              </div>
+            </div>
+            <%= category.submit "Registrar Nueva Categoría", :class => 'btn btn-block btn-lg btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
