@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
+
 //= require bootstrap-sprockets
 //= require jquery.mousewheel.min.js
 //= require bootstrap.touchspin.js
@@ -33,6 +36,5 @@
 //= require script.js
 //= require smoothproducts
 //= require smoothproducts-thumb.js
-//= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+//= require turbolinks
