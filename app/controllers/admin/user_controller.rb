@@ -1,6 +1,6 @@
 class Admin::UserController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_only
+  before_action :admin_only, :except => [:edit_user,:update_user]
 
 	def index
 		@storehouses = Storehouse.all
@@ -53,10 +53,14 @@ class Admin::UserController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "El usuario #{@user.email} fue actualizado con éxito"
+      if current_user.admin?
       redirect_to admin_user_list_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Ha ocurrido un error y el usuario #{@user.email}, no ha sido almacenado"
-      render :action => 'edit'
+      render :action => 'edit_user'
     end
   end
 
