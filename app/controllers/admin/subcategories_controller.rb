@@ -8,14 +8,29 @@ class Admin::SubcategoriesController < ApplicationController
     @subcategory = Subcategory.new
   end
 
+  def edit
+    @subcategory = Subcategory.find(params[:id])
+  end
+
   def create
     @subcategory = Subcategory.new(subcategory_params)
     if @subcategory.save
       flash[:notice] = "La subcategoría #{@subcategory.name} fue creada con éxito"
-      redirect_to root_path
+      redirect_to admin_subcategories_path
     else
       flash[:alert] = "Hubo un problema y la subcategoría no ha sido guardada correctamente"
       render :action => :new
+    end
+  end
+
+  def update
+    @subcategory = Subcategory.find(params[:id])
+    if @subcategory.update(subcategory_params)
+      flash[:notice] = "La subcategoría #{@subcategory.name} fue actualizada con éxito"
+      redirect_to admin_subcategories_path
+    else
+      flash[:alert] = "Hubo un problema y la subcategoría no ha sido guardada correctamente"
+      render :action => :edit
     end
   end
 
