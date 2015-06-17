@@ -1,0 +1,51 @@
+<style>
+  label {
+    margin-right: 10px
+  }
+</style>
+
+<div class="container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <%= link_to "Home", root_path %></li>
+        <li> <%= link_to "Subcategorías", new_admin_subcategory_path %></li>
+        <li> <%= link_to "Subategorías Registradas", admin_subcategories_path %> </li>
+        <li class="active"> Crear una nueva subcategoría  </li>
+      </ul>
+    </div>
+  </div>
+  <%= form_for(@subcategory, url: admin_subcategories_path) do |subcategory| %>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="row userInfo">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Nueva Subcategoría </span></h1>
+            <hr>
+
+            <div class="form-group reg-email">
+              <div>
+                <%= subcategory.text_field :name, :autofocus => true, class: "form-control input", placeholder: "Nombre de la subcategoría", id: "login-user" %>
+              </div>
+            </div>
+
+            <p><strong>Categoría a la que pertenece:</strong></p>
+
+            <div class="form-group reg-email">
+              <div>
+                <% Category.all.each do |category| %>
+                  <%= subcategory.radio_button :category_id, "#{category.id}" %>
+                  <%= subcategory.label "#{category.name}" %>
+                <% end %>
+              </div>
+            </div>
+
+
+            <%= subcategory.submit "Registrar Nueva Subcategoría", :class => 'btn btn-block btn-lg btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

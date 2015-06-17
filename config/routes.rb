@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  
+
   root 'pages#home'
   get 'about_us' => 'pages#about_us'
 
@@ -11,14 +11,16 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :storehouses
-    resources :user, :controller => "user" 
+    resources :categories
+    resources :subcategories
+    resources :user, :controller => "user"
     get 'user_list' => 'user#user_index'
     get 'article_list' => 'user#article_index'
-    get 'edit_user' => 'user#edit_user' 
+    get 'edit_user' => 'user#edit_user'
     patch 'update_user' => 'user#update_user'
-  end  
+  end
 
   namespace :storehouses do
   	resources :articles
-  end  
+  end
 end
