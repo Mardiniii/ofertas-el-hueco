@@ -9,16 +9,28 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:id])
   end
 
   def create
     @category = Category.new(category_params)
     if @category.save
       flash[:notice] = "La categoría #{@category.name} fue creada con éxito"
-      redirect_to root_path
+      redirect_to admin_categories_path
     else
       flash[:alert] = "Ha ocurrido un error y la categoría no ha sido almacenada"
       render :action => 'new'
+    end
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      flash[:notice] = "La categoría #{@category.name} fue actualizada con éxito"
+      redirect_to admin_categories_path
+    else
+      flash[:alert] = "Ha ocurrido un error y la categoría no ha sido almacenada"
+      render :action => 'edit'
     end
   end
 
