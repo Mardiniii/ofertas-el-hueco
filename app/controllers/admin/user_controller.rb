@@ -54,7 +54,8 @@ class Admin::UserController < ApplicationController
     if @user.update(user_params)
       flash[:notice] = "El usuario #{@user.email} fue actualizado con éxito"
       if current_user.admin?
-      redirect_to admin_user_list_path
+        sign_in @user, :bypass => false
+        redirect_to admin_user_list_path
       else
         redirect_to root_path
       end
