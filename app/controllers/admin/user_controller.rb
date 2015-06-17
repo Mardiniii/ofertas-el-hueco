@@ -28,6 +28,7 @@ class Admin::UserController < ApplicationController
     end
   end
 
+  # Edit and update for storehouses
   def edit
     @user = User.find(params[:id])
   end
@@ -37,6 +38,22 @@ class Admin::UserController < ApplicationController
     if @user.update(user_params)
       flash[:notice] = "El usuario #{@user.email} fue actualizado con éxito"
       redirect_to admin_user_index_path
+    else
+      flash[:alert] = "Ha ocurrido un error y el usuario #{@user.email}, no ha sido almacenado"
+      render :action => 'edit'
+    end
+  end
+
+  # Edit and update for users
+  def edit_user
+    @user = User.find(params[:id])
+  end
+
+  def update_user
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = "El usuario #{@user.email} fue actualizado con éxito"
+      redirect_to admin_user_list_path
     else
       flash[:alert] = "Ha ocurrido un error y el usuario #{@user.email}, no ha sido almacenado"
       render :action => 'edit'
