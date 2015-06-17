@@ -8,21 +8,21 @@
         <li class="active"><%= @article.name %> </li>
       </ul>
     </div>
-  </div> 
+  </div>
 
-  <div class="row transitionfx"> 
-    
+  <div class="row transitionfx">
+
     <!-- left column -->
-    <div class="col-lg-6 col-md-6 col-sm-6"> 
-      <!-- product Image and Zoom -->      
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <!-- product Image and Zoom -->
       <div class="main-image sp-wrap col-lg-12 no-padding style3">
-        <% @article.article_images.each do |article_image| %>  
-          <a href="<%= article_image.image.url %>"><img src="<%= article_image.image.url %>" class="img-responsive" alt="img"></a>     
+        <% @article.article_images.each do |article_image| %>
+          <a href="<%= article_image.image.url %>"><img src="<%= article_image.image.url %>" class="img-responsive" alt="img"></a>
         <% end %>
       </div>
     </div>
-    <!--/ left column end --> 
-    
+    <!--/ left column end -->
+
     <!-- right column -->
     <div class="col-lg-6 col-md-6 col-sm-5">
       <h1 class="product-title"> <%= @article.name %></h1>
@@ -40,11 +40,11 @@
         </ul>
       </div> -->
       <!--/.color-details-->
-      
+
       <!-- THUMBNAILS FOR PRODUCT -->
       <!-- <div class="productThumb"></div> -->
       <!--/.productThumb-->
-      
+
       <div class="productFilter productFilterLook2">
         <div class="filterBox">
           <select>
@@ -71,7 +71,7 @@
         </div>
       </div>
       <!-- productFilter -->
-      
+
       <div class="cart-actions">
         <div class="addto">
           <button onclick="productAddToCartForm.submit(this);" class="button btn-cart cart first" title="Add to Cart" type="button">Contactar al Vendedor</button>
@@ -86,7 +86,7 @@
         <h3 class="incaps"> <i class="glyphicon glyphicon-lock"></i> Secure online ordering</h3>
       </div>
       <!--/.cart-actions-->
-      
+
       <div class="clear"></div>
       <div class="product-tab w100 clearfix">
         <ul class="nav nav-tabs">
@@ -94,7 +94,7 @@
           <li> <a href="#size" data-toggle="tab">Size</a></li>
           <li> <a href="#shipping" data-toggle="tab">Shipping</a></li>
         </ul>
-        
+
         <!-- Tab panes -->
         <div class="tab-content">
           <div class="tab-pane active text-justify" id="details"><%= @article.details %><br>
@@ -141,24 +141,24 @@
             </table>
           </div>
         </div>
-        <!-- /.tab content --> 
-        
+        <!-- /.tab content -->
+
       </div>
       <!--/.product-tab-->
-      
+
       <div style="clear:both"></div>
       <div class="product-share clearfix">
         <p> SHARE </p>
         <div class="socialIcon"> <a href="#"> <i  class="fa fa-facebook"></i></a> <a href="#"> <i  class="fa fa-twitter"></i></a> <a href="#"> <i  class="fa fa-google-plus"></i></a> <a href="#"> <i  class="fa fa-pinterest"></i></a> </div>
       </div>
-      <!--/.product-share--> 
-      
+      <!--/.product-share-->
+
     </div>
-    <!--/ right column end --> 
-    
+    <!--/ right column end -->
+
   </div>
   <!--/.row-->
-  
+
   <div class="row recommended">
     <h1> YOU MAY ALOS LIKE </h1>
     <div id="SimilarProductSlider">
@@ -171,7 +171,7 @@
         </div>
       </div>
       <!--/.item-->
-      
+
       <div class="item">
         <div class="product"> <a class="product-image" > <img src="<%= asset_path('product/a2.jpg') %>"  alt="img"> </a>
           <div class="description">
@@ -181,7 +181,7 @@
         </div>
       </div>
       <!--/.item-->
-      
+
       <div class="item">
         <div class="product"> <a class="product-image" > <img src="<%= asset_path('product/a3.jpg') %>" alt="img"> </a>
           <div class="description">
@@ -191,7 +191,7 @@
         </div>
       </div>
       <!--/.item-->
-      
+
       <div class="item">
         <div class="product"> <a class="product-image" > <img src="<%= asset_path('product/a4.jpg') %>"  alt="img"> </a>
           <div class="description">
@@ -201,7 +201,7 @@
         </div>
       </div>
       <!--/.item-->
-      
+
       <div class="item">
         <div class="product"> <a class="product-image" > <img src="<%= asset_path('product/30.jpg') %>"  alt="img"> </a>
           <div class="description">
@@ -211,7 +211,7 @@
         </div>
       </div>
       <!--/.item-->
-      
+
       <div class="item">
         <div class="product"> <a class="product-image" > <img src="<%= asset_path('product/a5.jpg') %>"  alt="img"> </a>
           <div class="description">
@@ -221,7 +221,7 @@
         </div>
       </div>
       <!--/.item-->
-      
+
       <div class="item">
         <div class="product"> <a class="product-image" > <img src="<%= asset_path('product/36.jpg') %>"  alt="img"> </a>
           <div class="description">
@@ -231,7 +231,7 @@
         </div>
       </div>
       <!--/.item-->
-      
+
       <div class="item">
         <div class="product"> <a class="product-image" > <img src="<%= asset_path('product/13.jpg') %>"  alt="img"> </a>
           <div class="description">
@@ -240,19 +240,12 @@
           </div>
         </div>
       </div>
-      <!--/.item--> 
+      <!--/.item-->
     </div>
-    <!--/.SimilarProductSlider--> 
+    <!--/.SimilarProductSlider-->
   </div>
   <!--/.recommended-->
-  
+
   <div style="clear:both"></div>
 </div>
 <!-- /main-container -->
-<script type="text/javascript">
-    /* wait for images to load */
-    $(window).load( function() {
-      $('.sp-wrap').smoothproducts(); 
-      // $("div.sp-thumbs.sp-tb-active").clone().appendTo('div.productThumb');            
-    });
-</script>

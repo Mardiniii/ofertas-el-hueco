@@ -2,17 +2,20 @@
 	==========================
 	Carousel
 	Customs Script [Modal Thumb | List View  Grid View + Add to Wishlist Click Event + Others ]
-	Custom Parallax 
+	Custom Parallax
 	Custom Scrollbar
 	Custom animated.css effect
 	Equal height ( subcategory thumb)
 	responsive fix
 	*/
+
 $(document).ready(function() {
 
     /*==================================
 	Carousel
 	====================================*/
+
+    $('.sp-wrap').smoothproducts();
 
     // NEW ARRIVALS Carousel
     $("#productslider").owlCarousel({
@@ -53,7 +56,7 @@ $(document).ready(function() {
     });
 
 
-    // Home Look 2 || Single product showcase 
+    // Home Look 2 || Single product showcase
 
     // productShowCase  carousel
     var pshowcase = $("#productShowCase");
@@ -77,10 +80,10 @@ $(document).ready(function() {
     $("#ps-prev").click(function() {
         pshowcase.trigger('owl.prev');
     })
-	
-	
-	
-	// Home Look 3 || image Slider 
+
+
+
+	// Home Look 3 || image Slider
 
     // imageShowCase  carousel
     var imageShowCase = $("#imageShowCase");
@@ -110,54 +113,54 @@ $(document).ready(function() {
     /*==================================
 	Customs Script
 	====================================*/
-	
+
 	 // Product Details Modal Change large image when click thumb image
 	$(".modal-product-thumb a").click(function(){
 	var largeImage= $(this).find("img").attr('data-large');
 	$(".product-largeimg").attr('src',largeImage);
 	$(".zoomImg").attr('src',largeImage);
 	});
-	
+
     // collapse according add  active class
     $('.collapseWill').on('click', function(e) {
-        $(this).toggleClass("pressed"); //you can list several class names 
+        $(this).toggleClass("pressed"); //you can list several class names
         e.preventDefault();
     });
 
     $('.search-box .getFullSearch').on('click', function(e) {
-        $('.search-full').addClass("active"); //you can list several class names 
+        $('.search-full').addClass("active"); //you can list several class names
         e.preventDefault();
     });
 
     $('.search-close').on('click', function(e) {
-        $('.search-full').removeClass("active"); //you can list several class names 
+        $('.search-full').removeClass("active"); //you can list several class names
         e.preventDefault();
     });
 
 
 
-    // Customs tree menu script	
+    // Customs tree menu script
     $(".dropdown-tree-a").click(function() { //use a class, since your ID gets mangled
         $(this).parent('.dropdown-tree').toggleClass("open-tree active"); //add the class to the clicked element
     });
-	
 
-    // Add to Wishlist Click Event	 // Only For Demo Purpose	
-	
-	$('.add-fav').click(function(e) { 
+
+    // Add to Wishlist Click Event	 // Only For Demo Purpose
+
+	$('.add-fav').click(function(e) {
         e.preventDefault();
-        $(this).addClass("active"); // ADD TO WISH LIST BUTTON 
-		$(this).attr('data-original-title', 'Added to Wishlist');// Change Tooltip text 
+        $(this).addClass("active"); // ADD TO WISH LIST BUTTON
+		$(this).attr('data-original-title', 'Added to Wishlist');// Change Tooltip text
     });
 
-    // List view and Grid view 
+    // List view and Grid view
 
     $('.list-view').click(function(e) { //use a class, since your ID gets mangled
         e.preventDefault();
         $('.item').addClass("list-view"); //add the class to the clicked element
 		 $('.add-fav').attr("data-placement",$(this).attr("left"));
-		
-		
+
+
     });
 
     $('.grid-view').click(function(e) { //use a class, since your ID gets mangled
@@ -166,14 +169,14 @@ $(document).ready(function() {
     });
 
 
-    // product details color switch 
+    // product details color switch
     $(".swatches li").click(function() {
         $(".swatches li.selected").removeClass("selected");
         $(this).addClass('selected');
 
     });
-	
-	// Modal thumb link selected 
+
+	// Modal thumb link selected
     $(".modal-product-thumb a").click(function() {
         $(".modal-product-thumb a.selected").removeClass("selected");
         $(this).addClass('selected');
@@ -199,8 +202,8 @@ $(document).ready(function() {
         // For  mobile , ipad, tab
 
     } else {
-		
-			
+
+
 		 $(function() {
 
             //Keep track of last scroll
@@ -212,27 +215,27 @@ $(document).ready(function() {
                 if (ts > tshopScroll) {
                     // downward-scrolling
                     $('.navbar').addClass('stuck');
-             
+
                 } else {
                     // upward-scrolling
                     $('.navbar').removeClass('stuck');
                 }
-				
+
 				if (ts < 600) {
                     // downward-scrolling
                     $('.navbar').removeClass('stuck');
 					//alert()
-                } 
-				
-				
+                }
+
+
 				tshopScroll = ts;
-				
+
                 //Updates scroll position
-              
+
             });
         });
-		
-        
+
+
 
     } // end Desktop else
 
@@ -240,16 +243,16 @@ $(document).ready(function() {
 
 
     /*==================================
-	Parallax  
+	Parallax
 	====================================*/
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        // Detect ios User // 
+        // Detect ios User //
         $('.parallax-section').addClass('isios');
         $('.navbar-header').addClass('isios');
     }
 
     if (/Android|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        // Detect Android User // 
+        // Detect Android User //
         $('.parallax-section').addClass('isandroid');
     }
 
@@ -259,7 +262,7 @@ $(document).ready(function() {
         $('.parallaximg').addClass('ismobile');
 
     } else {
-        // All Desktop 
+        // All Desktop
         $(window).bind('scroll', function(e) {
             parallaxScroll();
         });
@@ -278,7 +281,7 @@ $(document).ready(function() {
 
 
     /*==================================
-	 Custom Scrollbar for Dropdown Cart 
+	 Custom Scrollbar for Dropdown Cart
 	====================================*/
     $(".scroll-pane").mCustomScrollbar({
         advanced: {
@@ -338,11 +341,12 @@ $(document).ready(function() {
             }
 
         })
+
     })
 
 
     /*=======================================================================================
-	Code for equal height - // your div will never broken if text get overflow  
+	Code for equal height - // your div will never broken if text get overflow
 	========================================================================================*/
 
     $(function() {
@@ -393,13 +397,13 @@ $(document).ready(function() {
 
 
 
-    // bootstrap tooltip 
+    // bootstrap tooltip
    // $('.tooltipHere').tooltip();
 	$('.tooltipHere').tooltip('hide')
 
 
     /*=======================================================================================
-		end  
+		end
 	========================================================================================*/
 
 

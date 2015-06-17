@@ -38,4 +38,3 @@
 //= require smoothproducts-thumb.js
 //= require_tree .
 //= require turbolinks
-
