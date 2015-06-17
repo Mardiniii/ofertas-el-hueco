@@ -392,23 +392,34 @@
 </div>
 <!-- /.Fixed navbar  -->
 
-<%# if flash[:alert] %>
-  <!-- <div class="container">
+<% if flash[:alert] %>
+  <div class="container-fluid alertOffset">
     <div class="row">
-      <div class="alert alert-danger text-center" role="alert"><%#=flash[:alert]%></div>
+      <div class="alert alert-danger text-center" role="alert">
+        <%=flash[:alert]%>
+        <span class="right-text text-right">X</span>
+      </div>
     </div>
-  </div> -->
-<%#end%>
+  </div>
+<%end%>
 
-<%# if flash[:notice] %>
-  <!-- <div class="container">
+<% if flash[:notice] %>
+  <div class="container-fluid alertOffset">
     <div class="row">
-      <div class="alert alert-success text-center" role="alert"><%#=flash[:notice]%></div>
+      <div class="alert alert-success text-center" role="alert">
+        <%=flash[:notice]%>
+        <span class="text-right">X</span>
+      </div>
     </div>
-  </div> -->
-<%#end%>
+  </div>
+<%end%>
 
 <%= yield %>
 
 </body>
 </html>
+
+<script>
+  $(".alert").fadeIn(500).css("opacity","0.85").delay( 6000 ).fadeOut( 1000 );
+  $('.alertOffset').on('click','.alert',function(){ $(this).remove() });
+</script>
