@@ -19,7 +19,7 @@
 				  <div>
 				    <%= article.text_field :code, class: "form-control input", required: true, placeholder: "Referencia o Codigo Del Producto" %>
 				  </div>
-				</div> 					
+				</div>
 			</div>
 
 			<div class="col-md-6">
@@ -32,10 +32,10 @@
 				  <div>
 				    <%= article.text_area :details, class: "form-control input", required: true, rows: 5, placeholder: "Detalles o Descripción del Producto" %>
 				  </div>
-				</div> 
+				</div>
 			</div>
-		</div>			
-	</div>   
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col-md-12">
@@ -43,11 +43,23 @@
 			  <div>
 			  	<h2 class="block-title-2"><span>status del producto</span></h2>
 			    <%= article.radio_button :status, "1", required: true%> <strong>Disponible</strong> <br>
-			    <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>  
+			    <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>
 			  </div>
 			</div>
 		</div>
-	</div> 	
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group reg-password">
+			  <div>
+			  	<h2 class="block-title-2"><span>status del producto</span></h2>
+			    <%= article.radio_button :status, "1", required: true%> <strong>Disponible</strong> <br>
+			    <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>
+			  </div>
+			</div>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col-md-12">
@@ -62,14 +74,14 @@
 					<strong><span><%= index+1 %></span></strong><br>
 						<%= image_tag image.image.url(:thumb) %>
 					</div>
-				<% end %>				
+				<% end %>
 		</div>
 	</div>
 	<div class="row" id="image-for-article">
 		<%= article.fields_for :article_images do |article_image| %>
-			<%= render 'article_image_form', :article_image => article_image %>	  	   			    	    
+			<%= render 'article_image_form', :article_image => article_image %>
 		<% end %>
 		<%= link_to_add_article_images "Agregar Imagen", article, :article_images %>
-	</div>		  	  	  
+	</div>
   <%= article.submit "Editar Artículo", :class => 'btn btn-block btn-lg btn-primary' %>
 <% end %>
