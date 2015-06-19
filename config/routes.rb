@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'whishlist_items/index'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root 'pages#home'
@@ -6,7 +8,9 @@ Rails.application.routes.draw do
   get 'stores' => 'pages#stores'
   get '/storehouses/articles/list_subcategories'
   get 'subcategory_products' => 'admin/subcategories#show_products'
+  get 'favoritos', to: 'whishlist_items#index'
 
+  resources :whishlist_items
 
   # devise_scope :user do
   #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
@@ -24,7 +28,9 @@ Rails.application.routes.draw do
   end
 
   namespace :storehouses do
-  	resources :articles
+    resources :articles do
+      get "bindstore", to: "articles#bindstore",  as: "bindstore"
+    end
   end
 
   resources :storehouses do
