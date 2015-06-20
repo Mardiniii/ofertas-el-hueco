@@ -23,7 +23,11 @@ class Admin::UserController < ApplicationController
       flash[:notice] = "El usuario #{@user.email} fue creado con éxito"
       redirect_to admin_user_index_path
     else
-      flash[:alert] = "Ha ocurrido un error y el usuario #{@user.email}, no ha sido almacenado"
+      if @user.errors.any?
+        flash[:alert] = @user.errors.full_messages.first
+      else
+        flash[:alert] = "Ha ocurrido un error y el usuario #{@user.email}, no ha sido almacenado"
+      end
       render :action => 'new'
     end
   end
@@ -75,7 +79,7 @@ class Admin::UserController < ApplicationController
 	def user_index
 		puts "#{params[:user]} - #{params[:tent]} - #{params[:admin]}!!!!!!!!!!!!!!!!!!!!!!!!!!"
 		# Filtro para seleccion un rol especifico de usuarios
-		if params[:user].present?			
+		if params[:user].present?
 		  @users = User.where(role: 0)
 		elsif params[:tent].present?
 		  @users = User.where(role: 1)
