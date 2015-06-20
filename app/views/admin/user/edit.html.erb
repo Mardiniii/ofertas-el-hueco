@@ -2,14 +2,17 @@
   <div class="row">
     <div class="breadcrumbDiv col-lg-12">
       <ul class="breadcrumb">
-        <li> <%= link_to "Home", root_path %></li>
-        <li> <%= link_to "Gestor de Tiendas", new_admin_user_path %></li>
-        <li> <%= link_to "Tiendas Registradas", admin_user_index_path %> </li>
-        <li class="active">Editar tienda</li>
+        <% if current_user.admin? %>
+          <%= render 'admin_nav' %>
+          <li class="active">Editar tienda</li>
+        <% else %>
+          <%= render 'tent_nav' %>
+          <li class="active">Editar tienda</li>
+        <% end %>
       </ul>
     </div>
   </div>
-  <%= form_for(@user, url: admin_user_index_path) do |user| %>
+  <%= form_for(@user, url: {action: "update", params: {id: @user.id}}) do |user| %>
           <%= user.fields_for :storehouse do |storehouse| %>
             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
               <h1 class="section-title-inner"><span><i class="fa fa-shopping-cart"></i> Información de Tienda - Editar Tienda </span></h1>
@@ -24,7 +27,7 @@
               <div class="form-group reg-email">
                 <div>
                   <%= storehouse.label :avatar, "IMAGEN DE LA TIENDA:" %>
-                  <%= storehouse.file_field :avatar, required: true, class: "input-file" %>
+                  <%= storehouse.file_field :avatar, class: "input-file" %>
                 </div>
               </div>
 

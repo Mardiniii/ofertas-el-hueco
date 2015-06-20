@@ -1,6 +1,7 @@
 class Admin::UserController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_only, :except => [:edit_user,:update_user]
+  before_action :admin_or_tent_only?, :only =>[:show, :edit, :update]
+  before_action :admin_only, :except => [:edit_user,:update_user,:show,:edit,:update]
 
 	def index
 		@storehouses = Storehouse.all
@@ -37,7 +38,8 @@ class Admin::UserController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "El usuario #{@user.email} fue actualizado con éxito"
-      redirect_to admin_user_index_path
+      redirect_to admin_user_index_path if current_user.admin?
+      redirect_to admin_user_path(@user) if current_user.tent?
     else
       flash[:alert] = "Ha ocurrido un error y el usuario #{@user.email}, no ha sido almacenado"
       render :action => 'edit'
@@ -75,7 +77,7 @@ class Admin::UserController < ApplicationController
 	def user_index
 		puts "#{params[:user]} - #{params[:tent]} - #{params[:admin]}!!!!!!!!!!!!!!!!!!!!!!!!!!"
 		# Filtro para seleccion un rol especifico de usuarios
-		if params[:user].present?			
+		if params[:user].present?
 		  @users = User.where(role: 0)
 		elsif params[:tent].present?
 		  @users = User.where(role: 1)
@@ -96,9 +98,16 @@ class Admin::UserController < ApplicationController
   		params.require(:user).permit(:email, :password, :password_confirmation, storehouse_attributes: [:id,:name,:address,:avatar,:description,:email,:telephone,:user_id,:whatsapp,:_destroy])
 		end
 
-		def admin_only
-	    unless current_user.admin?
-	      redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."
-	    end
-	  end
+    def admin_or_tent_only?
+      unless current_user.tent? || current_user.admin?
+        redirect_to root_path, :alert => "Lo sentimos, usted no es vendedor de articulos para acceder a esta ruta."
+      end
+    end
+
+    def admin_only
+      unless current_user.admin?
+        redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."
+      end
+    end
+
 end

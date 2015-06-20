@@ -2,10 +2,13 @@
   <div class="row">
     <div class="breadcrumbDiv col-lg-12">
       <ul class="breadcrumb">
-        <li> <%= link_to "Home", root_path %></li>
-        <li> <%= link_to "Gestor de Tiendas", new_admin_user_path %></li>
-        <li> <%= link_to "Tiendas Registradas", admin_user_index_path %> </li>
-        <li class="active"><%= @storehouse.name %></li>
+        <% if current_user.admin? %>
+          <%= render 'admin_nav' %>
+          <li class="active"><%= @storehouse.name %></li>
+        <% else %>
+          <%= render 'tent_nav' %>
+          <li class="active"><%= @storehouse.name %></li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -19,7 +22,11 @@
             <%= @user.email %>
           </p>
           <ul class="pager">
-            <li class="next pull-left"><%= link_to "&larr; Regresar".html_safe, admin_user_index_path %></li>
+            <% if current_user.admin? %>
+              <li class="next pull-left"><%= link_to "&larr; Regresar".html_safe, admin_user_index_path %></li>
+            <% else %>
+              <li class="next pull-left"><%= link_to "&larr; Regresar".html_safe, root_path %></li>
+            <% end %>
           </ul>
 
         </div>
