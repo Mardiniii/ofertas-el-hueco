@@ -256,6 +256,17 @@
             <li class="megamenu-content">
 
               <!-- megamenu-content -->
+              <% categories = Category.all.limit(6) %>
+              <% categories.each do |category| %>
+                <ul class="col-lg-2  col-sm-2 col-md-2  unstyled noMarginLeft">
+                  <li>
+                    <p> <strong> <%= category.name %> </strong> </p>
+                  </li>
+                  <% category.subcategories.sort_by(&:name).each do |subcategory| %>
+                    <li> <a href="#"> <%= subcategory.name %> </a> </li>
+                  <% end %>                                    
+                </ul>                
+              <% end %>
 
               <!-- <ul class="col-lg-2  col-sm-2 col-md-2  unstyled noMarginLeft">
                 <li>
