@@ -3,7 +3,5 @@ class WhishlistItemsController < ApplicationController
   def index
     @whishlist_items = User.find( current_user ).wishlist_items
   end
-  def nav_list
-    @whishlist_items = User.find( current_user ).wishlist_items.limit(5)
-  end
+
 end

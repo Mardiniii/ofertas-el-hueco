@@ -4,22 +4,23 @@
     <div class="breadcrumbDiv col-lg-12">
       <ul class="breadcrumb">
         <li> <a href="index.html">Home</a> </li>
-        <li> <a href="account.html">My Account</a> </li>
-        <li class="active"> Wishlist </li>
+        <li> <a href="account.html">Mi cuenta</a> </li>
+        <li class="active"> Mis favoritos </li>
       </ul>
     </div>
   </div> <!--/.row-->
 
   <div class="row">
     <div class="col-lg-9 col-md-9 col-sm-7">
-      <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-heart"></i> Wisthlist </span></h1>
+      <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-heart"></i> Favoritos </span></h1>
       <div class="row userInfo">
         <div class="col-lg-12">
-          <h2 class="block-title-2"> Update your wishlist if it has changed. </h2>
+          <h2 class="block-title-2">Actualiza tus favoritos si han cambiado.</h2>
         </div>
         <div class="col-xs-12 col-sm-12">
           <table>
             <tbody>
+
               <% @whishlist_items.each do |item| %>
 
               <tr class="CartProduct">

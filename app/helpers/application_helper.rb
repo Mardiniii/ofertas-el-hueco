@@ -11,6 +11,18 @@ module ApplicationHelper
 		@devise_mapping ||= Devise.mappings[:user]
 	end
 
+	def favorite_counter
+		User.find( current_user ).wishlist_items.count
+	end
+
+	def favorite_list
+    if favorite_counter > 0
+     	@favitems = User.find( current_user ).wishlist_items
+    else
+    	@favitems = ''
+    end
+  end
+
 	def link_to_add_article_images(name, f, association)
 		new_object = f.object.send(association).klass.new
 		id = new_object.object_id
@@ -35,3 +47,4 @@ module ApplicationHelper
 	end
 
 end
+
