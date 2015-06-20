@@ -2,6 +2,10 @@
   label {
     margin-right: 10px
   }
+
+  .categories div {
+    display: inline-block;
+  }
 </style>
 
 <div class="container headerOffset">
@@ -32,7 +36,7 @@
             <p><strong>Categoría a la que pertenece:</strong></p>
 
             <div class="form-group reg-email">
-              <div>
+              <div class="categories">
                 <% Category.all.each do |category| %>
                   <%= subcategory.radio_button :category_id, "#{category.id}" %>
                   <%= subcategory.label "#{category.name}" %>
