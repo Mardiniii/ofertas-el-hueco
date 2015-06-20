@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	def home
-		@storehouses = Storehouse.all
+		@storehouses = Storehouse.all		
 	end
 
 	def about_us
