@@ -415,24 +415,20 @@
 <!-- /.Fixed navbar  -->
 
 <% if flash[:alert] %>
-  <div class="container-fluid alertOffset">
-    <div class="row">
+  <div class="alertOffset">
       <div class="alert alert-danger text-center" role="alert">
         <%=flash[:alert]%>
         <span class="right-text text-right">X</span>
-      </div>
     </div>
   </div>
 <%end%>
 
 <% if flash[:notice] %>
-  <div class="container-fluid alertOffset">
-    <div class="row">
+  <div class="alertOffset">
       <div class="alert alert-success text-center" role="alert">
         <%=flash[:notice]%>
         <span class="text-right">X</span>
       </div>
-    </div>
   </div>
 <%end%>
 
