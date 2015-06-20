@@ -213,6 +213,13 @@
               <li> <%= link_to "Artículos Publicados", storehouses_articles_path  %> </li>
             </ul>
           </li>
+          <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> MI TIENDA <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Ver o Editar Mi Tienda</li>
+              <li> <%= link_to "Ver Tienda", admin_user_path(current_user.id)  %> </li>
+              <li> <%= link_to "Editar Tienda", edit_admin_user_path(current_user.id)  %> </li>
+            </ul>
+          </li>
         <% end %>
 
         <li class="dropdown megamenu-fullwidth"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> New Products <b class="caret"> </b> </a>
