@@ -401,6 +401,8 @@ $(document).ready(function() {
    // $('.tooltipHere').tooltip();
 	$('.tooltipHere').tooltip('hide')
 
+    $(".alert").css("opacity","0").fadeIn(500).css("opacity","0.85").delay( 6000 ).fadeOut( 1000 );
+    $('.alertOffset').on('click','.alert',function(){ $(this).remove() });
 
     /*=======================================================================================
 		end
