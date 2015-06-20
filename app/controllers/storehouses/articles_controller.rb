@@ -1,13 +1,17 @@
 class Storehouses::ArticlesController < ApplicationController
 	before_action :authenticate_user!
 	before_action :admin_or_tent_only?
+	respond_to :html, :json
 
 	def new
 		@article = Article.new
 		@article.article_images.build
 	end
-	
-	def create		
+
+	def create
+		puts "~~~~~~~~~~~~~~~~"
+		puts params
+		puts "~~~~~~~~~~~~~~~~"
 		@article = Article.create(article_params)
 		@storehouse = current_user.storehouse
 		@article.storehouse_id = @storehouse.id
@@ -30,7 +34,7 @@ class Storehouses::ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find(params[:id])
-		if @article.update(article_params) 
+		if @article.update(article_params)
 			if current_user.admin?
 				redirect_to admin_article_list_path
 			else
@@ -55,7 +59,7 @@ class Storehouses::ArticlesController < ApplicationController
 
 	private
 		def article_params
-  		params.require(:article).permit(:name, :code, :price, :details, :status, :subtitle, article_images_attributes: [:id,:caption,:image,:storehouse_id,:_destroy])
+  		params.require(:article).permit(:name, :code, :price, :details, :status, :subtitle, :subcategory_id, article_images_attributes: [:id,:caption,:image,:storehouse_id,:_destroy])
 		end
 
 		def admin_or_tent_only?

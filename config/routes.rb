@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get 'about_us' => 'pages#about_us'
+  get '/storehouses/articles/list_subcategories'
 
 
   # devise_scope :user do
