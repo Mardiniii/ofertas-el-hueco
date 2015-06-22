@@ -95,6 +95,7 @@ class Admin::UserController < ApplicationController
 
 	def article_index
 		@articles = Article.all
+    @articles = Article.paginate(:page => params[:page], :per_page => 10)
 	end
 
 	private
@@ -113,5 +114,4 @@ class Admin::UserController < ApplicationController
         redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."
       end
     end
-
 end

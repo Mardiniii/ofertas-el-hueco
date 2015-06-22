@@ -41,9 +41,16 @@ class Admin::SubcategoriesController < ApplicationController
     redirect_to admin_subcategories_path
   end
 
-  private
-  def subcategory_params
-    params.require(:subcategory).permit(:name, :category_id)
+  def show_products
+    @subcategory = Subcategory.find(params[:subcategory_id])
+    @category = @subcategory.category
+    @articles = @subcategory.articles
+    @articles = Article.paginate(:page => params[:page], :per_page => 12)
+    puts "-------------------->>>>>>>>>La subcategory es: #{@subcategory.name}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
   end
 
+  private
+    def subcategory_params
+      params.require(:subcategory).permit(:name, :category_id)
+    end
 end
