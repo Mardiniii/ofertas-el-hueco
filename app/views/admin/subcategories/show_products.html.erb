@@ -333,7 +333,7 @@
     <div class="col-lg-9 col-md-9 col-sm-12">
     
       <div class="w100 clearfix category-top">
-        <h2> TSHIRT </h2>
+        <h2> PRODUCTOS EN ESTA SECCIÓN </h2>
         <div class="categoryImage"> <img src="<%= asset_path('site/subcategory.jpg') %>" class="img-responsive" alt="img"> </div>
       </div><!--/.category-top-->
       
@@ -355,9 +355,10 @@
               <option value="price-desc">Sort by price: high to low</option>
             </select>
           </div> -->
-          <div class="change-view pull-right"> 
-          <a href="#" title="Grid" class="grid-view"> <i class="fa fa-th-large"></i> </a> 
-          <a href="#" title="List" class="list-view "><i class="fa fa-th-list"></i></a> </div>
+          <!-- <div class="change-view pull-right"> 
+            <a href="#" title="Grid" class="grid-view"> <i class="fa fa-th-large"></i> </a> 
+            <a href="#" title="List" class="list-view "><i class="fa fa-th-list"></i></a> 
+          </div> -->
         </div>
       </div>
       
@@ -402,7 +403,7 @@
       
       <div class="w100 categoryFooter">
         <div class="pagination pull-left no-margin-top">
-          <ul class="pagination no-margin-top">
+          <!-- <ul class="pagination no-margin-top">
             <li> <a href="#">«</a></li>
             <li class="active"><a href="#">1</a></li>
             <li> <a href="#">2</a></li>
@@ -410,10 +411,11 @@
             <li> <a href="#">4</a></li>
             <li> <a href="#">5</a></li>
             <li> <a href="#">»</a></li>
-          </ul>
+          </ul> -->
         </div>
         <div class="pull-right pull-right  col-sm-4 col-xs-12 no-padding text-right text-left-xs">
-          <p>Showing 1–450 of 12 results</p>
+          <%= will_paginate @articles, :previous_label => 'Página Anterior', :next_label => 'Página Siguiente' %>
+          <!-- <p>Showing 1–450 of 12 results</p> -->
         </div>
         </div>
       </div> <!--/.categoryFooter-->
