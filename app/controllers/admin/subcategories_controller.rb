@@ -1,4 +1,5 @@
 class Admin::SubcategoriesController < ApplicationController
+  before_action :admin_only
 
   def index
     @subcategories = Subcategory.all
@@ -49,11 +50,18 @@ class Admin::SubcategoriesController < ApplicationController
       @articles = Article.paginate(:page => params[:page], :per_page => 12)
     else
       @articles = nil
-    end    
+    end
   end
 
   private
     def subcategory_params
       params.require(:subcategory).permit(:name, :category_id)
     end
+
+  def admin_only
+    unless current_user.admin?
+      redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."
+    end
+  end
+
 end
