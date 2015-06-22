@@ -20,6 +20,7 @@ gem "figaro"
 gem 'omniauth-facebook'
 gem 'open_uri_redirections'
 gem 'jquery-turbolinks'
+gem 'will_paginate'
 
 group :development, :test do
 	gem 'guard'
