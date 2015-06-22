@@ -41,9 +41,12 @@ class Admin::SubcategoriesController < ApplicationController
     redirect_to admin_subcategories_path
   end
 
-  private
-  def subcategory_params
-    params.require(:subcategory).permit(:name, :category_id)
+  def show_products
+    
   end
 
+  private
+    def subcategory_params
+      params.require(:subcategory).permit(:name, :category_id)
+    end
 end
