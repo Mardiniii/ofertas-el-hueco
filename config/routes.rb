@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get 'about_us' => 'pages#about_us'
+  get 'stores' => 'pages#stores'
   get '/storehouses/articles/list_subcategories'
   get 'subcategory_products' => 'admin/subcategories#show_products'
 
