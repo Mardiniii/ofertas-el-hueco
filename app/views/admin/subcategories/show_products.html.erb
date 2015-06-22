@@ -377,42 +377,45 @@
       </div>
       
       <div class="row  categoryProduct xsResponse clearfix">
-        
-        <% @articles.each do |article| %>
-          <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
-            <div class="product">
-              <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
-              <i class="glyphicon glyphicon-heart"></i>
-              </a>              
-              <div class="image">  
-                <div class="quickview">
-                  <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Vista Rapida </a>
+        <% if @articles.blank? %>
+          <h1 class="text-center">Esta categoria no posee productos asociados</h1>
+        <% else %>
+          <% @articles.each do |article| %>
+            <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
+              <div class="product">
+                <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
+                <i class="glyphicon glyphicon-heart"></i>
+                </a>              
+                <div class="image">  
+                  <div class="quickview">
+                    <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Vista Rapida </a>
+                  </div>
+                  <%= link_to "<img src='#{article.article_images.first.image.url(:medium)}' alt='img' class='img-responsive'>".html_safe, storehouses_article_path(article.id) %>
+                  <!-- <div class="promotion"> <span class="new-product"> NEW</span> <span class="discount">15% OFF</span> </div> -->
                 </div>
-                <%= link_to "<img src='#{article.article_images.first.image.url(:medium)}' alt='img' class='img-responsive'>".html_safe, storehouses_article_path(article.id) %>
-                <!-- <div class="promotion"> <span class="new-product"> NEW</span> <span class="discount">15% OFF</span> </div> -->
-              </div>
-              <div class="description">
-                <h4><a href="product-details.html"><%= article.name %></a></h4>
-                <div class="grid-description">
-                  <p><%= article.details %></p>
+                <div class="description">
+                  <h4><a href="product-details.html"><%= article.name %></a></h4>
+                  <div class="grid-description">
+                    <p><%= article.details %></p>
+                  </div>
+                  <div class="list-description">
+                    <h4><%= link_to article.name, storehouses_article_path(article.id) %></h4>
+                    <p><%= article.details %> </p>
+                  </div>
                 </div>
-                <div class="list-description">
-                  <h4><%= link_to article.name, storehouses_article_path(article.id) %></h4>
-                  <p><%= article.details %> </p>
+                <div class="price"> <span>$ <%= number_to_currency(article.price, unit: "", precision: 0) %></span> </div>
+                <div class="action-control"> 
+                  <a class="btn btn-primary"> 
+                    <span class="add2cart">
+                      <i class="glyphicon glyphicon-shopping-cart"> </i> 
+                      + Lista de deseos 
+                    </span> 
+                  </a> 
                 </div>
-              </div>
-              <div class="price"> <span>$ <%= number_to_currency(article.price, unit: "", precision: 0) %></span> </div>
-              <div class="action-control"> 
-                <a class="btn btn-primary"> 
-                  <span class="add2cart">
-                    <i class="glyphicon glyphicon-shopping-cart"> </i> 
-                    + Lista de deseos 
-                  </span> 
-                </a> 
               </div>
             </div>
-          </div>
-        <% end %>   
+          <% end %>
+        <% end %>           
       </div> <!--/.categoryProduct || product content end-->
       
       <div class="w100 categoryFooter">
@@ -428,7 +431,9 @@
           </ul> -->
         </div>
         <div class="pull-right pull-right  col-sm-4 col-xs-12 no-padding text-right text-left-xs">
-          <%= will_paginate @articles, :previous_label => 'Página Anterior', :next_label => 'Página Siguiente' %>
+          <% if @articles != nil %>
+            <%= will_paginate @articles, :previous_label => 'Página Anterior', :next_label => 'Página Siguiente' %>
+          <% end %>          
           <!-- <p>Showing 1–450 of 12 results</p> -->
         </div>
         </div>

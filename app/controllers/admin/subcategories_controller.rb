@@ -45,8 +45,11 @@ class Admin::SubcategoriesController < ApplicationController
     @subcategory = Subcategory.find(params[:subcategory_id])
     @category = @subcategory.category
     @articles = @subcategory.articles
-    @articles = Article.paginate(:page => params[:page], :per_page => 12)
-    puts "-------------------->>>>>>>>>La subcategory es: #{@subcategory.name}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    if @articles.count > 0
+      @articles = Article.paginate(:page => params[:page], :per_page => 12)
+    else
+      @articles = nil
+    end    
   end
 
   private
