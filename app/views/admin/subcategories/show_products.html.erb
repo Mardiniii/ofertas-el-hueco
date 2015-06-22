@@ -338,7 +338,12 @@
       </div><!--/.category-top-->
       
       <div class="w100 productFilter clearfix">
-        <p class="pull-left"> Showing <strong>12</strong> products </p>
+        <% if @subcategory.articles.count > 1 || @subcategory.articles.count == 0 %>
+          <p class="pull-left"> Mostrando <strong><%= @subcategory.articles.count %></strong> artículos </p>
+        <% else %>
+          <p class="pull-left"> Mostrando <strong><%= @subcategory.articles.count %></strong> artículo </p>
+        <% end %>
+        
         <div class="pull-right ">
           <!-- <div class="change-order pull-right">
             <select class="form-control" name="orderby">
@@ -368,8 +373,8 @@
                 <div class="quickview">
                   <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Vista Rapida </a>
                 </div>
-                <a href="product-details.html"><img class="img-responsive" alt="img" src="<%= asset_path('product/30.jpg') %>"></a>
-                <div class="promotion"> <span class="new-product"> NEW</span> <span class="discount">15% OFF</span> </div>
+                <%= link_to "<img src='#{article.article_images.first.image.url(:medium)}' alt='img' class='img-responsive'>".html_safe, storehouses_article_path(article.id) %>
+                <!-- <div class="promotion"> <span class="new-product"> NEW</span> <span class="discount">15% OFF</span> </div> -->
               </div>
               <div class="description">
                 <h4><a href="product-details.html"><%= article.name %></a></h4>
@@ -377,98 +382,22 @@
                   <p><%= article.details %></p>
                 </div>
                 <div class="list-description">
-                  <p> Sed sed rutrum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus lacus, iaculis in ante vitae, viverra hendrerit ante. Aliquam vel fermentum elit. Morbi rhoncus, neque in vulputate facilisis, leo tortor sollicitudin odio, quis pellentesque lorem nisi quis enim. In dolor mi, hendrerit at blandit vulputate, congue a purus. Sed eget turpis sit amet orci euismod accumsan. Praesent sit amet placerat elit. </p>
+                  <h4><%= link_to article.name, storehouses_article_path(article.id) %></h4>
+                  <p><%= article.details %> </p>
                 </div>
               </div>
               <div class="price"> <span>$ <%= number_to_currency(article.price, unit: "", precision: 0) %></span> </div>
-              <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+              <div class="action-control"> 
+                <a class="btn btn-primary"> 
+                  <span class="add2cart">
+                    <i class="glyphicon glyphicon-shopping-cart"> </i> 
+                    + Lista de deseos 
+                  </span> 
+                </a> 
+              </div>
             </div>
           </div>
-        <% end %>
-
-
-        
-
-        <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
-          <div class="product">
-          <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
-          <i class="glyphicon glyphicon-heart"></i>
-          </a>
-          
-            <div class="image">  
-          <div class="quickview">
-              <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img class="img-responsive" alt="img" src="<%= asset_path('product/30.jpg') %>"></a>
-              <div class="promotion"> <span class="new-product"> NEW</span> <span class="discount">15% OFF</span> </div>
-            </div>
-            <div class="description">
-              <h4><a href="product-details.html">aliquam erat volutpat</a></h4>
-              <div class="grid-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-              </div>
-              <div class="list-description">
-                <p> Sed sed rutrum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus lacus, iaculis in ante vitae, viverra hendrerit ante. Aliquam vel fermentum elit. Morbi rhoncus, neque in vulputate facilisis, leo tortor sollicitudin odio, quis pellentesque lorem nisi quis enim. In dolor mi, hendrerit at blandit vulputate, congue a purus. Sed eget turpis sit amet orci euismod accumsan. Praesent sit amet placerat elit. </p>
-              </div>
-              <span class="size">XL / XXL / S </span> </div>
-            <div class="price"> <span>$25</span> </div>
-            <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
-          </div>
-        </div>
-        <!--/.item-->
-
-        <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
-          <div class="product">
-          <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
-          <i class="glyphicon glyphicon-heart"></i>
-          </a>
-          
-            <div class="image">  
-          <div class="quickview">
-              <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img class="img-responsive" alt="img" src="<%= asset_path('product/31.jpg') %>"></a>
-              <div class="promotion"> <span class="discount">15% OFF</span> </div>
-            </div>
-            <div class="description">
-              <h4><a href="product-details.html">ullamcorper suscipit lobortis </a></h4>
-              <div class="grid-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-              </div>
-              <div class="list-description">
-                <p> Sed sed rutrum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus lacus, iaculis in ante vitae, viverra hendrerit ante. Aliquam vel fermentum elit. Morbi rhoncus, neque in vulputate facilisis, leo tortor sollicitudin odio, quis pellentesque lorem nisi quis enim. In dolor mi, hendrerit at blandit vulputate, congue a purus. Sed eget turpis sit amet orci euismod accumsan. Praesent sit amet placerat elit. </p>
-              </div>
-              <span class="size">XL / XXL / S </span> </div>
-            <div class="price"> <span>$25</span> </div>
-            <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
-          </div>
-        </div>
-        <!--/.item-->
-
-        <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
-          <div class="product">
-          <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
-          <i class="glyphicon glyphicon-heart"></i>
-          </a>
-          
-            <div class="image">  
-          <div class="quickview">
-              <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal" data-toggle="modal"> Quick View </a>
-             </div><a href="product-details.html"><img class="img-responsive" alt="img" src="<%= asset_path('product/34.jpg') %>"></a>
-              <div class="promotion"> <span class="new-product"> NEW</span> </div>
-            </div>
-            <div class="description">
-              <h4><a href="product-details.html">demonstraverunt lectores </a></h4>
-              <div class="grid-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-              </div>
-              <div class="list-description">
-                <p> Sed sed rutrum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus lacus, iaculis in ante vitae, viverra hendrerit ante. Aliquam vel fermentum elit. Morbi rhoncus, neque in vulputate facilisis, leo tortor sollicitudin odio, quis pellentesque lorem nisi quis enim. In dolor mi, hendrerit at blandit vulputate, congue a purus. Sed eget turpis sit amet orci euismod accumsan. Praesent sit amet placerat elit. </p>
-              </div>
-              <span class="size">XL / XXL / S </span> </div>
-            <div class="price"> <span>$25</span> <span class="old-price">$75</span> </div>
-            <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
-          </div>
-        </div>
-        <!--/.item-->      
+        <% end %>   
       </div> <!--/.categoryProduct || product content end-->
       
       <div class="w100 categoryFooter">
