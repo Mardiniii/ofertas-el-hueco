@@ -42,7 +42,10 @@ class Admin::SubcategoriesController < ApplicationController
   end
 
   def show_products
-    
+    @subcategory = Subcategory.find(params[:subcategory_id])
+    @category = @subcategory.category
+    @articles = @subcategory.articles
+    puts "-------------------->>>>>>>>>La subcategory es: #{@subcategory.name}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
   end
 
   private

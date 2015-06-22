@@ -263,7 +263,7 @@
                     <p> <strong> <%= category.name %> </strong> </p>
                   </li>
                   <% category.subcategories.sort_by(&:name).each do |subcategory| %>
-                    <li> <a href="#"> <%= subcategory.name %> </a> </li>
+                    <li> <%= link_to subcategory.name, subcategory_products_path(:subcategory_id => subcategory.id) %></li>
                   <% end %>                                    
                 </ul>                
               <% end %>
