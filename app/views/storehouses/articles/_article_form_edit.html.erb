@@ -53,9 +53,33 @@
 		<div class="col-md-12">
 			<div class="form-group reg-password">
 			  <div>
-			  	<h2 class="block-title-2"><span>status del producto</span></h2>
-			    <%= article.radio_button :status, "1", required: true%> <strong>Disponible</strong> <br>
-			    <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>
+			  	<h2 class="block-title-2"><span>categorías</span></h2>
+			    <div id="categories">
+			      <% Category.all.each do |category| %>
+			        <%= radio_button_tag :category_id, "#{category.id}", nil, :class => "#{category.name}" %>
+			        <%= label_tag "#{category.name}",nil %>
+			      <% end %>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group reg-password">
+			  <div>
+			  	<h2 class="block-title-2"><span>subcategorías de <span class="category"></span></span></h2>
+			    <div id="subcategories">
+			    	<% Category.all.each do |category| %>
+			    		<div class="<%= category.name %> hidden">
+			    			<% category.subcategories.each do |subcategory| %>
+			    				<%= article.radio_button :subcategory_id, "#{subcategory.id}", :class => "#{subcategory.name}" %>
+			    				<%= article.label :subcategory_id, "#{subcategory.name}" %>
+			    			<% end %>
+			    		</div>
+			    	<% end %>
+			    </div>
 			  </div>
 			</div>
 		</div>
@@ -85,3 +109,22 @@
 	</div>
   <%= article.submit "Editar Artículo", :class => 'btn btn-block btn-lg btn-primary' %>
 <% end %>
+
+<script>
+	$(document).ready(function(){
+
+		console.log("#categories .<%= @article.subcategory.category.name %>")
+
+		$("#categories .<%= @article.subcategory.category.name %>").prop("checked", true)
+
+		$("#subcategories .<%= @article.subcategory.category.name %>").removeClass("hidden")
+
+		$("#categories input").on("change", function(){
+				var category = $(this).attr('class')
+				$("span.category").html(category);
+				console.log($("#subcategories .Swag"));
+				$("#subcategories div").addClass("hidden")
+				$("#subcategories ." + category).removeClass("hidden")
+		})
+	})
+</script>

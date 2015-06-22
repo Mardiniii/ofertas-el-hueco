@@ -21,4 +21,5 @@ class Article < ActiveRecord::Base
 	has_many :article_images, dependent: :destroy
 	accepts_nested_attributes_for :article_images, :limit => 5, :reject_if => :all_blank, allow_destroy: true
   validates_associated :article_images
+  validates :name, :subcategory, :status, :code, :price, :details, :subtitle, presence: true
 end
