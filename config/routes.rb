@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'whishlist_items/index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -27,7 +26,7 @@ Rails.application.routes.draw do
     patch 'update_user' => 'user#update_user'
   end
 
-  namespace :storehouses do
+   namespace :storehouses do
     resources :articles do
       get "bindstore", to: "articles#bindstore",  as: "bindstore"
     end
@@ -37,3 +36,6 @@ Rails.application.routes.draw do
     get 'subcategories_list', on: :member
   end
 end
+
+# http://localhost:3000/storehouses/json/1.json
+# http://localhost:3000/storehouses/article/json/1.json

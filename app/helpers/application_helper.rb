@@ -12,7 +12,8 @@ module ApplicationHelper
 	end
 
 	def favorite_counter
-		User.find( current_user ).wishlist_items.count
+		0
+    User.find( current_user ).wishlist_items.count if user_signed_in?
 	end
 
 	def favorite_list
@@ -22,6 +23,18 @@ module ApplicationHelper
     	@favitems = ''
     end
   end
+
+  def favorite_total_price
+	   total_price = 0
+     if favorite_counter > 0
+       favorite_list
+       @favitems.each do |item|
+        total_price += item.article.price
+       end
+     end
+     number_with_delimiter(total_price, :delimiter => ',')
+
+	end
 
 	def link_to_add_article_images(name, f, association)
 		new_object = f.object.send(association).klass.new
