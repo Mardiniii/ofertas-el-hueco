@@ -26,4 +26,8 @@ Rails.application.routes.draw do
   namespace :storehouses do
   	resources :articles
   end
+
+  resources :storehouses do
+    get 'subcategories_list', on: :member
+  end
 end
