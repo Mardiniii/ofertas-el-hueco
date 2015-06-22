@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   get 'subcategory_products' => 'admin/subcategories#show_products'
   get 'favoritos', to: 'whishlist_items#index'
 
-  resources :whishlist_items
+  resources :whishlist_items do
+    get 'create', to: 'whishlist_items#create'
+  end
+
 
   # devise_scope :user do
   #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session

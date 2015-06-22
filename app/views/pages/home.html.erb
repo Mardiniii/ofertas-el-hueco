@@ -113,12 +113,13 @@
               <!-- <span class="size">XL / XXL / S </span> --> </div>
             <div class="price"> <span>$ <%= number_to_currency(article.price, unit: "", precision: 0) %></span> </div>
             <div class="action-control">
-              <a class="btn btn-primary">
+              <!-- <a class="btn btn-primary">
                 <span class="add2cart">
                   <i class="glyphicon glyphicon-shopping-cart"> </i>
                   + Lista de deseos
                 </span>
-              </a>
+              </a> -->
+              <%= link_to "<span class='add2cart'><i class='glyphicon glyphicon-shopping-cart'></i> Lista de deseos</span>".html_safe, whishlist_item_create_path(article), class: "btn btn-primary" %>
             </div>
           </div>
         </div>
