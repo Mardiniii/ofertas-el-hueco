@@ -113,5 +113,4 @@ class Admin::UserController < ApplicationController
         redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."
       end
     end
-
 end
