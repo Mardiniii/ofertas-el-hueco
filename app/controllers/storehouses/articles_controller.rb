@@ -1,6 +1,6 @@
 class Storehouses::ArticlesController < ApplicationController
-	before_action :authenticate_user!
-	before_action :admin_or_tent_only?
+	before_action :authenticate_user!, :except => [:show]
+	before_action :admin_or_tent_only?, :except => [:show]
 	respond_to :html, :json
 
 	def new
