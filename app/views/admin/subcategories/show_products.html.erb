@@ -42,6 +42,20 @@
                   </ul>
                 </li>
               </ul>
+
+              <% Category.all.each do |category| %>
+                <% unless category.id == @category.id %>                 
+                  <ul class="nav nav-pills nav-stacked tree">
+                    <li class="active dropdown-tree" > <a class="dropdown-tree-a"> <span class="badge pull-right"><%= category.subcategories.count %></span> <%= category.name.upcase %> </a>
+                      <ul class="category-level-2 dropdown-menu-tree">
+                        <% category.subcategories.each do |subcategory| %>
+                          <li><%= link_to subcategory.name, subcategory_products_path(:subcategory_id => subcategory.id) %></li>
+                        <% end %>
+                      </ul>
+                    </li>
+                  </ul>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div> <!--/Category menu end--> 
