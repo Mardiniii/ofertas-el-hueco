@@ -19,4 +19,19 @@ module ApplicationHelper
 		end
 		link_to(name, '#', class: "Add_field btn btn-warning", data: {id: id, fields: fields.gsub("\n","")})
 	end
+
+	def storehouse_categories(storehouse)
+		category_hash = {}
+		storehouse.articles.each do |article|
+			if !category_hash.include?(article.subcategory.category)
+				category_hash[article.subcategory.category] = [article.subcategory]
+			else
+				if !category_hash[article.subcategory.category].include?(article.subcategory)
+					category_hash[article.subcategory.category].push(article.subcategory)
+				end
+			end
+		end
+		category_hash
+	end
+
 end
