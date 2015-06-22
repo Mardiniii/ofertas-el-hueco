@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<% if current_user.user? || current_user.tent? %>
-				<h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Crear Nuevo Producto Para <%= current_user.storehouse.name %></span></h1>
+				<h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Editar Producto Para <%= current_user.storehouse.name %></span></h1>
 			<% end %>
 			<div class="col-md-6">
 				<div class="form-group reg-email">
@@ -42,8 +42,13 @@
 			<div class="form-group reg-password">
 			  <div>
 			  	<h2 class="block-title-2"><span>status del producto</span></h2>
-			    <%= article.radio_button :status, "1", required: true%> <strong>Disponible</strong> <br>
-			    <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>
+			  	<% if @article.status == true %>
+				    <%= article.radio_button :status, "1", required: true, :checked => true %> <strong>Disponible</strong> <br>
+				    <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>
+				  <% else %>
+				  	<%= article.radio_button :status, "1", required: true %> <strong>Disponible</strong> <br>
+				    <%= article.radio_button :status, "0", required: true, :checked => true %>  <strong>No Disponible</strong> <br>
+				  <% end %>
 			  </div>
 			</div>
 		</div>

@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :admin_only
 
   def index
     @categories = Category.all
@@ -50,5 +51,10 @@ class Admin::CategoriesController < ApplicationController
     params.require(:category).permit(:name)
   end
 
+  def admin_only
+    unless current_user.admin?
+      redirect_to root_path, :alert => "Lo sentimos, usted no posee permisos de administrador para acceder a esta ruta."
+    end
+  end
 
 end
