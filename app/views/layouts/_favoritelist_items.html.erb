@@ -3,7 +3,7 @@
   <table>
     <tbody>
 
-      <% favorite_list %>
+      <% favorite_list if user_signed_in? %>
       <% if favorite_counter > 0 %>
         <% @favitems.each do |item| %>
         <tr class="miniCartProduct">

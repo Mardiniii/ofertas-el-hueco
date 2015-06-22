@@ -15,7 +15,9 @@ class WhishlistItemsController < ApplicationController
   def destroy
     @whishlist_item = WishlistItem.find(params[:id])
     @whishlist_item.destroy
-    redirect_to :index
+    redirect_to :back
+    rescue ActionController::RedirectBackError
+    redirect_to root_path
   end
 
   private

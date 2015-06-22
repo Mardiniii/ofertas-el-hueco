@@ -46,7 +46,7 @@
                 </td>
                 <td style="width:40%" class="delete">
 
-                  <%= link_to '<i class="glyphicon glyphicon-trash fa-2x"></i> '.html_safe, whishlist_item_path(item.article),
+                  <%= link_to '<i class="glyphicon glyphicon-trash fa-2x"></i> '.html_safe, whishlist_item_path(item.id),
                   method: :delete,
                   data: { confirm: '¿seguro que quieres borrarlo?' } %>
                 </td>
