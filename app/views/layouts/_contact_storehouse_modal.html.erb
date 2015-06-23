@@ -1,68 +1,51 @@
-<div class="modal fade" id="article-storebind-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="article-storebind-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <button aria-hidden="true" data-dismiss="modal" class="close" type="button"> × </button>
-            <div class="col-lg-5 col-md-5 col-sm-5  col-xs-12">
-                <div class="main-image  col-lg-12 no-padding style3">
-                    <a class="store-largeimg-link" href="">
-                    <img src="" class="img-responsive store-largeimg" alt="img">
-                    </a>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3 class="text-center m-top-1">Información de tienda:</h3>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <img src="" class="img-responsive store-largeimg" alt="img">
+              </div>
+              <div class="col-md-6">
+                  <h1 class="store-title"></h1>
+                  <h3 class="store-telephone"><i class='fa fa-phone'></i><i class="small"> telefono</i><br><span></span></h3>
+                  <h3 class="store-whatsapp"><i class='fa fa-whatsapp'></i><i class="small"> whatsapp</i><br><span></span></h3>
+                  <h3 class="store-email"><i class='fa fa-envelope'></i><i class="small"> email</i><br><span></span></h3>
+                  <h3 class="store-adress"><i class='fa fa-map-marker'></i><i class="small"> dirección:</i><br><span></span></h3>
+                  <div class="store-description">
+                    <p></p>
                 </div>
             </div>
-            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 modal-details no-padding">
-                <div class="modal-details-inner">
-                    <h1 class="store-title"></h1>
-                    <h3 class="store-telephone"></h3>
-                    <div class="store-price"> <span class="price-sales"> $70</span></div>
-                    <div class="details-description">
-                        <p></p>
-                    </div>
-                    <div class="cart-actions">
-                        <div class="addto">
-                            <a class="link-wishlist wishlist add-to-wishlist">
-                                <i class="glyphicon glyphicon-shopping-cart"> </i> Lista de deseos
-                            </a>
-                        </div>
-                    </div>
-                    <div class="store-share clearfix">
-                        <p> Compartir </p>
-                        <div class="socialIcon">
-                            <a href="#"> <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#"> <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#"> <i class="fa fa-google-plus"></i>
-                            </a>
-                            <a href="#"> <i class="fa fa-pinterest"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
         </div>
     </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal">Cerrar</button>
+    </div>
+</div>
+</div>
 </div>
 <script>
     $( "body" ).on( "click", ".btn-article-storebind", function() {
         articleId = $(this).attr('modal-id').split('article-')[1]
-        // /storehouses/articles/:article_id/bindstore
         $.getJSON( "/storehouses/articles/"+ articleId +"/bindstore.json" ).done(function( json ) {
             console.log(json);
-            // $('#article-storebind-modal .product-largeimg-link').attr('href', "/storehouses/articles" + json.id )
-            // $('#article-storebind-modal .product-largeimg-link img').attr('src', json.image )
-            // $('#article-storebind-modal .add-to-wishlist').attr('href', "/whishlist_items/" + json.id + "/create" )
 
+            $('#article-storebind-modal .store-largeimg').attr('src', json.image )
             $('#article-storebind-modal .store-title').text(json.name)
-            $('#article-storebind-modal .store-telephone').text(json.telephone)
-            // $('#article-storebind-modal .product-code').text('Código de producto: '+ json.code)
-            // $('#article-storebind-modal .price-sales').text('$'+ json.price_with_coma)
-            // $('#article-storebind-modal .details-description p').text(json.details)
+            $('#article-storebind-modal .store-telephone span').text(" "+ json.awesome_telephone)
+            $('#article-storebind-modal .store-whatsapp span').text(" "+ json.awesome_whatsapp)
+            $('#article-storebind-modal .store-email span').text(" "+ json.email)
+            $('#article-storebind-modal .store-adress span').text(" "+ json.address)
+            $('#article-storebind-modal .store-description p').text(" "+ json.description)
 
             $('#article-storebind-modal').modal('show')
         }).fail(function( jqxhr, textStatus, error ) {
             var err = textStatus + ", " + error;
             console.log( "Request Failed: " + err );
         });
-  });
+    });
 </script>
