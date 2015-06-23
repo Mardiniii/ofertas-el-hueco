@@ -48,7 +48,7 @@
 
     $( "body" ).on( "click", ".btn-quickview", function() {
         articleId = $(this).attr('modal-id').split('article-')[1]
-        $.getJSON( "storehouses/articles/" + articleId + ".json" ).done(function( json ) {
+        $.getJSON( "/storehouses/articles/" + articleId + ".json" ).done(function( json ) {
             $('#product-details-modal .product-largeimg-link').attr('href', "/storehouses/articles/" + json.id )
             $('#product-details-modal .product-largeimg-link img').attr('src', json.image )
             $('#product-details-modal .add-to-wishlist').attr('href', "/whishlist_items/" + json.id + "/create" )
