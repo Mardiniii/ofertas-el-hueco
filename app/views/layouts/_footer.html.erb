@@ -3,35 +3,29 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
-          <h3> Support </h3>
+          <h3> Servicio al cliente </h3>
           <ul>
             <li class="supportLi">
-              <p> Lorem ipsum dolor sit amet, consectetur </p>
+              <p> Puedes contactar el equipo de Ventas El Hueco en el siguiente número telefónico: </p>
               <h4> <a class="inline" href="callto:+8801680531352"> <strong> <i class="fa fa-phone"> </i> 88 01680 531352 </strong> </a> </h4>
               <h4> <a class="inline" href="mailto:help@tshopweb.com"> <i class="fa fa-envelope-o"> </i> help@tshopweb.com </a> </h4>
             </li>
           </ul>
         </div>
         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-          <h3> Shop </h3>
+          <h3> Ir a </h3>
           <ul>
-            <li> <a href="index.html"> Home </a> </li>
-            <li> <a href="category.html"> Category </a> </li>
-            <li> <a href="sub-category.html"> Sub Category </a> </li>
+            <li><%= link_to 'Ver Tiendas', stores_path %></li>
+            <% Category.order("RANDOM()").limit(5).each do |category| %>
+              <li><%= link_to category.name.capitalize, stores_path %></li>
+            <% end %>
 
           </ul>
         </div>
         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-          <h3> Information </h3>
-          <ul>
-            <li> <a href="product-details.html"> Product Details </a> </li>
-                <li> <a href="product-details-style2.html"> Product Details Version 2 </a> </li>
-                <li> <a href="cart.html"> Cart </a> </li>
-                <li> <a href="about-us.html"> About us </a> </li>
-            <li> <a href="about-us-2.html"> About us 2 </a> </li>
-            <li> <a href="contact-us.html"> Contact us </a> </li>
-            <li> <a href="contact-us-2.html"> Contact us 2 </a> </li>
-            <li> <a href="terms-conditions.html"> Terms &amp; Conditions </a> </li>
+          <h3> Información </h3>
+          <ul>          
+            <li><%= link_to 'Sobre Nosotros', about_us_path %></li>
           </ul>
         </div>
         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
@@ -71,7 +65,7 @@
 
   <div class="footer-bottom">
     <div class="container">
-      <p class="pull-left"> &copy; TSHOP 2014. All right reserved. </p>
+      <p class="pull-left"> Developed By: <strong><a class="kaizen" href="http://kaizendevs.co" target="_blank">Kaizen Devs</a></strong> </p>
       <div class="pull-right paymentMethodImg"> <img height="30" class="pull-right" src="<%= asset_path('site/payment/master_card.png') %>" alt="img" > <img height="30" class="pull-right" src="<%= asset_path('site/payment/paypal.png') %>" alt="img" > <img height="30" class="pull-right" src="<%= asset_path('site/payment/american_express_card.png') %>" alt="img" > <img  height="30" class="pull-right" src="<%= asset_path('site/payment/discover_network_card.png') %>" alt="img" > <img  height="30" class="pull-right" src="<%= asset_path('site/payment/google_wallet.png') %>" alt="img" > </div>
     </div>
   </div>
