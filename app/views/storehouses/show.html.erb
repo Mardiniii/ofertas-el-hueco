@@ -70,12 +70,12 @@
             	          <% end %>
             	        </ul>
             	      </li>
-            	    </ul>              	  
+            	    </ul>
               	<% end %>
               <% end %>
             </div>
           </div>
-        </div> <!--/Category menu end-->        
+        </div> <!--/Category menu end-->
       </div>
     </div>
 
@@ -85,7 +85,7 @@
         <h2> <%= @storehouse.name %> </h2>
         <div class="categoryImage"> <img src="<%= asset_path('site/subcategory.jpg') %>" class="img-responsive" alt="img"> </div>
       </div><!--/.category-top-->
-			
+
 			<% if @store_visit == false %>
 	      <div class="w100 productFilter clearfix">
 	        <% if @subcategory.articles.count > 1 || @subcategory.articles.count == 0 %>
@@ -93,7 +93,7 @@
 	        <% else %>
 	          <p class="pull-left"> Mostrando <strong><%= @subcategory.articles.count %></strong> artículo </p>
 	        <% end %>
-	        <div class="pull-right ">          
+	        <div class="pull-right ">
 	        </div>
 	      </div>
       <% end %>
@@ -102,14 +102,12 @@
         <% if @store_visit %>
           <h1 class="text-center">Seleccion una categoría en el panel de la izquierda para ver los productos que <%= @storehouse.name %> tiene a la venta</h1>
         <% elsif @articles.blank? %>
-        	<h1 class="text-center">Esta categoria no posee productos asociados</h1>        	
+        	<h1 class="text-center">Esta categoria no posee productos asociados</h1>
         <% else %>
           <% @articles.each do |article| %>
             <div class="item col-sm-4 col-lg-4 col-md-4 col-xs-6">
               <div class="product">
-                <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip" class="add-fav tooltipHere">
-                <i class="glyphicon glyphicon-heart"></i>
-                </a>
+                <%= link_to "<i class='glyphicon glyphicon-heart'></i>".html_safe, whishlist_item_create_path(article), class: "add-fav" %>
                 <div class="image">
                   <div class="quickview">
                     <a class="btn btn-lg btn-quickview" modal-id="article-<%= article.id %>" > Vista Rápida</a>
@@ -129,12 +127,7 @@
                 </div>
                 <div class="price"> <span>$ <%= number_to_currency(article.price, unit: "", precision: 0) %></span> </div>
                 <div class="action-control">
-                  <a class="btn btn-primary">
-                    <span class="add2cart">
-                      <i class="glyphicon glyphicon-shopping-cart"> </i>
-                      + Lista de deseos
-                    </span>
-                  </a>
+                  <%= link_to "<span class='add2cart'><i class='glyphicon glyphicon-shopping-cart'></i> Lista de deseos</span>".html_safe, whishlist_item_create_path(article), class: "btn btn-primary" %>
                 </div>
               </div>
             </div>

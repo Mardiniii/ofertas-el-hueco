@@ -1,0 +1,51 @@
+<div id="article-storebind-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="col-md-6 col-md-offset-3 m-top-1">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3 class="text-center m-top-1">Información de tienda:</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="" class="img-responsive store-largeimg" alt="img">
+          </div>
+          <div class="col-md-6">
+          <div style="padding:2em;">
+              <h1 class="store-title"></h1>
+              <h3 class="store-telephone"><i class='fa fa-phone'></i><i class="small"> telefono</i><br><span></span></h3>
+              <h3 class="store-whatsapp"><i class='fa fa-whatsapp'></i><i class="small"> whatsapp</i><br><span></span></h3>
+              <h3 class="store-email"><i class='fa fa-envelope'></i><i class="small"> email</i><br><span></span></h3>
+              <h3 class="store-adress"><i class='fa fa-map-marker'></i><i class="small"> dirección:</i><br><span></span></h3>
+              <div class="store-description">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $( "body" ).on( "click", ".btn-article-storebind", function() {
+    articleId = $(this).attr('modal-id').split('article-')[1]
+    $.getJSON( "/storehouses/articles/"+ articleId +"/bindstore.json" ).done(function( json ) {
+      console.log(json);
+      $('#article-storebind-modal .store-largeimg').attr('src', json.image )
+      $('#article-storebind-modal .store-title').text(json.name)
+      $('#article-storebind-modal .store-telephone span').text(" "+ json.awesome_telephone)
+      $('#article-storebind-modal .store-whatsapp span').text(" "+ json.awesome_whatsapp)
+      $('#article-storebind-modal .store-email span').text(" "+ json.email)
+      $('#article-storebind-modal .store-adress span').text(" "+ json.address)
+      $('#article-storebind-modal .store-description p').text(" "+ json.description)
+      $('#article-storebind-modal').modal('show')
+    }).fail(function( jqxhr, textStatus, error ) {
+      var err = textStatus + ", " + error;
+      console.log( "Request Failed: " + err );
+    });
+  });
+</script>

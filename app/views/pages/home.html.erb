@@ -76,9 +76,7 @@
       <% @last_articles.each do |article| %>
         <div class="item">
           <div class="product">
-            <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
-              <i class="glyphicon glyphicon-heart"></i>
-            </a>
+              <%= link_to "<i class='glyphicon glyphicon-heart'></i>".html_safe, whishlist_item_create_path(article), class: "add-fav" %>
             <div class="image">
               <div class="quickview">
                 <a title="Quick View" class="btn btn-xs btn-quickview" modal-id="article-<%= article.id %>"> Vista Rápida </a>

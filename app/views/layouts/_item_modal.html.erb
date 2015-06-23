@@ -1,12 +1,11 @@
 <div class="modal fade" id="product-details-modal" tabindex="-1" role="dialog" aria-hidden="true">
-<div>
     <div class="modal-dialog">
         <div class="modal-content">
             <button aria-hidden="true" data-dismiss="modal" class="close" type="button"> × </button>
             <div class="col-lg-5 col-md-5 col-sm-5  col-xs-12">
                 <div class="main-image  col-lg-12 no-padding style3">
                     <a class="product-largeimg-link" href="">
-                    <img src="images/zoom/zoom1.jpg" class="img-responsive product-largeimg" alt="img">
+                    <img src="" class="img-responsive product-largeimg" alt="img">
                     </a>
                 </div>
             </div>
@@ -49,7 +48,7 @@
 
     $( "body" ).on( "click", ".btn-quickview", function() {
         articleId = $(this).attr('modal-id').split('article-')[1]
-        $.getJSON( "storehouses/articles/" + articleId + ".json" ).done(function( json ) {
+        $.getJSON( "/storehouses/articles/" + articleId + ".json" ).done(function( json ) {
             $('#product-details-modal .product-largeimg-link').attr('href', "/storehouses/articles/" + json.id )
             $('#product-details-modal .product-largeimg-link img').attr('src', json.image )
             $('#product-details-modal .add-to-wishlist').attr('href', "/whishlist_items/" + json.id + "/create" )
