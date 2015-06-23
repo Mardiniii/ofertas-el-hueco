@@ -24,7 +24,7 @@
               <% @whishlist_items.each do |item| %>
 
               <tr class="CartProduct">
-                <td style="width:10%" id="item-<%= item.id  %>" class="CartProductThumb">
+                <td style="width:10%" class="CartProductThumb">
                   <div>
                     <%= link_to "<img src=' #{item.article.article_images.first.image.url}' alt='img'>".html_safe , storehouses_article_path( item.article)  %>
                   </div>
@@ -37,7 +37,7 @@
                   <div class="price"> <span>$<%=  item.article.price %></span> </div>
                 </div></td>
                 <td style="width:15%">
-                  <a class="btn btn-primary">
+                  <a id="article-<%= item.id %>" class="btn btn-primary btn-housestore-info">
                     <span class="add2cart">
                       <!-- <i class="glyphicon glyphicon-shopping-cart"> </i>  -->
                       Información de vendedor
@@ -85,3 +85,24 @@
 </div> <!-- /main-container -->
 
 <div class="gap"> </div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center m-top-2">
+    <a class="btn btn-large  btn-default btn-lg text-center ajax-text" href="">Test Ajax</a>
+      <script>
+        $( "body" ).on( "click", ".btn-housestore-info", function() {
+          articleId = $(this).attr('id');
+          articleId = articleId.split('article-')[1];
+          console.log("article-id: " + articleId )
+          $.getJSON( "storehouses/articles/" + articleId + "/bindstore.json", function( json ) {
+            console.log( "JSON Data: " + json.name );
+           });
+        });
+      </script>
+    </div>
+  </div>
+</div>

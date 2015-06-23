@@ -10,8 +10,9 @@ class WhishlistItemsController < ApplicationController
       @whishlist_item.article_id = params[:whishlist_item_id]
       @whishlist_item.user_id = current_user.id
       @whishlist_item.save
+      flash[:notice] = "Se ha agregado el producto"
     else
-      flash[:alert] = "Ya agregaste este item a tu lista"
+      flash[:alert] = "Ya agregaste este producto a tu lista"
     end
     redirect_to :back
     rescue ActionController::RedirectBackError
