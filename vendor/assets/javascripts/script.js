@@ -147,11 +147,11 @@ $(document).ready(function() {
 
     // Add to Wishlist Click Event	 // Only For Demo Purpose
 
-	$('.add-fav').click(function(e) {
-        e.preventDefault();
-        $(this).addClass("active"); // ADD TO WISH LIST BUTTON
-		$(this).attr('data-original-title', 'Added to Wishlist');// Change Tooltip text
-    });
+	// $('.add-fav').click(function(e) {
+ //        e.preventDefault();
+ //        $(this).addClass("active"); // ADD TO WISH LIST BUTTON
+	// 	$(this).attr('data-original-title', 'Added to Wishlist');// Change Tooltip text
+ //    });
 
     // List view and Grid view
 
