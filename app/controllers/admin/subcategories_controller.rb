@@ -1,6 +1,6 @@
 class Admin::SubcategoriesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_only
+  before_action :authenticate_user!, :except => [:show_products]
+  before_action :admin_only, :except => [:show_products]
 
   def index
     @subcategories = Subcategory.all
@@ -45,10 +45,15 @@ class Admin::SubcategoriesController < ApplicationController
 
   def show_products
     @subcategory = Subcategory.find(params[:subcategory_id])
+    puts "#{@subcategory.name}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     @category = @subcategory.category
+    puts "#{@category.name}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     @articles = @subcategory.articles
+    @articles.each do |article|
+      puts "#{article.name}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    end
     if @articles.count > 0
-      @articles = Article.paginate(:page => params[:page], :per_page => 12)
+      @articles = @articles.paginate(:page => params[:page], :per_page => 12)
     else
       @articles = nil
     end
