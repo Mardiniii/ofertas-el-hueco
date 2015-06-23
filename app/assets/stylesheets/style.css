@@ -21,12 +21,12 @@
 17.  ABOUT PAGE
 18.  CONTACT US PAGE
 19.  PRODUCT MODAL [Qick View]
-20.  SUBSCRIBE | PROMOTIONAL MODAL 
+20.  SUBSCRIBE | PROMOTIONAL MODAL
 21.  WEB PAGE PROGRESS BAR CSS
 22.  CUSTOM RESPONSIVE
 
 /* =============================================================== */
-/* IMPORT CSS 
+/* IMPORT CSS
 /* =============================================================== */
 
 @import url("font-awesome.css");            /* Font Awesome Icon */
@@ -41,7 +41,7 @@
 /* =============================================================== */
 /* FOUNDATION
 /* =============================================================== */
-
+.m-top-2{margin-top: 2em;}
 a {
 	color: #34495E;
 	text-decoration: none;
@@ -1162,7 +1162,7 @@ legend {
 	color: #fff !important;
 }
 /* =============================================================== */
-/* HOME PAGE BOXES SLIDER 
+/* HOME PAGE BOXES SLIDER
 /* =============================================================== */
 
 .box-pagination {
@@ -1478,7 +1478,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 }
 }
 /* =============================================================== */
-/* HOME PAGE SLIDER  
+/* HOME PAGE SLIDER
 /* =============================================================== */
 
 
@@ -1859,7 +1859,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 /*  // Style   2  end*/
 
 /* =============================================================== */
-/* HOME PAGE LOOK 2  
+/* HOME PAGE LOOK 2
 /* =============================================================== */
 
 .home-intro h2 {
@@ -2047,7 +2047,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 /* ---------- // Home look 2 end //--------*/
 
 /* =============================================================== */
-/* HOME PAGE LOOK 3  
+/* HOME PAGE LOOK 3
 /* =============================================================== */
 
 #imageShowCase {
@@ -4088,7 +4088,7 @@ input.quanitySniper {
 }
 }
  @media (max-width: 979px) {
-	 
+
 /*** iPads (portrait and landscape) ***/
 
 
@@ -4178,7 +4178,7 @@ h1.xlarge {
 }
  @media (max-width: 767px) {
 /* phones */
-	 
+
 .static-search.navbar-formbox {
  margin:0;
  padding:0;
@@ -4340,7 +4340,7 @@ h1.xlarge {
 }
  @media (max-width: 580px) {
 /* phones (portrait and landscape) ----------- */
-	
+
 .xs3Response {
  width: 50% !important;
 }

@@ -1,7 +1,9 @@
 <%= form_for(@article, url: storehouses_article_path) do |article| %>
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
-			<h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Crear Nuevo Producto Para <%= current_user.storehouse.name %></span></h1>
+			<% if current_user.user? || current_user.tent? %>
+				<h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Editar Producto Para <%= current_user.storehouse.name %></span></h1>
+			<% end %>
 			<div class="col-md-6">
 				<div class="form-group reg-email">
 				  <div>
@@ -17,7 +19,7 @@
 				  <div>
 				    <%= article.text_field :code, class: "form-control input", required: true, placeholder: "Referencia o Codigo Del Producto" %>
 				  </div>
-				</div> 					
+				</div>
 			</div>
 
 			<div class="col-md-6">
@@ -30,22 +32,63 @@
 				  <div>
 				    <%= article.text_area :details, class: "form-control input", required: true, rows: 5, placeholder: "Detalles o Descripción del Producto" %>
 				  </div>
-				</div> 
+				</div>
 			</div>
-		</div>			
-	</div>   
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group reg-password">
 			  <div>
 			  	<h2 class="block-title-2"><span>status del producto</span></h2>
-			    <%= article.radio_button :status, "1", required: true%> <strong>Disponible</strong> <br>
-			    <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>  
+			  	<% if @article.status == true %>
+				    <%= article.radio_button :status, "1", required: true, :checked => true %> <strong>Disponible</strong> <br>
+				    <%= article.radio_button :status, "0", required: true%>  <strong>No Disponible</strong> <br>
+				  <% else %>
+				  	<%= article.radio_button :status, "1", required: true %> <strong>Disponible</strong> <br>
+				    <%= article.radio_button :status, "0", required: true, :checked => true %>  <strong>No Disponible</strong> <br>
+				  <% end %>
 			  </div>
 			</div>
 		</div>
-	</div> 	
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group reg-password">
+			  <div>
+			  	<h2 class="block-title-2"><span>categorías</span></h2>
+			    <div id="categories">
+			      <% Category.all.each do |category| %>
+			        <%= radio_button_tag :category_id, "#{category.id}", nil, :class => "#{category.name}" %>
+			        <%= label_tag "#{category.name}",nil %>
+			      <% end %>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group reg-password">
+			  <div>
+			  	<h2 class="block-title-2"><span>subcategorías de <span class="category"></span></span></h2>
+			    <div id="subcategories">
+			    	<% Category.all.each do |category| %>
+			    		<div class="<%= category.name %> hidden">
+			    			<% category.subcategories.each do |subcategory| %>
+			    				<%= article.radio_button :subcategory_id, "#{subcategory.id}", :class => "#{subcategory.name}" %>
+			    				<%= article.label :subcategory_id, "#{subcategory.name}" %>
+			    			<% end %>
+			    		</div>
+			    	<% end %>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col-md-12">
@@ -60,14 +103,33 @@
 					<strong><span><%= index+1 %></span></strong><br>
 						<%= image_tag image.image.url(:thumb) %>
 					</div>
-				<% end %>				
+				<% end %>
 		</div>
 	</div>
 	<div class="row" id="image-for-article">
 		<%= article.fields_for :article_images do |article_image| %>
-			<%= render 'article_image_form', :article_image => article_image %>	  	   			    	    
+			<%= render 'article_image_form', :article_image => article_image %>
 		<% end %>
 		<%= link_to_add_article_images "Agregar Imagen", article, :article_images %>
-	</div>		  	  	  
+	</div>
   <%= article.submit "Editar Artículo", :class => 'btn btn-block btn-lg btn-primary' %>
 <% end %>
+
+<script>
+	$(document).ready(function(){
+
+		console.log("#categories .<%= @article.subcategory.category.name %>")
+
+		$("#categories .<%= @article.subcategory.category.name %>").prop("checked", true)
+
+		$("#subcategories .<%= @article.subcategory.category.name %>").removeClass("hidden")
+
+		$("#categories input").on("change", function(){
+				var category = $(this).attr('class')
+				$("span.category").html(category);
+				console.log($("#subcategories .Swag"));
+				$("#subcategories div").addClass("hidden")
+				$("#subcategories ." + category).removeClass("hidden")
+		})
+	})
+</script>

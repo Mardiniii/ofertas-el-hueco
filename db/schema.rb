@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519195233) do
+ActiveRecord::Schema.define(version: 20150619202649) do
 
   create_table "article_images", force: :cascade do |t|
     t.integer  "article_id"
@@ -32,9 +32,20 @@ ActiveRecord::Schema.define(version: 20150519195233) do
     t.text     "details"
     t.boolean  "status"
     t.text     "subtitle"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "subcategory_id"
   end
+
+  add_index "articles", ["subcategory_id"], name: "index_articles_on_subcategory_id"
+
+  create_table "articles_subcategories", id: false, force: :cascade do |t|
+    t.integer "subcategory_id", null: false
+    t.integer "article_id",     null: false
+  end
+
+  add_index "articles_subcategories", ["article_id", "subcategory_id"], name: "index_articles_subcategories_on_article_id_and_subcategory_id"
+  add_index "articles_subcategories", ["subcategory_id", "article_id"], name: "index_articles_subcategories_on_subcategory_id_and_article_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -89,5 +100,12 @@ ActiveRecord::Schema.define(version: 20150519195233) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "wishlist_items", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

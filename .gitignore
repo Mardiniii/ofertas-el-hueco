@@ -18,3 +18,8 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore Avatars created locally
+
+/public/system/storehouses
+/public/system/article_images

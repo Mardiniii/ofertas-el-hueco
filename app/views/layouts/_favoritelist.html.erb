@@ -1,0 +1,14 @@
+<!-- this part is duplicate from cartMenu  keep it for mobile -->
+<div class="navbar-cart collapse">
+  <div class="cartMenu  col-lg-4 col-xs-12 col-md-4 ">
+   <%= render 'layouts/favoritelist_items' %>
+   <!--/.miniCartTable-->
+   <div class="miniCartFooter  miniCartFooterInMobile text-right">
+    <h3 class="text-right subtotal"> Subtotal: $<%= favorite_total_price if user_signed_in? %> </h3>
+    <%= link_to "<i class='glyphicon glyphicon-heart'> </i> VER FAVORITOS".html_safe, favoritos_path, class: "btn btn-sm btn-primary" %>
+  </div>
+  <!--/.miniCartFooter-->
+</div>
+<!--/.cartMenu-->
+</div>
+<!--/.navbar-cart-->

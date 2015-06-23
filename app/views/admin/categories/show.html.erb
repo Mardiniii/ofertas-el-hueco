@@ -1,0 +1,40 @@
+<div class="container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <%= link_to "Home", root_path %></li>
+        <li> <%= link_to "Categorías", new_admin_category_path %></li>
+        <li> <%= link_to "Categorías Registradas", admin_categories_path %> </li>
+        <li class="active"><%= @category.name %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="row userInfo">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Información de la categoría</span></h1>
+          <hr>
+          <p> <strong>Nombre:</strong> <br>
+            <%= @category.name %>
+          </p>
+          <p>
+            <strong>Subcategorías:</strong> <br>
+            <% if @category.subcategories.empty? %>
+              La categoría aún no tiene subcategorías asignadas.
+            <% else %>
+              <ul>
+                <% @category.subcategories.each do |subcategory| %>
+                  <li><%= subcategory.name %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </p>
+          <ul class="pager">
+            <li class="next pull-left"><%= link_to "&larr; Regresar".html_safe, admin_categories_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
