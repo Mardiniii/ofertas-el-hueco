@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root 'pages#home'
@@ -6,6 +7,11 @@ Rails.application.routes.draw do
   get 'stores' => 'pages#stores'
   get '/storehouses/articles/list_subcategories'
   get 'subcategory_products' => 'admin/subcategories#show_products'
+  get 'favoritos', to: 'whishlist_items#index'
+
+  resources :whishlist_items do
+    get 'create', to: 'whishlist_items#create'
+  end
 
 
   # devise_scope :user do
@@ -23,11 +29,16 @@ Rails.application.routes.draw do
     patch 'update_user' => 'user#update_user'
   end
 
-  namespace :storehouses do
-  	resources :articles
+   namespace :storehouses do
+    resources :articles do
+      get "bindstore", to: "articles#bindstore",  as: "bindstore"
+    end
   end
 
   resources :storehouses do
     get 'subcategories_list', on: :member
   end
 end
+
+# http://localhost:3000/storehouses/json/1.json
+# http://localhost:3000/storehouses/article/json/1.json

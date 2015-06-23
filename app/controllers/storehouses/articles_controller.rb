@@ -1,6 +1,6 @@
 class Storehouses::ArticlesController < ApplicationController
-	before_action :authenticate_user!, :except => [:show]
-	before_action :admin_or_tent_only?, :except => [:show]
+	before_action :authenticate_user!, :except => [:show,:bindstore]
+	before_action :admin_or_tent_only?, :except => [:show,:bindstore, :article_info]
 	respond_to :html, :json
 
 	def new
@@ -26,6 +26,9 @@ class Storehouses::ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+    respond_with @article do |format|
+      format.json { render :layout => false, :text => @article.to_json }
+    end
 	end
 
 	def edit
@@ -56,6 +59,13 @@ class Storehouses::ArticlesController < ApplicationController
 		@article.destroy
 		redirect_to storehouses_articles_path
 	end
+
+	def bindstore
+    @bindstore = Article.find(params[:article_id]).storehouse
+   	respond_with @bindstore do |format|
+    	format.json { render :layout => false, :text => @bindstore.to_json }
+  	end
+  end
 
 	private
 		def article_params

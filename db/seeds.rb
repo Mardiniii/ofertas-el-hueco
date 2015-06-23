@@ -8,7 +8,7 @@
 
 # SCRIPT PARA GENERAR N VECES COPIA DEL ULTIMO PRODUCTO CON SUS IMAGENES
 # UNCOMMENT AND ENJOY KAIZEN DEVS
-# 25.times do |article|
+# 10.times do |article|
 #   a = Article.last.dup
 #   a.id = Article.last.id+1
 #   Article.last.article_images.each do |ai|

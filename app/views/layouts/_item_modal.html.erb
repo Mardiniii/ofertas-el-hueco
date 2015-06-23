@@ -1,0 +1,68 @@
+<div class="modal fade" id="product-details-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button"> × </button>
+            <div class="col-lg-5 col-md-5 col-sm-5  col-xs-12">
+                <div class="main-image  col-lg-12 no-padding style3">
+                    <a class="product-largeimg-link" href="">
+                    <img src="images/zoom/zoom1.jpg" class="img-responsive product-largeimg" alt="img">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 modal-details no-padding">
+                <div class="modal-details-inner">
+                    <h1 class="product-title"></h1>
+                    <h3 class="product-code"></h3>
+                    <div class="product-price"> <span class="price-sales"> $70</span></div>
+                    <div class="details-description">
+                        <p></p>
+                    </div>
+                    <div class="cart-actions">
+                        <div class="addto">
+                            <a class="link-wishlist wishlist add-to-wishlist">
+                                <i class="glyphicon glyphicon-shopping-cart"> </i> Lista de deseos
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-share clearfix">
+                        <p> SHARE </p>
+                        <div class="socialIcon">
+                            <a href="#"> <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#"> <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#"> <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="#"> <i class="fa fa-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $( "body" ).on( "click", ".btn-quickview", function() {
+        articleId = $(this).attr('modal-id').split('article-')[1]
+        $.getJSON( "storehouses/articles/" + articleId + ".json" ).done(function( json ) {
+            $('#product-details-modal .product-largeimg-link').attr('href', "/storehouses/articles/" + json.id )
+            $('#product-details-modal .product-largeimg-link img').attr('src', json.image )
+            $('#product-details-modal .add-to-wishlist').attr('href', "/whishlist_items/" + json.id + "/create" )
+
+            $('#product-details-modal .product-title').text(json.name)
+            $('#product-details-modal .product-code').text('Código de producto: '+ json.code)
+            $('#product-details-modal .price-sales').text('$'+ json.price_with_coma)
+            $('#product-details-modal .details-description p').text(json.details)
+
+            $('#product-details-modal').modal('show')
+        }).fail(function( jqxhr, textStatus, error ) {
+            var err = textStatus + ", " + error;
+            console.log( "Request Failed: " + err );
+        });
+  });
+</script>

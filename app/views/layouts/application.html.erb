@@ -24,169 +24,13 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+
 <%= render "pages/login_modal" %>
 
 <%= render "pages/sign_up_modal" %>
 
-<!-- Fixed navbar start -->
-<div class="navbar navbar-tshop navbar-fixed-top megamenu" role="navigation">
-  <div class="navbar-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-        <% if user_signed_in? %>
-          <div class="pull-left ">
-              <ul class="userMenu ">
-                <li> <a href="#"> <span class="hidden-xs">HOLA</span><i class="glyphicon glyphicon-info-sign hide visible-xs "></i> </a> </li>
-                <li class="phone-number">
-                <a  href="callto:+8801680531352">
-                <span> <i class="glyphicon glyphicon-user"></i></span>
-                <span class="hidden-xs" style="margin-left:5px"> <%= current_user.email %> </span> </a> </li>
-              </ul>
-            </div>
-          </div>
-        <% else %>
-          <div class="pull-left ">
-              <ul class="userMenu ">
-                <li> <a href="#"> <span class="hidden-xs">Contactanos en:</span><i class="glyphicon glyphicon-info-sign hide visible-xs "></i> </a> </li>
-                <li class="phone-number">
-                <a  href="callto:+8801680531352">
-                <span> <i class="glyphicon glyphicon-user"></i></span>
-                <span class="hidden-xs" style="margin-left:5px"> info@ventaselhueco.co </span> </a> </li>
-              </ul>
-            </div>
-          </div>
-        <% end %>
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
-          <div class="pull-right">
-            <ul class="userMenu">
-              <% if user_signed_in? %>
-                <li><%= link_to "<span class='hidden-xs'> Mi Cuenta</span> <i class='glyphicon glyphicon-user hide visible-xs'></i>".html_safe, admin_edit_user_path(:id => current_user.id) %></li>
-                <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
-              <% else %>
-                <li><%= link_to "Entrar", "#ModalLogin", "data-toggle" => "modal" %></li>
-                <li class="hidden-xs"><%= link_to "Registrarse", "#ModalSignup", "data-toggle" => "modal" %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--/.navbar-top-->
+<%= render "layouts/nav" %>
 
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> </button>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"> <i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> Cart ($210.00) </span> </button>
-      <%= link_to root_path do %>
-         <%= image_tag "http://i592.photobucket.com/albums/tt5/Mardini03/freeformatter.png", class: "navbar-brand" %>
-      <% end %>
-
-
-      <!-- this part for mobile -->
-      <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
-        <div class="input-group">
-          <button class="btn btn-nobg getFullSearch" type="button"> <i class="fa fa-search"> </i> </button>
-        </div>
-        <!-- /input-group -->
-
-      </div>
-    </div>
-
-    <!-- AQUI IBA EL COLAPSE DEL CARRITO -->
-    <!-- AQUI IBA EL COLAPSE DEL CARRITO -->
-    <!-- AQUI IBA EL COLAPSE DEL CARRITO -->
-
-
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-
-        <% if user_signed_in? && current_user.admin? %>
-          <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown">ADMIN<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-header">Agregar o Listar Tiendas</li>
-              <li> <%= link_to "Nueva Tienda", new_admin_user_path  %></li>
-              <li> <%= link_to "Tiendas Registradas", admin_user_index_path %></li>
-              <li class="dropdown-header">Listar Artículos</li>
-              <li> <%= link_to "Artículos Registrados", admin_article_list_path %></li>
-              <li class="dropdown-header">Listar Usuarios</li>
-              <li> <%= link_to "Usuarios Registrados", admin_user_list_path %></li>
-            </ul>
-          </li>
-          <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> CATEGORIAS <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-header">Agregar o Listar Categorías</li>
-              <li> <%= link_to "Nueva Categoría", new_admin_category_path  %> </li>
-              <li> <%= link_to "Categorías Registradas", admin_categories_path  %> </li>
-              <li> <%= link_to "Nueva Subcategoría", new_admin_subcategory_path %> </li>
-              <li> <%= link_to "Subcategorías Registradas", admin_subcategories_path %> </li>
-            </ul>
-          </li>
-        <% end %>
-
-        <% if (user_signed_in? && current_user.tent?) %>
-          <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> MIS ARTICULOS <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-header">Agregar o Listar Mis Artículos</li>
-              <li> <%= link_to "Nuevo Artículo", new_storehouses_article_path  %> </li>
-              <li> <%= link_to "Artículos Publicados", storehouses_articles_path  %> </li>
-            </ul>
-          </li>
-          <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> MI TIENDA <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-header">Ver o Editar Mi Tienda</li>
-              <li> <%= link_to "Ver Tienda", admin_user_path(current_user.id)  %> </li>
-              <li> <%= link_to "Editar Tienda", edit_admin_user_path(current_user.id)  %> </li>
-            </ul>
-          </li>
-        <% end %>
-
-        <!-- change width of megamenu = use class > megamenu-fullwidth, megamenu-60width, megamenu-40width -->
-        <li class="dropdown megamenu-80width "> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> ARTICULOS <b class="caret"> </b> </a>
-          <ul class="dropdown-menu">
-            <li class="megamenu-content">
-
-              <!-- megamenu-content -->
-              <% categories = Category.all.limit(6) %>
-              <% categories.each do |category| %>
-                <ul class="col-lg-2  col-sm-2 col-md-2  unstyled noMarginLeft">
-                  <li>
-                    <p> <strong> <%= category.name %> </strong> </p>
-                  </li>
-                  <% category.subcategories.sort_by(&:name).each do |subcategory| %>
-                    <li> <%= link_to subcategory.name, subcategory_products_path(:subcategory_id => subcategory.id) %></li>
-                  <% end %>                                    
-                </ul>                
-              <% end %>
-            </li>
-          </ul>
-        </li>
-        <li class="dropdown megamenu-fullwidth"><%= link_to 'Ver Tiendas', stores_path %></li>
-        <li class="dropdown megamenu-fullwidth"><%= link_to 'Sobre Nosotros', about_us_path %></li>
-      </ul>
-      
-      <!-- AQUI IBA EL CARRITOOOOOOOOOO -->
-      <!-- AQUI IBA EL CARRITOOOOOOOOOO -->
-      <!-- AQUI IBA EL CARRITOOOOOOOOOO -->
-
-      <!--/.navbar-nav hidden-xs-->
-    </div>
-    <!--/.nav-collapse -->
-
-  </div>
-  <!--/.container -->
-
-  <div class="search-full text-right"> <a class="pull-right search-close"> <i class=" fa fa-times-circle"> </i> </a>
-    <div class="searchInputBox pull-right">
-      <input type="search"  data-searchurl="search?=" name="q" placeholder="start typing and hit enter to search" class="search-input">
-      <button class="btn-nobg search-btn" type="submit"> <i class="fa fa-search"> </i> </button>
-    </div>
-  </div>
-  <!--/.search-full-->
-
-</div>
-<!-- /.Fixed navbar  -->
 
 <% if flash[:alert] %>
   <div class="alertOffset">
@@ -207,6 +51,8 @@
 <%end%>
 
 <%= yield %>
+
+<%= render "layouts/item_modal" %>
 
 </body>
 </html>
