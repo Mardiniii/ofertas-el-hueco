@@ -1,0 +1,81 @@
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+          <h3> Servicio al cliente </h3>
+          <ul>
+            <li class="supportLi">
+              <p> Puedes contactar el equipo de Ventas El Hueco en el siguiente número telefónico: </p>
+              <h4> <a class="inline" href="callto:+8801680531352"> <strong> <i class="fa fa-phone"> </i> 88 01680 531352 </strong> </a> </h4>
+              <h4> <a class="inline" href="mailto:help@tshopweb.com"> <i class="fa fa-envelope-o"> </i> help@tshopweb.com </a> </h4>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Ir a </h3>
+          <ul>
+            <li><%= link_to 'Ver Tiendas', stores_path %></li>
+            <% Category.order("RANDOM()").limit(5).each do |category| %>
+              <li><%= link_to category.name.capitalize, stores_path %></li>
+            <% end %>
+
+          </ul>
+        </div>
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Información </h3>
+          <ul>          
+            <li><%= link_to 'Sobre Nosotros', about_us_path %></li>
+          </ul>
+        </div>
+        <% if user_signed_in? %>
+          <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+            <h3> Mi cuenta</h3>
+            <ul>              
+              <li><%= link_to "Mi Cuenta", admin_edit_user_path(:id => current_user.id) %></li>
+              <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+            <h3> Mi cuenta</h3>
+            <ul>
+              <li> <%= link_to "Iniciar Sesión", new_user_session_path %> </li>
+              <li> <%= link_to "Registrarse", new_user_registration_path %> </li>
+            </ul>
+          </div>
+        <% end %>
+        <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+          <h3> Contactanos </h3>
+          <ul>
+            <li>
+              <div class="input-append newsLatterBox text-center">
+                <input type="text" class="full text-center"  placeholder="Escribe tu correo electrónico">
+                <input type="text" class="full text-center"  placeholder="Escribe tu mensaje">
+                <button class="btn  bg-gray" type="button"> Enviar <i class="fa fa-long-arrow-right"> </i> </button>
+              </div>
+            </li>
+          </ul>
+          <ul class="social">
+            <li> <a href="http://facebook.com"> <i class=" fa fa-facebook"> &nbsp; </i> </a> </li>
+            <li> <a href="http://twitter.com"> <i class="fa fa-twitter"> &nbsp; </i> </a> </li>
+            <li> <a href="https://plus.google.com"> <i class="fa fa-google-plus"> &nbsp; </i> </a> </li>
+            <li> <a href="http://youtube.com"> <i class="fa fa-pinterest"> &nbsp; </i> </a> </li>
+            <li> <a href="http://youtube.com"> <i class="fa fa-youtube"> &nbsp; </i> </a> </li>
+          </ul>
+        </div>
+      </div>
+      <!--/.row-->
+    </div>
+    <!--/.container-->
+  </div>
+  <!--/.footer-->
+
+  <div class="footer-bottom">
+    <div class="container text-center">
+      <p class="pull-left"> Developed By: <strong><a class="kaizen" href="http://kaizendevs.co" target="_blank">Kaizen Devs</a></strong> </p>
+      <!-- <div class="pull-right paymentMethodImg"> <img height="30" class="pull-right" src="<%= asset_path('site/payment/master_card.png') %>" alt="img" > <img height="30" class="pull-right" src="<%= asset_path('site/payment/paypal.png') %>" alt="img" > <img height="30" class="pull-right" src="<%= asset_path('site/payment/american_express_card.png') %>" alt="img" > <img  height="30" class="pull-right" src="<%= asset_path('site/payment/discover_network_card.png') %>" alt="img" > <img  height="30" class="pull-right" src="<%= asset_path('site/payment/google_wallet.png') %>" alt="img" > </div> -->
+    </div>
+  </div>
+  <!--/.footer-bottom-->
+</footer>
