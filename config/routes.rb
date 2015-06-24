@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/storehouses/articles/list_subcategories'
   get 'subcategory_products' => 'admin/subcategories#show_products'
   get 'favoritos', to: 'whishlist_items#index'
+  get "/storehouses/favorite_articles"
+  get "/storehouses/favorite_clients"
 
   resources :whishlist_items do
     get 'create', to: 'whishlist_items#create'

@@ -1,0 +1,53 @@
+<div class="container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <%= link_to "Home", root_path %></li>
+        <li><%= current_user.storehouse.name %></li>
+        <li class="active"> Artículos Favoritos </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-7">
+      <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Lista de Artículos Favoritos </span></h1>
+      <div class="row userInfo">
+        <div class="col-lg-12">
+          <h2 class="block-title-2"> Estos son los artículos de tu tienda que más favoritos tienen (haz click en el número de likes para ver más detalles): </h2>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+          <table>
+            <tbody>
+
+            <% @favorite_articles.each do |article| %>
+
+              <tr class="CartProduct">
+                <td style="width:10%" class="CartProductThumb">
+                  <div> <%= link_to image_tag(article[0].article_images.first.image.url), storehouses_article_path(article[0].id) %></div></td>
+                <td style="width:30%"><div class="CartDescription">
+                    <h4><%= link_to article[0].name, storehouses_article_path(article[0].id) %></h4>
+                    <span><%= article[0].subtitle %></span>
+                    <div class="price"> <span><%= number_to_currency(article[0].price, precision: 0) %></span> </div>
+                  </div>
+                </td>
+                  <td>
+                <div class="client-article-modal">
+                    <strong>Número de likes:</strong> <br>
+                    <%= link_to article[1], "#", :class => "client-article-#{article[0].id}" %>
+                </div>
+                  </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-5"> </div>
+  </div>
+  <!--/.row-->
+</div>
+
+<%= render "storehouses/clients_modal" %>
+
