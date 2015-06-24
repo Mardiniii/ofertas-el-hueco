@@ -48,7 +48,7 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> </button>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"> <i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> Cart ($210.00) </span> </button>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"> <i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> FAVORITOS($<%= favorite_total_price %>) </span> </button>
       <%= link_to root_path do %>
          <%= image_tag "http://i592.photobucket.com/albums/tt5/Mardini03/freeformatter.png", class: "navbar-brand" %>
       <% end %>
@@ -60,13 +60,30 @@
           <button class="btn btn-nobg getFullSearch" type="button"> <i class="fa fa-search"> </i> </button>
         </div>
         <!-- /input-group -->
-
       </div>
     </div>
 
     <!-- AQUI IBA EL COLAPSE DEL CARRITO -->
     <!-- AQUI IBA EL COLAPSE DEL CARRITO -->
     <!-- AQUI IBA EL COLAPSE DEL CARRITO -->
+    <!-- this part is duplicate from cartMenu  keep it for mobile -->
+    <div class="navbar-cart  collapse">
+      <div class="cartMenu  col-lg-4 col-xs-12 col-md-4 ">
+        <div class="w100 miniCartTable scroll-pane">
+          <%= render 'layouts/favoritelist_items' %>          
+        </div>
+        <!--/.miniCartTable-->
+        
+        <div class="miniCartFooter text-right">
+          <h3 class="text-right subtotal"> Subtotal: $<%= favorite_total_price %> </h3>
+          <%= link_to "<i class='glyphicon glyphicon-heart'> </i> VER FAVORITOS".html_safe, favoritos_path, class: "btn btn-sm btn-primary" %>
+        </div>
+        <!--/.miniCartFooter--> 
+        
+      </div>
+      <!--/.cartMenu--> 
+    </div>
+    <!--/.navbar-cart-->
 
 
     <div class="navbar-collapse collapse">

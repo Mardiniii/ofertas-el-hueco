@@ -1,26 +1,24 @@
- <% if user_signed_in?  %>
- <div class="w100 miniCartTable scroll-pane favorite-list-items">
-  <table>
-    <tbody>
-
-      <% favorite_list if user_signed_in? %>
-      <% if favorite_counter > 0 %>
-        <% @favitems.each do |item| %>
-        <tr class="miniCartProduct">
-          <td style="width:20%" class="miniCartProductThumb"><div><%= link_to "<img src=' #{item.article.article_images.first.image.url}' alt='img'>".html_safe , storehouses_article_path( item.article) %></div></td>
-          <td style="width:40%"><div class="miniCartDescription">
-            <h4> <%= link_to item.article.name , storehouses_article_path( item.article)  %></h4>
-            <span class="size"> <%= item.article.code %> </span>
-            <div class="price"> <span> $ <%= number_with_delimiter(item.article.price, :delimiter => ',') %> </span> </div>
-          </div></td>
-          <td  style="width:10%" class="miniCartQuantity"><a > X 1 </a></td>
-          <td  style="width:15%" class="miniCartSubtotal"><span>  $ <%= number_with_delimiter(item.article.price, :delimiter => ',')  %> </span></td>
-          <td  style="width:5%" class="delete"><a > x </a></td>
-        </tr>
+<% if user_signed_in?  %>
+  <div class="w100 miniCartTable scroll-pane favorite-list-items">
+    <table>
+      <tbody>
+        <% favorite_list if user_signed_in? %>
+        <% if favorite_counter > 0 %>
+          <% @favitems.each do |item| %>
+          <tr class="miniCartProduct">
+            <td style="width:20%" class="miniCartProductThumb"><div><%= link_to "<img src=' #{item.article.article_images.first.image.url}' alt='img'>".html_safe , storehouses_article_path( item.article) %></div></td>
+            <td style="width:40%"><div class="miniCartDescription">
+              <h4> <%= link_to item.article.name , storehouses_article_path( item.article)  %></h4>
+              <span class="size"> <%= item.article.code %> </span>
+              <div class="price"> <span> $ <%= number_with_delimiter(item.article.price, :delimiter => ',') %> </span> </div>
+            </div></td>
+            <td  style="width:10%" class="miniCartQuantity"><a > X 1 </a></td>
+            <td  style="width:15%" class="miniCartSubtotal"><span>  $ <%= number_with_delimiter(item.article.price, :delimiter => ',')  %> </span></td>
+            <td  style="width:5%" class="delete"><a > x </a></td>
+          </tr>
+          <% end %>
         <% end %>
-      <% end %>
-
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
 <% end %>
