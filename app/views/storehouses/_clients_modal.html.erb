@@ -1,0 +1,38 @@
+<!-- Modal Login start -->
+<div class="modal signUpContent fade" id="clients-modal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+        <h3 class="modal-title-site text-center" > CLIENTES </h3>
+      </div>
+      <div class="modal-body">
+        <ul class="clients-email">
+        </ul>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+    <!-- /.modal-content -->
+
+  </div>
+  <!-- /.modal-dialog -->
+
+</div>
+<!-- /.Modal Login -->
+<script>
+
+    $( "body" ).on( "click", ".client-article-modal", function() {
+        $(".clients-email").empty();
+        articleId = $(this).find("a").attr("class").split('client-article-')[1]
+        $('#clients-modal').modal('show')
+        $.getJSON( "favorite_clients?article=" + articleId ).done(function( response ) {
+          for(i = 0; i < response.article.length; i++) {
+            $(".clients-email").append("<li>" + response.article[i] + "</li>")
+          }
+        }).fail(function( jqxhr, textStatus, error ) {
+            var err = textStatus + ", " + error;
+            console.log( "Request Failed: " + err );
+        });
+  });
+</script>
