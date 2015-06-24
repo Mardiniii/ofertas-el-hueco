@@ -12,8 +12,11 @@ module ApplicationHelper
 	end
 
 	def favorite_counter
-		0
-    User.find( current_user ).wishlist_items.count if user_signed_in?
+		if user_signed_in?
+			User.find( current_user ).wishlist_items.count
+		else
+			return 0
+		end
 	end
 
 	def favorite_list
@@ -25,15 +28,14 @@ module ApplicationHelper
   end
 
   def favorite_total_price
-	   total_price = 0
-     if favorite_counter > 0
-       favorite_list
-       @favitems.each do |item|
-        total_price += item.article.price
-       end
-     end
-     number_with_delimiter(total_price, :delimiter => ',')
-
+		total_price = 0
+		if favorite_counter > 0
+		 favorite_list
+		 @favitems.each do |item|
+		  total_price += item.article.price
+		 end
+		end
+		number_with_delimiter(total_price, :delimiter => ',')
 	end
 
 	def link_to_add_article_images(name, f, association)
