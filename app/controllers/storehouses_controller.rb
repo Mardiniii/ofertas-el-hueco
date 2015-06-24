@@ -32,10 +32,6 @@ class StorehousesController < ApplicationController
   end
 
   def favorite_clients
-    response = params
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts params
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~"
     clients_array = []
     article = Article.find(params[:article])
     article.wishlist_items.each do |item|
